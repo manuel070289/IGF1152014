@@ -39,7 +39,7 @@
         <!-- <mapping resource="BoletaPago.hbm.xml"/>
         <mapping resource="Departamento.hbm.xml"/>
         <mapping resource="Municipio.hbm.xml"/>
-        <mapping resource="Genero.hbm.xml"/> -->
+         -->
        
     
         <!-- Hibernate Annotations (and package-info.java)
