@@ -14,8 +14,9 @@ public class HibernateUtil {
             configuration.configure();
             ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();        
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);          
-        } catch (Throwable e) {   	
-        	System.err.println("Error in creating SessionFactory object."  + e.getMessage());
+        } catch (Throwable e) {
+        	System.err.println("Error in creating SessionFactory object." 
+                    + e.getMessage());
             throw new ExceptionInInitializerError(e);
         }
     }
