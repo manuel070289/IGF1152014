@@ -70,9 +70,4 @@ public class BoletaPago implements Serializable {
 		this.id_empleado = id_empleado;
 	}
 
-
-
-
-
-
 }
