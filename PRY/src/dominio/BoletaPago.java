@@ -4,15 +4,16 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-
 import org.apache.tomcat.util.buf.StringCache;
 
 
+@Entity
+@Table(name = "boletaPago", catalog = "tarea_igf115", schema = "")
 public class BoletaPago implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Short id_boletapago;
 	private String periodo_pago;
-	private BigDdecimal sueldo_neto;
+	private BigDecimal sueldo_neto;
 	private String id_empleado;
 
 	private BoletaPago(){
@@ -26,7 +27,7 @@ public class BoletaPago implements Serializable {
 	}
 ///////////////////////////ID_BOLETAPAGO///////////////////////////
 	@Id
-	@GeneratedValues(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id_boletapago")
 	public Short getId_boletapago() {
@@ -51,10 +52,10 @@ public class BoletaPago implements Serializable {
 ///////////////////////////SUELDO_NETO///////////////////////////
 @Basic(optional = false)
 @Column(name = "sueldo_neto")
-	public BigDdecimal getSueldo_neto() {
+	public BigDecimal getSueldo_neto() {
 		return sueldo_neto;
 	}
-	public void setSueldo_neto(BigDdecimal sueldo_neto) {
+	public void setSueldo_neto(BigDecimal sueldo_neto) {
 		this.sueldo_neto = sueldo_neto;
 	}
 	
