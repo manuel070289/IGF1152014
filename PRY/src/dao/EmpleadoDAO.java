@@ -1,12 +1,14 @@
 package dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import dominio.Empleado;
-
 import utilidades.HibernateUtil;
 
 public class EmpleadoDAO {
@@ -38,5 +40,13 @@ public class EmpleadoDAO {
 		} finally {
 			sesion.close();
 		}
+	}
+	
+	public Empleado daEmpleadoByDUI(String dui) {
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(Empleado.class).add(Restrictions.like("dui",dui));
+		Empleado empleado = (Empleado) criteria.uniqueResult();
+		sesion.close();
+		return empleado;
 	}
 }
