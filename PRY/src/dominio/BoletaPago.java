@@ -2,29 +2,35 @@ package dominio;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import org.apache.tomcat.util.buf.StringCache;
 
 
 @Entity
-@Table(name = "boletaPago", catalog = "tarea_igf115", schema = "")
+@Table(name = "boletaPago", catalog = "igf2014", schema = "")
 public class BoletaPago implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Short id_boletapago;
 	private String periodo_pago;
 	private BigDecimal sueldo_neto;
-	private String id_empleado;
-
+	private Empleado empleado;
+	
 	private BoletaPago(){
 
 	}
 
-	public BoletaPago (String periodo_pago, BigDecimal sueldo_neto, String id_empleado ){
+	public BoletaPago (String periodo_pago, BigDecimal sueldo_neto, Empleado empleado ){
 		this.periodo_pago = periodo_pago;
 		this.sueldo_neto = sueldo_neto;
-		this.id_empleado = id_empleado;
+		this.empleado = empleado;
 	}
+	
+	
+	
+
+	
 ///////////////////////////ID_BOLETAPAGO///////////////////////////
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,13 +68,18 @@ public class BoletaPago implements Serializable {
 	
 	
 ///////////////////////////ID_EMPLEADO///////////////////////////
-@Basic(optional = false)
-@Column(name = "id_empleado")
-	public String getId_empleado() {
-		return id_empleado;
+	
+	@JoinColumn(name = "id_empleado", referencedColumnName = "id_empleado")
+	
+	//Multiplicidad N:1 Muchos boletapago pertenecen a un empleado
+	@ManyToOne(optional = false)
+//@Basic(optional = false)
+//@Column(name = "id_empleado")
+	public Empleado getEmpleado() {
+		return empleado;
 	}
-	public void setId_empleado(String id_empleado) {
-		this.id_empleado = id_empleado;
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
 	}
 
 }

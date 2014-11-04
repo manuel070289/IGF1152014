@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Listar Departamentos</title>
+<link rel="stylesheet" type="text/css"
+	href="bootstrap-3.2.0-dist/normalize.css">
+<link rel="stylesheet" type="text/css"
+	href="bootstrap-3.2.0-dist/css/bootstrap.min.css">
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript"
+	src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="panel container-fluidcontainer-fluid">
+		<div class="panel" id="elimiardepto">
+				<div class="panel panel-primary">
+				<div class="panel-heading" data-toggle="collapse"
+					data-target="#crud_empleado" data-parent="#menu_izq">
+					<h3 class="panel-title">ELIMINAR DEPARTAMENTO</h3>
+				</div>
+
+				<div id="listarDepartamentosZonas" class="list-group collapse in">
+				<a  class="list-group-item">Eliminar  </a>
+					<form action="ListarDepartamentosZonas.jsp">
+					 Digite la zona: <input
+						type="text" name="zona_geografica" /> <input type="submit"
+						name="Listar" /> <br>
+				</form>
+				</div>
+				<div id="listarDepartamentosNombre" class="list-group collapse in">
+				<a  class="list-group-item">Ls\istar Departamento por Nombre </a>
+					<form action="ListarDepartamentosNombre.jsp">
+					 Digite el nombre : <input
+						type="text" name="nombre_depto" /> <input type="submit"
+						name="Listar" /> <br>
+				</form>
+				</div>
+				<div id="listarDepartamentos" class="list-group collapse in">
+				<a href="ListarDepartamentos.jsp"  class="list-group-item">Listar Todos Los Departamentos</a>
+					
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
