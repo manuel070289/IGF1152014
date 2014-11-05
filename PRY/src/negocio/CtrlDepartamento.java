@@ -4,6 +4,7 @@ import java.util.List;
 
 import dao.DepartamentoDAO;
 import dominio.Departamento;
+import dominio.Municipio;
 
 public class CtrlDepartamento {
 
@@ -17,22 +18,21 @@ public class CtrlDepartamento {
 		else
 			return false ;
 	}
-	public boolean eliminarDepartamento(String nombre_depto) {
-		if (daoDepto.daDepartamentoByNombre(nombre_depto) != null) {
-
-			Departamento departamento =	daoDepto.daDepartamentoByNombre(nombre_depto) ;
+	public boolean eliminarDepartamento(String id_depto) {
+		if (daoDepto.daMunicipiobyDepto(id_depto) != null) {
+			Departamento departamento =	daoDepto.daDepartamentoById(id_depto) ;
 			daoDepto.eliminar(departamento) ;
 			return true ;
 		}
 		else
 			return false ;
 	}
-	public boolean modificarDepartamento(String nombre_depto,String nuevo_nombre, String zona_geografica) {
-		if(daoDepto.daDepartamentoByNombre(nombre_depto) != null) {
-			Departamento departamento =	daoDepto.daDepartamentoByNombre(nombre_depto) ;
-			departamento.setZona_geografica(zona_geografica) ;
-			departamento.setNombre_depto(nuevo_nombre);
-			daoDepto.guardaActualiza(departamento) ;
+	public boolean modificarDepartamento(String id_depto,String nombre_depto, String zona_geografica) {
+		if(daoDepto.daDepartamentoById(id_depto) != null) {
+			Departamento departamento =	daoDepto.daDepartamentoById(id_depto);
+			departamento.setZona_geografica(zona_geografica);
+			departamento.setNombre_depto(nombre_depto);
+			daoDepto.guardaActualiza(departamento);
 			return true ;
 		}
 		else
@@ -49,6 +49,10 @@ public class CtrlDepartamento {
 	}
 	public List<Departamento> daDepartamentoByZona(String zona_geografica) {
 		return daoDepto.daDepartamentoByZona(zona_geografica) ;
+	}
+	
+	public List<Municipio> daMunicipiobyDepto (String id_depto){
+		return daoDepto.daMunicipiobyDepto(id_depto);
 	}
 	
 

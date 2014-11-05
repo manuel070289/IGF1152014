@@ -51,6 +51,7 @@ public class Municipio implements Serializable{
 	
 	
 ///////////////////////////id_depto///////////////////////////
+	@Id
 	@JoinColumn(name = "id_depto", referencedColumnName = "id_depto")
 	//Multiplicidad N:1 Muchos empleados pertenecen a un departamento
 	@ManyToOne(optional = false)

@@ -70,19 +70,23 @@ public class Departamento implements Serializable{
 	public void setZona_geografica(String zona_geografica) {
 		this.zona_geografica = zona_geografica;
 	}
-	
-	
-	
+
+
+		
 	
 	// @OneToMany: (1:N) Asocia varios campos con uno
 	// Multiplicidad 1:N Un departamento tiene muchos municipios
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento" )
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento")
+	
 	public List<Municipio> getMunicipioList() {
 		return municipioList;
 	}
+
+
 	public void setMunicipioList(List<Municipio> municipioList) {
 		this.municipioList = municipioList;
 	}
+	
 	
 
 }

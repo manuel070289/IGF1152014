@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -11,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 
 import utilidades.HibernateUtil;
 import dominio.Departamento;
+import dominio.Municipio;
 
 public class DepartamentoDAO {
 
@@ -56,12 +58,12 @@ public class DepartamentoDAO {
 	public Departamento daDepartamentoById(String id_depto){
 		sesion = sessionFactory.openSession() ;
 //		 Retorna la instancia persistente de la clase por medio del atributo identidad
-		Departamento id = (Departamento) sesion.get(Departamento.class,	new String(id_depto)) ;
-//		Criteria var = sesion.createCriteria(Departamento.class).add(Restrictions.eq("idDep", idDep));
-//		Departamento dep = (Departamento)var.uniqueResult();
+		/*Departamento id = (Departamento) sesion.get(Departamento.class,	new String(id_depto)) ;*/
+		Criteria var = sesion.createCriteria(Departamento.class).add(Restrictions.eq("id_depto", id_depto));
+		Departamento dep = (Departamento)var.uniqueResult();
 		sesion.close() ;
-		return id ;
-//		return dep ;
+		/*return id ;*/
+		return dep ;
 	}
 	public List<Departamento> daDepartamentos() {
 		sesion = sessionFactory.openSession() ;
@@ -91,6 +93,14 @@ public class DepartamentoDAO {
 		return departamentos ;
 	}
 	
-
+	public List<Municipio> daMunicipiobyDepto(String id_depto) {
+		sesion = sessionFactory.openSession() ;
+//		Query query = sesion.getNamedQuery("Departamentos.findAll") ;
+		Criteria var = sesion.createCriteria(Departamento.class).add(Restrictions.eq("id_depto",id_depto));
+		/*Departamento depto = (Departamento) var.uniqueResult();*/
+		List<Municipio> municipioList = var.list();
+		sesion.close() ;
+		return municipioList ;
+	}
 
 }

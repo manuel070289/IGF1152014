@@ -1,5 +1,94 @@
 package dao;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
+import dominio.Municipio;
+
+import utilidades.HibernateUtil;
+
+
 public class MunicipioDAO {
+	
+
+
+	private HibernateUtil hibernateUtil = new HibernateUtil() ;
+	private SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+	private Session sesion;
+	private Transaction tx;
+	private void iniciaOperacion() throws HibernateException {
+		sesion = sessionFactory.openSession() ;
+		tx = sesion.beginTransaction() ;
+	}
+	private void manejaExcepcion(HibernateException he) throws
+	HibernateException {
+		tx.rollback();
+		throw new HibernateException("Ocurrió un error en la capa DAO", he);
+	}
+	public void guardaActualiza(Municipio municipio) {
+		try {
+			iniciaOperacion() ;
+			sesion.saveOrUpdate(municipio) ;
+			tx.commit() ;
+			sesion.flush() ;
+		} catch (HibernateException he) {
+			manejaExcepcion(he) ;
+			throw he ;
+		} finally {
+			sesion.close() ;
+		}
+	}
+	public void eliminar(Municipio municipio) {
+		try {
+			iniciaOperacion() ;
+			sesion.delete(municipio) ;
+			tx.commit() ;
+			sesion.flush() ;
+		} catch (HibernateException he) {
+			manejaExcepcion(he) ;
+			throw he ;
+		} finally {
+			sesion.close() ;
+		}
+	}
+	public Municipio daMunicipioDepartamentoById(String id_municipio){
+		sesion = sessionFactory.openSession() ;
+//		 Retorna la instancia persistente de la clase por medio del atributo identidad
+		Municipio id = (Municipio) sesion.get(Municipio.class,	new String(id_municipio)) ;
+//		Criteria var = sesion.createCriteria(Departamento.class).add(Restrictions.eq("idDep", idDep));
+//		Departamento dep = (Departamento)var.uniqueResult();
+		sesion.close() ;
+		return id ;
+//		return dep ;
+	}
+	public List<Municipio> daMunicipios() {
+		sesion = sessionFactory.openSession() ;
+//		Query query = sesion.getNamedQuery("Departamentos.findAll") ;
+		Criteria var = sesion.createCriteria(Municipio.class);
+		List<Municipio> municipios = var.list() ;
+		sesion.close() ;
+		return municipios ;
+	}
+	public Municipio daMunicipioByNombre(String nomb_municipio) {
+		sesion = sessionFactory.openSession() ;
+//		Query query = sesion.getNamedQuery("Departamentos.findByNombreDep");
+//		query.setParameter("nombreDep", nombre);
+		Criteria var = sesion.createCriteria(Municipio.class).add(Restrictions.eq("nomb_municipio",nomb_municipio));
+		Municipio depto = (Municipio) var.uniqueResult();
+		sesion.close() ;
+		return depto ;
+	}
+	
+	
+	
+
+
+
 
 }
