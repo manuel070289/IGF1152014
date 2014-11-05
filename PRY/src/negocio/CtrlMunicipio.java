@@ -15,20 +15,22 @@ public class CtrlMunicipio {
 
 	private MunicipioDAO daoMun = new MunicipioDAO() ;
 	private DepartamentoDAO daoDepto = new DepartamentoDAO();
-	public boolean crearMunicipio(String id_municipio, String nombre_depto, String nomb_municipio ) {
+	public boolean crearMunicipio(String id_municipio, String id_depto, String nomb_municipio ) {
 		if (daoMun.daMunicipioByNombre(nomb_municipio) == null) {
-			if(daoDepto.daDepartamentoByNombre(nombre_depto)!=null){
+			if(daoDepto.daDepartamentoById(id_depto)!=null){
 				Departamento departamento;
-				departamento = daoDepto.daDepartamentoByNombre(nombre_depto);
+				departamento = daoDepto.daDepartamentoById(id_depto);
 				
 				Municipio municipio = new Municipio(id_municipio, departamento, nomb_municipio);
 				daoMun.guardaActualiza(municipio) ;
 				
 				/*AGREGANDO LA PERSISTENCIA DEL MUNICIPIO EN DEPARTAMENTO*/
-				List<Municipio> municipioList = new ArrayList<Municipio>();
+				/*SIRVE PARA CREAR TANTO DEPARTAMENTO COMO MUNICIPIO A LA MISMA VES
+				ESTE CODIGO DEBERIA IR EN DEPARTAMENTO*/
+				/*List<Municipio> municipioList = new ArrayList<Municipio>();
 				municipioList.add(municipio);
 				departamento.setMunicipioList(municipioList);
-				daoDepto.guardaActualiza(departamento);
+				daoDepto.guardaActualiza(departamento);*/
 				/*-------------------------------------------------------*/
 				
 				return true ;

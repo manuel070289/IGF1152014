@@ -26,9 +26,9 @@ public class CtrlBoletaPago {
 		else
 			return false ;
 	}
-	public boolean borrarBoletaPago( Short id_boletapago,String periodo_pago) {
-		if (daoBp.daBoletaPagoByPeriodoPagoyIdEMpleado(periodo_pago, id_empleado) != null  ) {
-			BoletaPago bP= daoBp.daBoletaPagoByPeriodoPagoyIdEMpleado(periodo_pago, id_empleado) ;
+	public boolean borrarBoletaPago( Short id_boletapago) {
+		if (daoBp.daBoletaPagoByPeriodoPagoyIdEMpleado(periodo_pago) != null  ) {
+			BoletaPago bP= daoBp.daBoletaPagoByPeriodoPagoyIdEMpleado(periodo_pago) ;
 			daoBp.eliminar(bP) ;
 			return true ;
 		}

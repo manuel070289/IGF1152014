@@ -32,7 +32,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Actualizar Departamento</title>
+<title>Crear Municipio</title>
 <link rel="stylesheet" type="text/css"
 	href="../bootstrap-3.2.0-dist/normalize.css">
 <link rel="stylesheet" type="text/css"
@@ -45,9 +45,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="Actualizar.jsp" method="post" role="form">
+				<form class="" action="CrearMun.jsp" method="post" role="form">
 					<fieldset>
-						<legend>ACTUALIZAR DEPARTAMENTO</legend>
+						<legend>CREAR MUNICIPIO</legend>
 					</fieldset>
 					<div class="row">
 						<div class="col-sm-7">
@@ -58,19 +58,19 @@
 						</div>
 						<div class="col-sm-7">
 							<div class="form-group">
-								<label for="nombres">Digite el nombre:</label>
-								<input id="nombre_depto"	class="form-control" type="text" name="nombre_depto" required>
+								<label for="id_municipio">Id del Municipio:</label>
+								<input id="id_municipio"	class="form-control" type="text" name="id_municipio" required>
 							</div>
 						</div>
 						<div class="col-sm-7">
 							<div class="form-group">
-								<label for="zona_geografica">Digite el zona geografica:</label>
-								<input id="zona_geografica"	class="form-control" type="text" name="zona_geografica" required>
+								<label for="nomb_municipio">Nombre del Municipio:</label>
+								<input id="nomb_municipio"	class="form-control" type="text" name="nomb_municipio" required>
 							</div>
 						</div>
 						
 					</div>
-					<input class="btn btn-primary" type="submit" value="Actualizar Departamento">
+					<input class="btn btn-primary" type="submit" value="Crear Municipio" >
 				</form>
 			</div>
 			<%=mensaje=""%>
