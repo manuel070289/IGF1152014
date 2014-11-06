@@ -25,6 +25,9 @@ public class Departamento implements Serializable{
 	private String nombre_depto;
 	private String zona_geografica;
 	private List<Municipio> municipioList = new ArrayList<Municipio>();
+	private List<Oficina> oficinaList = new ArrayList<Oficina>();
+	
+
 	private Departamento (){
 		
 	}
@@ -74,7 +77,7 @@ public class Departamento implements Serializable{
 
 
 		
-	
+	/////////////////////////////////////////////////////////////////////
 	// @OneToMany: (1:N) Asocia varios campos con uno
 	// Multiplicidad 1:N Un departamento tiene muchos municipios
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento")
@@ -87,6 +90,20 @@ public class Departamento implements Serializable{
 	public void setMunicipioList(List<Municipio> municipioList) {
 		this.municipioList = municipioList;
 	}
+	
+	
+	/////////////////////////////////////////////////////////////////////////
+	//un departamento muchas oficinas
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "depto")
+	public List<Oficina> getOficinaList() {
+		return oficinaList;
+	}
+
+
+	public void setOficinaList(List<Oficina> oficinaList) {
+		this.oficinaList = oficinaList;
+	}
+
 	
 	
 
