@@ -42,6 +42,21 @@ public class DepartamentoDAO {
 			sesion.close() ;
 		}
 	}
+	
+	
+	public void Actualiza(Departamento departamento) {
+		try {
+			iniciaOperacion() ;
+			sesion.update(departamento) ;
+			tx.commit() ;
+			sesion.flush() ;
+		} catch (HibernateException he) {
+			manejaExcepcion(he) ;
+			throw he ;
+		} finally {
+			sesion.close() ;
+		}
+	}
 	public void eliminar(Departamento departamento) {
 		try {
 			iniciaOperacion() ;
@@ -93,12 +108,12 @@ public class DepartamentoDAO {
 		return departamentos ;
 	}
 	
-	public List<Municipio> daMunicipiobyDepto(String id_depto) {
+	public ArrayList<Municipio> daMunicipiobyDepto(String id_depto) {
 		sesion = sessionFactory.openSession() ;
 //		Query query = sesion.getNamedQuery("Departamentos.findAll") ;
 		Criteria var = sesion.createCriteria(Departamento.class).add(Restrictions.eq("id_depto",id_depto));
 		/*Departamento depto = (Departamento) var.uniqueResult();*/
-		List<Municipio> municipioList = var.list();
+		ArrayList<Municipio> municipioList = (ArrayList<Municipio>) var.list();
 		sesion.close() ;
 		return municipioList ;
 	}

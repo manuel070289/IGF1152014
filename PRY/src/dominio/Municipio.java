@@ -1,8 +1,11 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -22,12 +26,16 @@ public class Municipio implements Serializable{
 	private String id_municipio;
 	private Departamento departamento;
 	private String nomb_municipio;
+	private List<Oficina> listOficina = new ArrayList<Oficina>();
 	
 	private Municipio(){
 		
 	}
 	
 	
+	
+
+
 	public  Municipio (String id_municipio, Departamento departamento, String nomb_municipio ) {
 		this.id_municipio = id_municipio;
 		this.departamento = departamento;
@@ -71,6 +79,21 @@ public class Municipio implements Serializable{
 	}
 	public void setNomb_municipio(String nomb_municipio) {
 		this.nomb_municipio = nomb_municipio;
+	}
+	
+	
+	
+	
+	/////////////////////////////////////////////////////////////
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="municipio")
+	//un municipio tiene muchas oficinas
+	public List<Oficina> getListOficina() {
+		return listOficina;
+	}
+
+
+	public void setListOficina(List<Oficina> listOficina) {
+		this.listOficina = listOficina;
 	}
 	
 	

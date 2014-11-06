@@ -16,7 +16,7 @@
 		mensaje += "<div class='text-warning'> El departamento fue eliminado</div>";	
 	else 
 
-		mensaje += "El departamento no pude ser eliminado revise no posee dependencias ";
+		mensaje += "El departamento no pude ser eliminado revise si no posee dependencias ";
 		}
 	
 %>

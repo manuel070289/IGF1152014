@@ -29,8 +29,8 @@ public class CtrlMunicipio {
 				ESTE CODIGO DEBERIA IR EN DEPARTAMENTO*/
 				/*List<Municipio> municipioList = new ArrayList<Municipio>();
 				municipioList.add(municipio);
-				departamento.setMunicipioList(municipioList);
-				daoDepto.guardaActualiza(departamento);*/
+				departamento.setMunicipioList(municipioList);*/
+				/*daoDepto.guardaActualiza(departamento);*/
 				/*-------------------------------------------------------*/
 				
 				return true ;
@@ -70,6 +70,10 @@ public class CtrlMunicipio {
 		return daoMun.daMunicipioByNombre(nomb_municipio) ;
 	}
 	
+	
+	public List<Municipio> daMunicipiobyDepto(String id_depto){
+		return daoMun.daMunicipioByDepto(id_depto) ;
+	}
 
 
 

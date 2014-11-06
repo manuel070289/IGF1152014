@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import dominio.Departamento;
 import dominio.Municipio;
 
 import utilidades.HibernateUtil;
@@ -86,7 +87,17 @@ public class MunicipioDAO {
 	}
 	
 	
-	
+	public List<Municipio> daMunicipioByDepto(String id_depto) {
+		sesion = sessionFactory.openSession() ;
+//		Query query = sesion.getNamedQuery("Departamentos.findByNombreDep");
+//		query.setParameter("nombreDep", nombre);
+		Criteria dep = sesion.createCriteria(Departamento.class).add(Restrictions.eq("id_depto", id_depto));
+		Departamento depar = (Departamento) dep.uniqueResult(); 
+		Criteria var = sesion.createCriteria(Municipio.class).add(Restrictions.eq("departamento",depar));
+		List<Municipio> munis =  var.list();
+		sesion.close() ;
+		return munis ;
+	}
 
 
 

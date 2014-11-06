@@ -1,6 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Basic;
@@ -23,7 +24,7 @@ public class Departamento implements Serializable{
 	private String id_depto;
 	private String nombre_depto;
 	private String zona_geografica;
-	private List<Municipio> municipioList;
+	private List<Municipio> municipioList = new ArrayList<Municipio>();
 	private Departamento (){
 		
 	}
