@@ -1,9 +1,13 @@
 package dao;
 
+
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import dominio.Oficina;
 
@@ -50,6 +54,14 @@ public class OficinaDAO {
 		} finally{ 
 			sesion.close() ;  
 		}  
+	}
+	
+	public Oficina daNombreOficina(String nombre) {
+		sesion= sessionFactory.openSession() ;
+		Criteria criteria = sesion.createCriteria(Oficina.class).add(Restrictions.like("nomb_oficina",nombre)); 
+		Oficina ofic = (Oficina) criteria.uniqueResult(); 
+		sesion.close() ; 
+		return ofic ; 
 	}
 	
 }

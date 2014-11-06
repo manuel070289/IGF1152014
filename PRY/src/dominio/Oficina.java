@@ -22,6 +22,7 @@ public class Oficina implements Serializable{
 		this.domicilio=domicilio;
 		this.municipio=municipio;
 	}
+	@Id
 	@Basic(optional = false)
 	@Column(name="id_oficina")
 	public String getIdOficina(){
@@ -51,6 +52,7 @@ public class Oficina implements Serializable{
 		this.domicilio = domicilio;
 	}
 
+	@Id
 	@Column
 	@ManyToOne
 	@JoinColumns({
