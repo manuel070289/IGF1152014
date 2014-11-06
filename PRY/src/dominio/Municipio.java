@@ -31,10 +31,6 @@ public class Municipio implements Serializable{
 	private Municipio(){
 		
 	}
-	
-	
-	
-
 
 	public  Municipio (String id_municipio, Departamento departamento, String nomb_municipio ) {
 		this.id_municipio = id_municipio;
@@ -94,9 +90,6 @@ public class Municipio implements Serializable{
 
 	public void setListOficina(List<Oficina> listOficina) {
 		this.listOficina = listOficina;
-	}
-	
-	
-	
+	}	
 
 }

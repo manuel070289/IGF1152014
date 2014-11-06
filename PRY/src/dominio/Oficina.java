@@ -52,7 +52,6 @@ public class Oficina implements Serializable{
 		this.domicilio = domicilio;
 	}
 
-	@Id
 	@Column
 	@ManyToOne
 	@JoinColumns({
@@ -64,5 +63,5 @@ public class Oficina implements Serializable{
 	}
 	public void setMunicipio(Municipio municipio){
 		 this.municipio=municipio;
-	}
+	} 
 }
