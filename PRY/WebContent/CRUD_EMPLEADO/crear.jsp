@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="negocio.*" %>
+<%@ page import="dominio.*" %>
+<%@ page import="dao.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 
@@ -12,14 +14,26 @@ String apellidoMaterno = request.getParameter("a_materno");
 String fechaNacimiento = request.getParameter("f_nacimiento");
 String dui = request.getParameter("dui");
 String nit = request.getParameter("nit");
+String telefono = request.getParameter("tel");
+String email = request.getParameter("email");
+String sexo = request.getParameter("sexo");
+String fechaIngreso = request.getParameter("f_ingreso");
+
 
 SimpleDateFormat aux = new SimpleDateFormat("dd/mm/yyyy");
 
-Date f_nacimiento = aux.parse(fechaNacimiento);
+Date f_nacimiento;
+Date f_ingreso; 
+
+f_ingreso = (fechaIngreso == "") ? null : aux.parse(fechaIngreso);
+f_nacimiento = (fechaNacimiento == "") ? null : aux.parse(fechaNacimiento);
+
+GeneroDAO daoGenero = new GeneroDAO();
+Genero genero = daoGenero.daGeneroById(sexo);
 
 CtrlEmpleado ctrlEmpleado = new CtrlEmpleado();
-boolean exito = ctrlEmpleado.crearEmpleado(nombres, apellidoPaterno, apellidoMaterno, f_nacimiento, dui, nit);
 
+boolean exito = ctrlEmpleado.crearEmpleado(nombres, apellidoPaterno, apellidoMaterno, genero, f_nacimiento, f_ingreso, dui, nit, telefono, email);
 String mensaje;
 
 if(exito){

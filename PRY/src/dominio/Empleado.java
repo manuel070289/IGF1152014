@@ -4,13 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -33,23 +27,26 @@ public class Empleado implements Serializable {
 	private String idJefe;
 	private short idPuesto;
 	private String idOficina;
-	private String idSexo;
+	private Genero genero;
 	
 	public Empleado () {
 		
 	}
 	
-	public Empleado(String nombres, String apellPaterno, String apellMaterno, Date fechaNacimiento, String dui, String nit) {
+	public Empleado(String nombres, String apellPaterno, String apellMaterno, Genero genero, Date fechaNacimiento, Date fechaIngreso, String dui, String nit, String telefono, String email) {
 		this.nombres = nombres;
 		this.apellidoPaterno = apellPaterno;
 		this.apellidoMaterno = apellMaterno;
+		this.genero = genero;
 		this.fechaNacimiento = fechaNacimiento;
+		this.fechaIngreso = fechaIngreso;
 		this.dui = dui;
 		this.nit = nit;
+		this.telefono = telefono;
+		this.email = email;
 	}
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id_empleado")
 	public String getIdEmpleado() {
@@ -119,7 +116,9 @@ public class Empleado implements Serializable {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-
+	
+	@Basic(optional = true)
+	@Column(name = "fecha_ingreso")
 	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
@@ -135,7 +134,9 @@ public class Empleado implements Serializable {
 	public void setSueldo(BigDecimal sueldo) {
 		this.sueldo = sueldo;
 	}
-
+	
+	@Basic(optional = true)
+	@Column(name = "e_mail")
 	public String getEmail() {
 		return email;
 	}
@@ -143,7 +144,9 @@ public class Empleado implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
+	@Basic(optional = true)
+	@Column(name = "telefono")
 	public String getTelefono() {
 		return telefono;
 	}
@@ -158,6 +161,16 @@ public class Empleado implements Serializable {
 
 	public void setActivo(String activo) {
 		this.activo = activo;
+	}
+	
+	@ManyToOne(optional=false)
+	@JoinColumn(name = "id_sexo", referencedColumnName = "id_sexo")
+	public Genero getGenero() {
+		return genero;
+	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 	
 	

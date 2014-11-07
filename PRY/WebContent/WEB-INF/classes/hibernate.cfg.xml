@@ -48,9 +48,9 @@
         -->
         <!-- <mapping class ="dominio.BoletaPago"/>
         <mapping class ="dominio.Departamento"/>
-        <mapping class ="dominio.Municipio"/>
+        <mapping class ="dominio.Municipio"/> -->
         <mapping class ="dominio.Genero"/>
-        <mapping class ="dominio.Puesto"/>
+        <!-- <mapping class ="dominio.Puesto"/>
         <mapping class ="dominio.Oficina"/> -->
         <mapping class ="dominio.Empleado"/>
         <!-- <mapping class ="dominio.TiposDescuentos"/>
