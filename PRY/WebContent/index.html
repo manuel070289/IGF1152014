@@ -10,14 +10,12 @@
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+	src="igf115.js"></script>
 	
 <script>
 	$(document).ready(function() {
-		$('#crearEmpleado').click(function(event) {
-			$.post('CRUD_EMPLEADO/crearForm.jsp', function(responseText) {
-				$('#dinamico').html(responseText);
-			});
-		});
+		setearBotones();		
 	});
 </script>	
 	
@@ -50,7 +48,7 @@
 						</div>
 
 						<div id="crud_empleado" class="list-group collapse in">
-							<a id="crearEmpleado" href="#" class="list-group-item">Crear</a><a href="#"
+							<a id="crearEmpleado" href="#" class="list-group-item">Crear</a><a id="obtenerEmpleado" href="#"
 								class="list-group-item">Obtener</a> <a href="#"
 								class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>
@@ -122,7 +120,7 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_genero">
 
-							<a href="#" class="list-group-item">Crear</a><a href="#"
+							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a href="#"
 								class="list-group-item">Obtener</a> <a href="#"
 								class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>

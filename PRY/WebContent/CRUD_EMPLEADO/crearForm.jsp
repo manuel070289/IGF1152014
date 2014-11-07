@@ -34,7 +34,7 @@ for(int i=0; i<lista.size();i++) {
 	<!-- <div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7"> -->
-			<form class="" action="crear.jsp" method="get" role="form">
+			<form class="" action="CRUD_EMPLEADO/crear.jsp" method="get" role="form">
 			<div class="row">
 			
 			<div class="col-md-7">

@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -9,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import dominio.Empleado;
+import dominio.Genero;
 import utilidades.HibernateUtil;
 
 public class EmpleadoDAO {
@@ -48,5 +51,13 @@ public class EmpleadoDAO {
 		Empleado empleado = (Empleado) criteria.uniqueResult();
 		sesion.close();
 		return empleado;
+	}
+	
+	public List<Empleado> dameTodosLosEmpleados() {
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(Empleado.class);
+		List<Empleado> listadoDeEmpleados = criteria.list();
+		sesion.close();
+		return listadoDeEmpleados;
 	}
 }
