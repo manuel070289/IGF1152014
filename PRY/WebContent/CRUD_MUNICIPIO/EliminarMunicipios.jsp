@@ -37,8 +37,10 @@
 		muni += "<div class='text-warning'> No Hay Departamentos</div>";
 	else {
 		Municipio muniActual;
-		muni += "<select required name='municipio'  >"
-				+ "<option value=''>Seleccione</option>";
+		 muni += "<select required autocomplete name='municipio'  >"
+				+ "<option value=''>Seleccione</option>"; 
+				/* muni += "<input type='text' list='countries' />"+
+						"<datalist id='countries'>"; */
 
 		for (int i = 0; i < numeroMunis; i++) {
 			muniActual = (Municipio) municipios.get(i);
@@ -61,7 +63,9 @@
 <script type="text/javascript" src="../jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
 </head>
+
 <body>
 	<div class="container-fluid">
 		<div class="panel-heading">
@@ -69,9 +73,9 @@
 		</div>
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="ListByDepto.jsp" method="post" role="form">
+				<form class="" action="Elimina.jsp" method="post" role="form">
 					<fieldset>
-						<legend>Listar Municipios por Departamento</legend>
+						<legend>Eliminar Municipio</legend>
 					</fieldset>
 					<div class="row">
 						<div class="col-sm-7">

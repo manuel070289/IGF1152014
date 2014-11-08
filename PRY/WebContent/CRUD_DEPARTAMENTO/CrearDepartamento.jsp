@@ -13,8 +13,11 @@
      CtrlDepartamento depto = new CtrlDepartamento();
  	 /* List empleados = nomina.daDepartamentoCriteria(nombre,ciudad);
 	 int numeroEmpleados = empleados.size(); */
+	 Short creador = 1;
+	 Short modifica = 1;
 	 
- 	 if (depto.crearDepartamento(id_depto, nombre_depto, zona_geografica))
+	 
+ 	 if (depto.crearDepartamento(id_depto, nombre_depto, zona_geografica, creador, modifica))
  		 mensaje = "Departamento ingresado";
  	 else 
  		 mensaje = "No se pudo ingresar";

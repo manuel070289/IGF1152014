@@ -7,27 +7,23 @@
 
 <%!String mensaje = "";%>
 <%
-	String id_depto = request.getParameter("departamento").trim();
-	String nombre_depto = request.getParameter("nombre_depto").trim();
-	String zona_geografica = request.getParameter("zona_geografica").trim();
-	CtrlDepartamento modifica = new CtrlDepartamento();
-	Short umodifica =2 ;
-	
-	if (id_depto.isEmpty())
-		mensaje += "<div class='text-warning'> Debe seleccionar un departamento</div>";
+	String id_municipio = request.getParameter("municipio").trim();
+	CtrlMunicipio elimina = new CtrlMunicipio();
+	if (id_municipio.isEmpty())
+		mensaje += "<div class='text-warning'> Debe seleccionar un municipio</div>";
 	else {
-		if (modifica.modificarDepartamento(id_depto, nombre_depto, zona_geografica, umodifica))
-			mensaje += "<div class='text-warning'> El departamento fue actualizado</div>";
+		if (elimina.eliminarMunicipio(id_municipio))
+			mensaje += "<div class='text-warning'> El municipio fue eliminado</div>";
 		else
 
-			mensaje += "<div class='text-warning'>El departamento no pude ser actualizado</div>";
+			mensaje += "El Municipio no pude ser eliminado revise si no posee dependencias ";
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Departamento Actualizado</title>
+<title>Municipio Eliminado</title>
 <link rel="stylesheet" type="text/css"
 	href="../bootstrap-3.2.0-dist/normalize.css">
 <link rel="stylesheet" type="text/css"
@@ -37,17 +33,16 @@
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class='container-fluid '>
-		<div class="row">
-			<div class="col-md-7">
-				<fieldset>
-						<legend>Informacion</legend>
-					</fieldset>
-			
-			<%=mensaje%>
+	<div class='panel container-fluid col-xs-7'>
+		<div class='panel panel-primary '>
+			<div class='panel-heading'>
+				<h3 class='title'>Informacion</h3>
 			</div>
+
+			<%=mensaje%>
 		</div>
 	</div>
 	<%=mensaje = ""%>
+
 </body>
 </html>

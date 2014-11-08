@@ -58,16 +58,14 @@ public class MunicipioDAO {
 			sesion.close() ;
 		}
 	}
-	public Municipio daMunicipioDepartamentoById(String id_municipio){
+	public Municipio daMunicipioById(String id_municipio){
 		sesion = sessionFactory.openSession() ;
-//		 Retorna la instancia persistente de la clase por medio del atributo identidad
-		Municipio id = (Municipio) sesion.get(Municipio.class,	new String(id_municipio)) ;
-//		Criteria var = sesion.createCriteria(Departamento.class).add(Restrictions.eq("idDep", idDep));
-//		Departamento dep = (Departamento)var.uniqueResult();
+		Criteria var = sesion.createCriteria(Municipio.class).add(Restrictions.eq("id_municipio", id_municipio));
+		Municipio municipio = (Municipio)var.uniqueResult();
 		sesion.close() ;
-		return id ;
-//		return dep ;
+		return municipio ;
 	}
+	
 	public List<Municipio> daMunicipios() {
 		sesion = sessionFactory.openSession() ;
 //		Query query = sesion.getNamedQuery("Departamentos.findAll") ;

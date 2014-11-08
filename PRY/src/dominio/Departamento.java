@@ -1,8 +1,13 @@
 package dominio;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.GregorianCalendar;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -24,8 +29,23 @@ public class Departamento implements Serializable{
 	private String id_depto;
 	private String nombre_depto;
 	private String zona_geografica;
+	
 	private List<Municipio> municipioList = new ArrayList<Municipio>();
 	/*private List<Oficina> oficinaList = new ArrayList<Oficina>();*/
+	
+	private Short id_usuario_creador;
+	private Short id_usuario_modifica;
+	private Date fecha_creacion;
+	private Date fecha_modifica;
+	private Short activo; 
+	/*SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");*/
+	
+	/*df.format(fecha);*/
+	/*System.out.println(df.format(fecha));*/
+	
+
+
+	
 	
 
 	private Departamento (){
@@ -33,15 +53,71 @@ public class Departamento implements Serializable{
 	}
 	
 	
-	public Departamento (String id_depto, String nombre_depto, String zona_geografica){
+	public Departamento (String id_depto, String nombre_depto, String zona_geografica, Short usuario_creador, Short usuario_modifica, Date fecha_creacion, Date fecha_modifica, Short activo){
 		this.id_depto = id_depto;
 		this.nombre_depto = nombre_depto;
 		this.zona_geografica = zona_geografica;
+		this.fecha_creacion = fecha_creacion;
+		this.fecha_modifica =  fecha_modifica;
+		this.id_usuario_creador = usuario_creador;
+		this.id_usuario_modifica = usuario_modifica;
+		this.activo = activo;
 		
 	}
 	
-	
-///////////////////////////id_depto///////////////////////////
+
+////////////////////////////////////////////////////
+public Short getActivo() {
+		return activo;
+	}
+
+
+	public void setActivo(Short activo) {
+		this.activo = activo;
+	}
+
+////////////////////////////////////////////////
+public Short getId_usuario_creador() {
+		return id_usuario_creador;
+	}
+
+
+	public void setId_usuario_creador(Short id_usuario_creador) {
+		this.id_usuario_creador = id_usuario_creador;
+	}
+
+////////////////////////////////////////////////////
+	public Short getId_usuario_modifica() {
+		return id_usuario_modifica;
+	}
+
+
+	public void setId_usuario_modifica(Short id_usuario_modifica) {
+		this.id_usuario_modifica = id_usuario_modifica;
+	}
+
+////////////////////////////////////////////////////////
+	public Date getFecha_creacion() {
+		return fecha_creacion;
+	}
+
+
+	public void setFecha_creacion(Date fecha_creacion) {
+		this.fecha_creacion = fecha_creacion;
+	}
+
+/////////////////////////////////////////////////////////
+	public Date getFecha_modifica() {
+		return fecha_modifica;
+	}
+
+
+	public void setFecha_modifica(Date fecha_modifica) {
+		this.fecha_modifica = fecha_modifica;
+	}
+
+
+	///////////////////////////id_depto///////////////////////////
 	@Id
 /*	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
 	@Basic(optional = false)
