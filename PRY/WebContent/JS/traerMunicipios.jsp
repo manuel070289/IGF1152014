@@ -13,7 +13,7 @@
 	
 	if (municipios.isEmpty())
 		out.print("<div class='text-warning'> No Hay municipios para ese departamento</div>");
-	else {
+	else { 
 		Municipio muniActual;
 		out.print("<select>");
 		for (int i = 0; i < numeroMunis; i++) {
