@@ -60,7 +60,7 @@ public class CtrlMunicipio {
 		else
 			return false ;
 	}
-	public List<Municipio> daMinicipios(){
+	public List<Municipio> daMunicipios(){
 		return daoMun.daMunicipios() ;
 	}
 	public Municipio daMunicipioById(String id_municipio) {

@@ -26,7 +26,7 @@ public class Municipio implements Serializable{
 	private String id_municipio;
 	private Departamento departamento;
 	private String nomb_municipio;
-	private List<Oficina> listOficina = new ArrayList<Oficina>();
+	private List<Oficina> listOficina ;
 	
 	private Municipio(){
 		

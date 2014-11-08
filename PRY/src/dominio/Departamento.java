@@ -25,7 +25,7 @@ public class Departamento implements Serializable{
 	private String nombre_depto;
 	private String zona_geografica;
 	private List<Municipio> municipioList = new ArrayList<Municipio>();
-	private List<Oficina> oficinaList = new ArrayList<Oficina>();
+	/*private List<Oficina> oficinaList = new ArrayList<Oficina>();*/
 	
 
 	private Departamento (){
@@ -94,7 +94,7 @@ public class Departamento implements Serializable{
 	
 	/////////////////////////////////////////////////////////////////////////
 	//un departamento muchas oficinas
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "depto")
+	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "depto")
 	public List<Oficina> getOficinaList() {
 		return oficinaList;
 	}
@@ -102,7 +102,7 @@ public class Departamento implements Serializable{
 
 	public void setOficinaList(List<Oficina> oficinaList) {
 		this.oficinaList = oficinaList;
-	}
+	}*/
 
 	
 	

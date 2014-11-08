@@ -5,14 +5,12 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.math.BigDecimal"%>
 
-<%!String depto = "";%>
-<%-- <%!String muni = "";%> --%>
+<%-- <%!String depto = "";%> --%>
+<%!String muni = "";%>
 <%
-	CtrlDepartamento nomina = new CtrlDepartamento();
+	/* CtrlDepartamento nomina = new CtrlDepartamento();
 	List departamentos = nomina.daDepartamentos();
 	int numeroDeptos = departamentos.size();
-	
-	
 
 	if (departamentos.isEmpty())
 		depto += "<div class='text-warning'> No Hay Departamentos</div>";
@@ -28,9 +26,9 @@
 
 		}
 		depto += "</select>";
-	}
-	
-	/* 
+	} */
+
+	 
 	CtrlMunicipio lista = new CtrlMunicipio ();
 	List municipios = lista.daMunicipios();
 	int numeroMunis = municipios.size();
@@ -48,8 +46,8 @@
 							muniActual.getNomb_municipio() + "</option>";
 
 		}
-		depto += "</select>";
-	} */
+		muni += "</select>";
+	} 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -67,7 +65,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="panel-heading">
-			<h3 class="panel-title">LISTAR MUNICIPIO</h3>
+			<h3 class="panel-title">ELIMINAR MUNICIPIO</h3>
 		</div>
 		<div class="row">
 			<div class="col-md-7">
@@ -78,29 +76,14 @@
 					<div class="row">
 						<div class="col-sm-7">
 							<div class="form-group">
-								<label for="nombres">Seleccione el departamento:</label>
-								<%=depto%>
+								<label for="nombres">Seleccione el Municipio:</label>
+								<%=muni%>
 							</div>
 						</div>
 					</div>
-					<input class="btn btn-primary" type="submit" value="Listar Municipios">
+					<input class="btn btn-primary" type="submit" value="Elimiar Municipio">
 				</form>
-				<%=depto=""%>
-				<form class="" action="ListarTodos.jsp" method="post" role="form">
-					<fieldset>
-						<legend>Listar Municipios por Nombre</legend>
-					</fieldset>
-					<div class="row">
-						<div class="col-sm-7">
-							<div class="form-group">
-								<label for="nombres">Listar todos los municipios:</label>
-								<%-- <%=muni%> --%>
-							</div>
-						</div>
-					</div>
-					<input class="btn btn-primary" type="submit" value="Listar Municipios">
-				</form>
-				<%-- <%=muni = ""%> --%>
+				<%=muni = ""%>
 			</div>
 		</div>
 	</div>

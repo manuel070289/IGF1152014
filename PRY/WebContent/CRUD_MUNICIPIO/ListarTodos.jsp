@@ -5,18 +5,19 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.math.BigDecimal"%>
 
-<%!String mensaje = "";%>
-<%!String nombreDepto = "";%>
+<%!String mensaje=" ";%>
+
 <%
-	String id_depto = request.getParameter("departamento").trim();
+	/* String nomb_municipio = request.getParameter("municipio").trim(); */
 	CtrlMunicipio nomina = new CtrlMunicipio();
 	/* String nombreDepto; */
-	List municipios= nomina.daMunicipiobyDepto(id_depto);
+	List municipios= nomina.daMunicipios();
 	int numeroMunis = municipios.size();
 	mensaje +="<table class='table-condensed table-bordered'>"+
 			"<tr class='panel-heading'>"+
 	"<th class='panel-title'>id_municipio</th>"+
 	"<th class='panel-title'>nombre_municipio</th>"+
+	"<th class='panel-title'>nombre_depto</th>"+
 	"</tr>";
 
 	if (municipios.isEmpty())
@@ -27,19 +28,19 @@
 		for (int i = 0; i < numeroMunis; i++) {
 			 muniActual = (Municipio) municipios.get(i); 
 			/* Departamento depto =(Departamento) muniActual.getDepartamento(); */
-			 mensaje += ("<tr><td> " + muniActual.getId_municipio()
-					+ "</td> <td> " + muniActual.getNomb_municipio()
-					+ "</td></tr>" );
-		 nombreDepto = muniActual.getDepartamento().getNombre_depto(); 
+			 mensaje += "<tr><td> " + muniActual.getId_municipio()
+					+ "</td> " + "<td> " + muniActual.getNomb_municipio()
+					+ "</td> " + "<td> " +muniActual.getDepartamento().getNombre_depto() 
+					+ "</td></tr>" ;					
 		}
-		mensaje +=  "</table>";
+		mensaje +="</table>";
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listar Municipios por Departamento</title>
+<title>Listar Municipio</title>
 <link rel="stylesheet" type="text/css"
 	href="../bootstrap-3.2.0-dist/normalize.css">
 <link rel="stylesheet" type="text/css"
@@ -52,14 +53,11 @@
 	<div class='panel container-fluid col-xs-7'>
 		<div class='panel panel-primary '>
 			<div class='panel-heading'>
-				<h3 class='title'>
-					Datos de los municipios para el departamento de
-					<%=nombreDepto%>
-				</h3>
+				<h3 class='title'>Datos del municipio</h3>
 			</div>
 			<%=mensaje%>
 		</div>
+		<%=mensaje=""%>
 	</div>
-	<%= mensaje=""%>
 </body>
 </html>

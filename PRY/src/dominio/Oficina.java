@@ -52,7 +52,6 @@ public class Oficina implements Serializable{
 		this.domicilio = domicilio;
 	}
 
-	@Column
 	@ManyToOne
 	@JoinColumns({
 		@JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
