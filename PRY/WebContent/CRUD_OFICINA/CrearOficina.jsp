@@ -14,7 +14,7 @@
 		mensaje += "<div class='text-warning'> No Hay Departamentos</div>";
  	else {
 		Departamento depActual;
-		mensaje += "<select required name='departamento'  onchange='cargarMun(this);'>"+
+		mensaje += "<select required name='departamento'  onchange='cargarMun(this.value);'>"+
 	 			"<option value=''>Seleccione</option>";
 	 for (int i=0; i < numeroDeptos; i++) {
 		 depActual = (Departamento) departamentos.get(i);
@@ -35,6 +35,8 @@
 <script type="text/javascript" src="../jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="../JS/ajax.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -54,7 +56,7 @@
 						<div class="col-sm-7">
 							<div class="form-group">
 								<label for="nombres">Seleccione el municipio:</label>
-								<%=mensaje %>
+								<div id="muni" name="muni"></div>
 							</div>
 						</div>
 						</div>
