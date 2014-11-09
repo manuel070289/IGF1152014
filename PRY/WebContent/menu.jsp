@@ -93,10 +93,10 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_oficina">
 
-							<a href="CRUD_OFICINA/CrearOficina.jsp" class="list-group-item">Crear</a><a
-								href="#" class="list-group-item">Obtener</a> <a href="#"
-								class="list-group-item">Actualizar</a> <a href="#"
-								class="list-group-item">Eliminar</a>
+							<a href="CRUD_OFICINA/CrearOficina.jsp" class="list-group-item">Crear</a>
+							<a href="#" class="list-group-item">Obtener</a> 
+							<a href="CRUD_OFICINA/actualizaOficina"	class="list-group-item">Actualizar</a> 
+							<a href="#" class="list-group-item">Eliminar</a>
 
 						</div>
 					</div>
