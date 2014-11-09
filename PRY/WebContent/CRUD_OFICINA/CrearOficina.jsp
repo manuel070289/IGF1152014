@@ -59,7 +59,7 @@
 								<div id="muni" name="muni"></div>
 							</div>
 						</div>
-						</div>
+						
 						<div class="col-sm-7">
 							<div class="form-group">
 								<label for="domicilio">Domicilio de la Oficina:</label>
@@ -79,13 +79,10 @@
 							</div>
 						</div>
 					</div>
-					
 				</form>
 			</div>
-			<%=mensaje=""%>
 		</div>
+		<%=mensaje=""%>
 	</div>
-	<script>
-	</script>
 </body>
 </html>

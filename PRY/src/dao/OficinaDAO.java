@@ -82,7 +82,9 @@ public class OficinaDAO {
 			if(numero>999)
 				numeroN="O"+numero;
 		}
+		sesion.close(); 
 		return numeroN;
+		
 	}
 	
 	public Oficina daoNombreOficina(String nomb_oficina) {
