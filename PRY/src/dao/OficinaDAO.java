@@ -63,7 +63,8 @@ public class OficinaDAO {
 	public String daoLastId(){
 		sesion= sessionFactory.openSession() ;
 		Criteria criteria = sesion.createCriteria(Oficina.class)
-				.addOrder(Order.desc("id_oficina")); 
+				.addOrder(Order.desc("id_oficina"))
+				.setMaxResults(1); 
 		Oficina ofic = (Oficina) criteria.uniqueResult();
 		String numeroN="";
 		if(ofic==null)
