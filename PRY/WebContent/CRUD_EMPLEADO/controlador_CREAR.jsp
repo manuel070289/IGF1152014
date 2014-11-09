@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="negocio.*" %>
-<%@ page import="dominio.*" %>
-<%@ page import="dao.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %>
+<%@page import="java.math.BigDecimal"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="negocio.*"%>
+<%@ page import="dominio.*"%>
+<%@ page import="dao.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Date"%>
 
 
 
@@ -18,7 +20,9 @@ String telefono = request.getParameter("tel");
 String email = request.getParameter("email");
 String sexo = request.getParameter("sexo");
 String fechaIngreso = request.getParameter("f_ingreso");
-String puesto = request.getParameter("puesto");
+
+/* String puesto = request.getParameter("puesto"); */
+String puesto = "1"; //por lo que falta de la lilian
 String oficina = request.getParameter("oficina");
 String jefe = request.getParameter("jefe");
 String sueldo = request.getParameter("sueldo");
@@ -36,9 +40,16 @@ f_nacimiento = (fechaNacimiento == "") ? null : aux.parse(fechaNacimiento);
 GeneroDAO daoGenero = new GeneroDAO();
 Genero genero = daoGenero.daGeneroById(sexo);
 
+OficinaDAO daoOficina = new OficinaDAO();
+Oficina objOficina = daoOficina.daoOficinaById(oficina);
+
+jefe = (jefe == "ninguno")? null : jefe;
+
+BigDecimal objSueldo = new BigDecimal(sueldo);
+
 CtrlEmpleado ctrlEmpleado = new CtrlEmpleado();
 
-boolean exito = ctrlEmpleado.crearEmpleado(nombres, apellidoPaterno, apellidoMaterno, genero, f_nacimiento, f_ingreso, dui, nit, telefono, email);
+boolean exito = ctrlEmpleado.crearEmpleado(nombres, apellidoPaterno, apellidoMaterno, genero, f_nacimiento, f_ingreso, dui, nit, telefono, email, objOficina, jefe, objSueldo, activo);
 String mensaje;
 
 if(exito){
@@ -55,6 +66,6 @@ if(exito){
 <title>Create Empleado</title>
 </head>
 <body>
-<%= mensaje %>
+	<%= mensaje %>
 </body>
 </html>

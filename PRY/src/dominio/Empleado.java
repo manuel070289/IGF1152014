@@ -192,5 +192,25 @@ public class Empleado implements Serializable {
 	public void setOficina(Oficina oficina) {
 		this.oficina = oficina;
 	}
+	
+	@Basic(optional = true)
+	@Column(name = "id_jefe")
+	public String getIdJefe() {
+		return idJefe;
+	}
+
+	public void setIdJefe(String idJefe) {
+		this.idJefe = idJefe;
+	}
+	
+	@Basic(optional = false)
+	@Column(name = "id_puesto")
+	public short getIdPuesto() {
+		return idPuesto;
+	}
+
+	public void setIdPuesto(short idPuesto) {
+		this.idPuesto = idPuesto;
+	}
 
 }
