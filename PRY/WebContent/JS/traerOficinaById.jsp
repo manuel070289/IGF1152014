@@ -44,23 +44,44 @@
 		out.print("<div class='form-group'>");
 		out.print("<label for='municipio'>Seleccione el municipio:</label>");
 		out.print("<div id='muni' name='muni'>");
-		out.print("</div>");
-		out.print("</div>");
-		out.print("</div>");
-	 	
-		/*List municipios = ctrlMun.daMunicipios();
+		
+		List municipios = ctrlMun.daMunicipios();
 		int numeroMuni = departamentos.size();
 				
 		Municipio munActual;
-		out.print("<select required name='departamento'  onchange='cargarMun(this.value);'>");
+		out.print("<select required name='municipio'>");
 		out.print("<option value=''>Seleccione</option>");
 		for (int i=0; i < numeroDeptos; i++) {
 			munActual = (Municipio) municipios.get(i);
-			out.print("<option value=' " + munActual.getId_municipio() + "'> " + munActual.getNomb_municipio()+"</option>");	
+			if(munActual.getId_municipio().equals(municipio.getId_municipio()))
+				out.print("<option value=' " + munActual.getId_municipio() + "' selected> " + munActual.getNomb_municipio()+"</option>");
+			else
+				out.print("<option value=' " + munActual.getId_municipio() + "'> " + munActual.getNomb_municipio()+"</option>");
 		}
 		out.print("</select>");
 		
+		out.print("</div>");
+		out.print("</div>");
+		out.print("</div>");
+		out.print("<div class='col-sm-7'>");
+		out.print("<div class='form-group'>");
+		out.print("<label for='domicilio'>Domicilio de la Oficina:</label>");
+		out.print("<input id='domicilio' class='form-control' type='text' name='domicilio' value='"+oficina.getDomicilio()+"' required>");
+		out.print("</div>");
+		out.print("</div>");
 		
-		out.print("");*/
+		out.print("<div class='col-sm-7'>");
+		out.print("<div class='form-group'>");
+		out.print("<label for='nomb_oficina'>Nombre de la Oficina:</label>");
+		out.print("<input id='nomb_oficina' class='form-control' type='text' name='nomb_oficina' value='"+oficina.getNomb_oficina()+"' required>");
+		out.print("</div>");
+		out.print("</div>");
+		
+		out.print("<div class='col-sm-7'>");
+		out.print("<div class='form-group'>");
+		out.print("<input class='btn btn-primary' type='submit' value='Actualizar Oficina'>");
+		out.print("</div>");
+		out.print("</div>");
+
 	}
 %>

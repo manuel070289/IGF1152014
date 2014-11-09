@@ -69,7 +69,7 @@
 						<div class="col-sm-7">
 							<div class="form-group">
 								<label for="nomb_oficina">Nombre de la Oficina:</label>
-								<input id="nomb_oficina"	class="form-control" type="text" name="nomb_oficina" required>
+								<input id="nomb_oficina" class="form-control" type="text" name="nomb_oficina" required>
 							</div>
 						</div>
 						<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">

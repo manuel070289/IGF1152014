@@ -44,7 +44,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-7">
-			<form class="" action="crearOfic.jsp" method="post" role="form">
+			<form class="" action="actualizarOfic.jsp" method="post" role="form">
 				<fieldset>
 					<legend>ACTUALIZAR OFICINA</legend>
 				</fieldset>
@@ -52,6 +52,8 @@
 				<br>
 				<div name="divOficina" id="divOficina">
 				</div>
+				<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
+				
 			</form>
 		</div>
 		<%=mensaje=""%>
