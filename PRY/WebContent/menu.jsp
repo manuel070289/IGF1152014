@@ -2,7 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="negocio.*"%>
 <%@ page import="dominio.*"%>
-
+<%
+	if((session.getAttribute("rol")==null || session.getAttribute("rol")=="")&& (session.getAttribute("id_usuario")==null || session.getAttribute("id_usuario")==""))
+	{
+		String site = new String("index.jsp");
+		response.setStatus(response.SC_MOVED_TEMPORARILY);
+		response.setHeader("Location", site);
+	}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -45,7 +52,11 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="panel-group" id="menu_izq">
-					<%  if((Short)session.getAttribute("rol")==2){%>
+					<%
+					if(session.getAttribute("rol")!=null)
+					{
+						if((Short)session.getAttribute("rol")==2)
+						{%>
 					<div class="panel panel-primary">
 						<div class="panel-heading" data-toggle="collapse"
 							data-target="#crud_empleado" data-parent="#menu_izq">
@@ -147,8 +158,11 @@
 
 						</div>
 					</div>
-					<%} %>
-					<%  if((Short)session.getAttribute("rol")==1){%>
+					<%} }%>
+					<%  
+					if(session.getAttribute("rol")!=null)
+					{
+						if((Short)session.getAttribute("rol")==1){%>
 					<div class="panel panel-primary">
 						<div class="panel-heading" data-toggle="collapse"
 							data-target="#crud_usuario" data-parent="#menu_izq">
@@ -163,7 +177,7 @@
 
 						</div>
 					</div>
-					<%} %>
+					<%} }%>
 				</div>
 				<div class="panel panel-primary">
 					<div class="panel-heading" data-toggle="collapse"

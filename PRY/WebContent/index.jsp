@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <% 
- if(session.getAttribute("rol")!="" && session.getAttribute("id_usuario")!="")
+ 
+ if((session.getAttribute("rol")!=null || session.getAttribute("rol")!="")  && (session.getAttribute("id_usuario")!=null || session.getAttribute("id_usuario")!=null))
  {
 	String site = new String("menu.jsp");
 	response.setStatus(response.SC_MOVED_TEMPORARILY);

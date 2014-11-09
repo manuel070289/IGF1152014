@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%
-session.setAttribute("rol", "");
-session.setAttribute("id_usuario", ""); 
+session.invalidate(); 
 String site = new String("index.jsp");
 	response.setStatus(response.SC_MOVED_TEMPORARILY);
 	response.setHeader("Location", site);
