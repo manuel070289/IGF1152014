@@ -20,8 +20,8 @@
 	List<Oficina> listaOficina = daoOficina.daoOficina();
 	for (int i = 0; i < listaOficina.size(); i++) {
 		oficinas = oficinas + "<option value="
-				+ listaOficina.get(i).getIdOficina() + ">"
-				+ listaOficina.get(i).getNombOficina() + "</option>";
+				+ listaOficina.get(i).getId_oficina() + ">"
+				+ listaOficina.get(i).getNomb_oficina() + "</option>";
 	}
 
 	String jefes = "";
@@ -182,6 +182,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
+			<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
 				<input class="btn btn-primary" type="submit" value="Crear Empleado">
 			</div>
 		</div>

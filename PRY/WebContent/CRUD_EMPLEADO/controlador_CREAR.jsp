@@ -10,6 +10,10 @@
 
 
 <%
+Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+
+
+
 String nombres = request.getParameter("nombres");
 String apellidoPaterno = request.getParameter("a_paterno");
 String apellidoMaterno = request.getParameter("a_materno");
@@ -22,7 +26,7 @@ String sexo = request.getParameter("sexo");
 String fechaIngreso = request.getParameter("f_ingreso");
 
 /* String puesto = request.getParameter("puesto"); */
-String puesto = "1"; //por lo que falta de la lilian
+short puesto = 1; //por lo que falta de la lilian
 String oficina = request.getParameter("oficina");
 String jefe = request.getParameter("jefe");
 String sueldo = request.getParameter("sueldo");
@@ -43,13 +47,13 @@ Genero genero = daoGenero.daGeneroById(sexo);
 OficinaDAO daoOficina = new OficinaDAO();
 Oficina objOficina = daoOficina.daoOficinaById(oficina);
 
-jefe = (jefe == "ninguno")? null : jefe;
+jefe = (jefe.equals("ninguno"))? null : jefe;
 
 BigDecimal objSueldo = new BigDecimal(sueldo);
 
 CtrlEmpleado ctrlEmpleado = new CtrlEmpleado();
 
-boolean exito = ctrlEmpleado.crearEmpleado(nombres, apellidoPaterno, apellidoMaterno, genero, f_nacimiento, f_ingreso, dui, nit, telefono, email, objOficina, jefe, objSueldo, activo);
+boolean exito = ctrlEmpleado.crearEmpleado(nombres, apellidoPaterno, apellidoMaterno, genero, f_nacimiento, f_ingreso, dui, nit, telefono, email, objOficina, jefe, objSueldo, activo, puesto, id_usuario);
 String mensaje;
 
 if(exito){

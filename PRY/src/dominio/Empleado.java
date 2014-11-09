@@ -27,6 +27,14 @@ public class Empleado implements Serializable {
 	private short idPuesto;
 	private Oficina oficina;
 	private Genero genero;
+	
+	
+	//CAMPOS PARA AUDITORIA
+	private Short id_usuario_creador;
+	private Short id_usuario_modifica;
+	private Date fecha_creacion;
+	private Date fecha_modifica;
+	private Short active;
 
 	public Empleado() {
 
@@ -35,7 +43,7 @@ public class Empleado implements Serializable {
 	public Empleado(String nombres, String apellPaterno, String apellMaterno,
 			Genero genero, Date fechaNacimiento, Date fechaIngreso, String dui,
 			String nit, String telefono, String email, Oficina oficina,
-			String jefe, BigDecimal sueldo, String activo) {
+			String jefe, BigDecimal sueldo, String activo, short puesto) {
 		this.nombres = nombres;
 		this.apellidoPaterno = apellPaterno;
 		this.apellidoMaterno = apellMaterno;
@@ -50,6 +58,9 @@ public class Empleado implements Serializable {
 		this.idJefe = jefe;
 		this.sueldo = sueldo;
 		this.activo = activo;
+		this.idPuesto = puesto;
+		
+		this.active = 1;
 	}
 
 	@Id
@@ -212,5 +223,58 @@ public class Empleado implements Serializable {
 	public void setIdPuesto(short idPuesto) {
 		this.idPuesto = idPuesto;
 	}
+	
+	//METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA
+	
+	@Basic(optional = false)
+	@Column(name="id_usuario_creador")
+	public Short getUsuario_creador() {
+		return id_usuario_creador;
+	}
 
+	public void setUsuario_creador(Short usuario_creador) {
+		this.id_usuario_creador = usuario_creador;
+	}
+
+	@Basic(optional = false)
+	@Column(name="id_usuario_modifica")
+	public Short getUsuario_modifica() {
+		return id_usuario_modifica;
+	}
+
+	public void setUsuario_modifica(Short usuario_modifica) {
+		this.id_usuario_modifica = usuario_modifica;
+	}
+
+	@Basic(optional = false)
+	@Column(name="fecha_creacion")
+	public Date getFecha_creacion() {
+		return fecha_creacion;
+	}
+
+	public void setFecha_creacion(Date fecha_creacion) {
+		this.fecha_creacion = fecha_creacion;
+	}
+
+	@Basic(optional = false)
+	@Column(name="fecha_modifica")
+	public Date getFecha_modifica() {
+		return fecha_modifica;
+	}
+
+	public void setFecha_modifica(Date fecha_modifica) {
+		this.fecha_modifica = fecha_modifica;
+	}
+	
+	@Basic(optional = false)
+	@Column(name="active")
+	public Short getActive() {
+		return active;
+	}
+
+	public void setActive(Short activo) {
+		this.active = activo;
+	} 
+	
+	//FIN METODOS PARA AUDITORIA FIN METODOS PARA AUDITORIA FIN METODOS PARA AUDITORIA FIN METODOS PARA AUDITORIA
 }

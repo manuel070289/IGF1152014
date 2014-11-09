@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ page import="negocio.*"%>
 <%@ page import="dominio.*"%>
 <%
-	if((session.getAttribute("rol")==null || session.getAttribute("rol")=="")&& (session.getAttribute("id_usuario")==null || session.getAttribute("id_usuario")==""))
-	{
+	if ((session.getAttribute("rol") == null || session
+			.getAttribute("rol") == "")
+			&& (session.getAttribute("id_usuario") == null || session
+					.getAttribute("id_usuario") == "")) {
 		String site = new String("index.jsp");
 		response.setStatus(response.SC_MOVED_TEMPORARILY);
 		response.setHeader("Location", site);
@@ -22,30 +24,29 @@
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-	src="igf115.js"></script>
-	
+<script type="text/javascript" src="igf115.js"></script>
+
 <script>
 	$(document).ready(function() {
-		setearBotones();		
+		setearBotones();
 	});
 </script>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Ingenieria de Software 2014</a>
-    </div>
-  </div><!-- /.container-fluid -->
-</nav>
+	<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Ingenieria de Software 2014</a>
+		</div>
+	</div>
+	<!-- /.container-fluid --> </nav>
 
 
 	<div class="container-fluid">
@@ -53,10 +54,9 @@
 			<div class="col-md-3">
 				<div class="panel-group" id="menu_izq">
 					<%
-					if(session.getAttribute("rol")!=null)
-					{
-						if((Short)session.getAttribute("rol")==2)
-						{%>
+						if (session.getAttribute("rol") != null) {
+							if ((Short) session.getAttribute("rol") == 2) {
+					%>
 					<div class="panel panel-primary">
 						<div class="panel-heading" data-toggle="collapse"
 							data-target="#crud_empleado" data-parent="#menu_izq">
@@ -64,9 +64,9 @@
 						</div>
 
 						<div id="crud_empleado" class="list-group collapse in">
-							<a id="crearEmpleado" href="#" class="list-group-item">Crear</a><a id="obtenerEmpleado" href="#"
-								class="list-group-item">Obtener</a> <a href="#"
-								class="list-group-item">Actualizar</a> <a href="#"
+							<a id="crearEmpleado" href="#" class="list-group-item">Crear</a><a
+								id="obtenerEmpleado" href="#" class="list-group-item">Obtener</a>
+							<a href="#" class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>
 						</div>
 
@@ -93,8 +93,8 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_oficina">
 
-							<a href="CRUD_OFICINA/CrearOficina.jsp" class="list-group-item">Crear</a><a href="#"
-								class="list-group-item">Obtener</a> <a href="#"
+							<a href="CRUD_OFICINA/CrearOficina.jsp" class="list-group-item">Crear</a><a
+								href="#" class="list-group-item">Obtener</a> <a href="#"
 								class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>
 
@@ -108,10 +108,11 @@
 						<div class="list-group list-collapse collapse"
 							id="crud_departamento">
 
-							<a href="CRUD_DEPARTAMENTO/CrearDepartamento.html" class="list-group-item">Crear</a>
-							<a href="CRUD_DEPARTAMENTO/ListarDepartamentos.html"class="list-group-item">Obtener</a> 
-							<a href="CRUD_DEPARTAMENTO/Modificardepartamento.html" class="list-group-item">Actualizar</a> 
-							<a href="CRUD_DEPARTAMENTO/EliminararDepartamento.jsp"	class="list-group-item">Eliminar</a>
+							<a id="crearDeapartamento" href="CRUD_DEPARTAMENTO/CrearDepto.jsp" class="list-group-item">Crear</a>
+							<a id="obtenerDepartamento" href="CRUD_DEPARTAMENTO/ListarDepartamentos.html" class="list-group-item">Obtener</a>
+							<a id="actualizarDepartamento" href="CRUD_DEPARTAMENTO/ActualizarDepartamento.jsp" class="list-group-item">Actualizar</a> 
+							<a id="eliminarDepartamento" href="CRUD_DEPARTAMENTO/EliminarDepartamento.jsp" class="list-group-item">Eliminar</a>
+							<a id="darBajaDepartamento" href="CRUD_DEPARTAMENTO/DarBajaDepto.jsp"	class="list-group-item">Dar de Baja</a>
 
 						</div>
 					</div>
@@ -122,10 +123,11 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_municipio">
 
-							<a href="#" class="list-group-item">Crear</a><a href="#"
-								class="list-group-item">Obtener</a> <a href="#"
-								class="list-group-item">Actualizar</a> <a href="#"
-								class="list-group-item">Eliminar</a>
+							<a id="crearMunicipio" href="CRUD_MUNICIPIO/CrearMunicipio.jsp"	class="list-group-item">Crear</a>
+							<a id="obtenerMunicipio" href="CRUD_MUNICIPIO/ListarMunicipio.jsp" class="list-group-item">Obtener</a>
+							<a id="actualizarMunicipio" href="CRUD_MUNICIPIO/ModificarMunicipio.jsp" class="list-group-item">Actualizar</a>
+							<a id="eliminarMunicipio" href="CRUD_MUNICIPIO/EliminarMunicipios.jsp" class="list-group-item">Eliminar</a>
+							<a id="darBajaMunicipio" href="CRUD_MUNICIPIO/DarBajaMuni.jsp" class="list-group-item">Dar de Baja</a>
 
 						</div>
 					</div>
@@ -136,8 +138,8 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_genero">
 
-							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a href="#"
-								class="list-group-item">Obtener</a> <a href="#"
+							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a
+								href="#" class="list-group-item">Obtener</a> <a href="#"
 								class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>
 
@@ -158,11 +160,14 @@
 
 						</div>
 					</div>
-					<%} }%>
-					<%  
-					if(session.getAttribute("rol")!=null)
-					{
-						if((Short)session.getAttribute("rol")==1){%>
+					<%
+						}
+						}
+					%>
+					<%
+						if (session.getAttribute("rol") != null) {
+							if ((Short) session.getAttribute("rol") == 1) {
+					%>
 					<div class="panel panel-primary">
 						<div class="panel-heading" data-toggle="collapse"
 							data-target="#crud_usuario" data-parent="#menu_izq">
@@ -170,25 +175,30 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_usuario">
 
-							<a href="CRUD_USUARIO/crearUsuario.jsp" class="list-group-item">Crear</a><a href="#"
-								class="list-group-item">Obtener</a> <a href="#"
+							<a href="CRUD_USUARIO/crearUsuario.jsp" class="list-group-item">Crear</a><a
+								href="#" class="list-group-item">Obtener</a> <a href="#"
 								class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>
 
 						</div>
 					</div>
-					<%} }%>
+					<%
+						}
+						}
+					%>
 				</div>
 				<div class="panel panel-primary">
 					<div class="panel-heading" data-toggle="collapse"
 						data-target="cerrarSesion.jsp" data-parent="#menu_izq">
-						<a href="cerrarSesion.jsp" style="color:white;"><b>Cerrar Sesión</b></a>
+						<a href="cerrarSesion.jsp" style="color: white;"><b>Cerrar
+								Sesión</b></a>
 					</div>
 				</div>
-			</div> <!-- Fin col-md-3 -->
-			<div id="dinamico" class="col-md-9">
 			</div>
-		</div> <!-- Fin row -->
+			<!-- Fin col-md-3 -->
+			<div id="dinamico" class="col-md-9"></div>
+		</div>
+		<!-- Fin row -->
 	</div>
 </body>
 </html>
