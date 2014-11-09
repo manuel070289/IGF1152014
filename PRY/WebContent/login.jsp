@@ -18,6 +18,7 @@
 	else
 	{
 		session.setAttribute("rol", usuario.getRol());
+		session.setAttribute("id_usuario", usuario.getId_usuario());
 		String site = new String("menu.jsp");
 		response.setStatus(response.SC_MOVED_TEMPORARILY);
 		response.setHeader("Location", site);
