@@ -1,7 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.*;
 
@@ -14,6 +14,12 @@ public class Oficina implements Serializable{
 	private String nombOficina;
 	private String domicilio;
 	private Municipio municipio;
+	
+	private Short usuario_creador;
+	private Short usuario_modifica;
+	private Date fecha_creacion;
+	private Date fecha_modifica;
+	private Short activo;
 	
 	private Oficina(){}
 	
@@ -62,5 +68,57 @@ public class Oficina implements Serializable{
 	}
 	public void setMunicipio(Municipio municipio){
 		 this.municipio=municipio;
+	}
+
+	@Basic(optional = false)
+	@Column(name="usuario_creador")
+	public Short getUsuario_creador() {
+		return usuario_creador;
+	}
+
+	public void setUsuario_creador(Short usuario_creador) {
+		this.usuario_creador = usuario_creador;
+	}
+
+	@Basic(optional = false)
+	@Column(name="usuario_modifica")
+	public Short getUsuario_modifica() {
+		return usuario_modifica;
+	}
+
+	public void setUsuario_modifica(Short usuario_modifica) {
+		this.usuario_modifica = usuario_modifica;
+	}
+
+	@Basic(optional = false)
+	@Column(name="fecha_crecion")
+	public Date getFecha_creacion() {
+		return fecha_creacion;
+	}
+
+	public void setFecha_creacion(Date fecha_creacion) {
+		this.fecha_creacion = fecha_creacion;
+	}
+
+	@Basic(optional = false)
+	@Column(name="fecha_modifica")
+	public Date getFecha_modifica() {
+		return fecha_modifica;
+	}
+
+	public void setFecha_modifica(Date fecha_modifica) {
+		this.fecha_modifica = fecha_modifica;
+	}
+
+	@Basic(optional = false)
+	@Column(name="activo")
+	public Short getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Short activo) {
+		this.activo = activo;
 	} 
+	
+	
 }
