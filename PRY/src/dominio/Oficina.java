@@ -1,7 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -16,8 +16,8 @@ public class Oficina implements Serializable{
 	private String domicilio;
 	private Municipio municipio;
 	
-	private Short usuario_creador;
-	private Short usuario_modifica;
+	private Short id_usuario_creador;
+	private Short id_usuario_modifica;
 	private Date fecha_creacion;
 	private Date fecha_modifica;
 	private Short activo;
@@ -26,28 +26,34 @@ public class Oficina implements Serializable{
 	
 	private Oficina(){}
 	
-	public Oficina(String nombOficina,String domicilio,Municipio municipio,Departamento idDepto){
+	public Oficina(String idOficina,String nombOficina,String domicilio,Municipio municipio,String id_usuario,Date fecha){
+		this.id_oficina=idOficina;
 		this.nomb_oficina=nombOficina;
 		this.domicilio=domicilio;
 		this.municipio=municipio;
+		this.id_usuario_creador=Short.parseShort(id_usuario);
+		this.id_usuario_modifica=Short.parseShort(id_usuario);
+		this.fecha_creacion = fecha;
+		this.fecha_modifica = fecha;
+		this.activo=1;
 	}
 	@Id
 	@Basic(optional = false)
 	@Column(name="id_oficina")
-	public String getIdOficina(){
+	public String getId_oficina(){
 		return this.id_oficina;
 	}
-	public void setIdOficina(String idOficina){
+	public void setId_oficina(String idOficina){
 		this.id_oficina=idOficina;
 	}
 	
 	@Basic(optional = false)
 	@Column(name="nomb_oficina")
-	public String getNombOficina() {
+	public String getNomb_oficina() {
 		return nomb_oficina;
 	}
 
-	public void setNombOficina(String nombOficina) {
+	public void setNomb_oficina(String nombOficina) {
 		this.nomb_oficina = nombOficina;
 	}
 
@@ -74,27 +80,27 @@ public class Oficina implements Serializable{
 	}
 
 	@Basic(optional = false)
-	@Column(name="usuario_creador")
+	@Column(name="id_usuario_creador")
 	public Short getUsuario_creador() {
-		return usuario_creador;
+		return id_usuario_creador;
 	}
 
 	public void setUsuario_creador(Short usuario_creador) {
-		this.usuario_creador = usuario_creador;
+		this.id_usuario_creador = usuario_creador;
 	}
 
 	@Basic(optional = false)
-	@Column(name="usuario_modifica")
+	@Column(name="id_usuario_modifica")
 	public Short getUsuario_modifica() {
-		return usuario_modifica;
+		return id_usuario_modifica;
 	}
 
 	public void setUsuario_modifica(Short usuario_modifica) {
-		this.usuario_modifica = usuario_modifica;
+		this.id_usuario_modifica = usuario_modifica;
 	}
 
 	@Basic(optional = false)
-	@Column(name="fecha_crecion")
+	@Column(name="fecha_creacion")
 	public Date getFecha_creacion() {
 		return fecha_creacion;
 	}

@@ -9,6 +9,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import dominio.Municipio;
@@ -59,9 +60,33 @@ public class OficinaDAO {
 		}  
 	}
 	
-	public Oficina daoNombreOficina(String nombre) {
+	public String daoLastId(){
 		sesion= sessionFactory.openSession() ;
-		Criteria criteria = sesion.createCriteria(Oficina.class).add(Restrictions.like("nomb_oficina",nombre)); 
+		Criteria criteria = sesion.createCriteria(Oficina.class)
+				.addOrder(Order.desc("id_oficina")); 
+		Oficina ofic = (Oficina) criteria.uniqueResult();
+		String numeroN="";
+		if(ofic==null)
+			return "O0001";
+		else
+		{
+			Integer numero=Integer.parseInt(ofic.getId_oficina().substring(1));
+			numero++;
+			if(numero<10)
+				numeroN="O000"+numero;
+			if(numero>9 && numero<100)
+				numeroN="O00"+numero;
+			if(numero>99 && numero<1000)
+				numeroN="O0"+numero;
+			if(numero>999)
+				numeroN="O"+numero;
+		}
+		return numeroN;
+	}
+	
+	public Oficina daoNombreOficina(String nomb_oficina) {
+		sesion= sessionFactory.openSession() ;
+		Criteria criteria = sesion.createCriteria(Oficina.class).add(Restrictions.eq("nomb_oficina",nomb_oficina)); 
 		Oficina ofic = (Oficina) criteria.uniqueResult(); 
 		sesion.close() ; 
 		return ofic ; 

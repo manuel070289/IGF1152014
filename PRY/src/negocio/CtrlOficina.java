@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.Date;
 import java.util.List;
 
 import dominio.*;
@@ -7,10 +8,11 @@ import dao.*;
 public class CtrlOficina {
 	private OficinaDAO daoOficina=new OficinaDAO();
 	
-	public boolean crearOficina(String nombOficina, String domicilio,Municipio municipio,Departamento departamento){ 
+	public boolean crearOficina(String nombOficina, String domicilio,Municipio municipio,String id_usuario){ 
 		if(daoOficina.daoNombreOficina(nombOficina) == null) { 
-			if(municipio!=null) { 
-				Oficina oficina = new Oficina(nombOficina, domicilio, municipio,departamento) ; 
+			if(municipio!=null) {
+				String idOficina=daoOficina.daoLastId(); 
+				Oficina oficina = new Oficina(idOficina,nombOficina, domicilio, municipio,id_usuario,new Date());
 				daoOficina.guardaActualiza(oficina) ; 
 				return true;  
 		  } 
@@ -34,7 +36,7 @@ public class CtrlOficina {
 	public boolean modificarOficina(String nombOficina, Municipio municipio) {
 		if(daoOficina.daoNombreOficina(nombOficina) != null) {
 			Oficina oficina =	daoOficina.daoNombreOficina(nombOficina) ;
-			oficina.setNombOficina(nombOficina);
+			oficina.setNomb_oficina(nombOficina);
 			oficina.setMunicipio(municipio);
 			daoOficina.guardaActualiza(oficina) ;
 			return true ;

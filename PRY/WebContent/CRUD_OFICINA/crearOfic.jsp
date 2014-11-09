@@ -6,7 +6,20 @@
 <%@ page import="java.math.BigDecimal"%>
 <%!String mensaje = "";%>
 <%
-	String 
+	String nomb=request.getParameter("nomb_oficina").trim();
+	String munic=request.getParameter("municipio").trim();
+	String domic=request.getParameter("domicilio").trim();
+	String id_usuario=request.getParameter("id_usuario_creador").trim();
+	
+	CtrlMunicipio mun=new CtrlMunicipio();
+	Municipio municipio=mun.daMunicipioById(munic);
+	 
+	CtrlOficina ofic=new CtrlOficina();
+	if(ofic.crearOficina(nomb,domic,municipio,id_usuario))
+		mensaje+="Exito";
+	else
+		mensaje+="Error";
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

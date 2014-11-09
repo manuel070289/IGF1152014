@@ -42,30 +42,37 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="CrearMun.jsp" method="post" role="form">
+				<form class="" action="crearOfic.jsp" method="post" role="form">
 					<fieldset>
 						<legend>CREAR OFICINA</legend>
 					</fieldset>
 					<div class="row">
 						<div class="col-sm-7">
 							<div class="form-group">
-								<label for="nombres">Seleccione el departamento:</label>
+								<label for="departamento">Seleccione el departamento:</label>
 								<%=mensaje %>
 							</div>
 						</div>
 						<div class="col-sm-7">
 							<div class="form-group">
-								<label for="nombres">Seleccione el municipio:</label>
+								<label for="municipio">Seleccione el municipio:</label>
 								<div id="muni" name="muni"></div>
 							</div>
 						</div>
 						</div>
 						<div class="col-sm-7">
 							<div class="form-group">
-								<label for="nomb_municipio">Nombre de la Oficina:</label>
-								<input id="nomb_municipio"	class="form-control" type="text" name="nombOficina" required>
+								<label for="domicilio">Domicilio de la Oficina:</label>
+								<input id="domicilio"	class="form-control" type="text" name="domicilio" required>
 							</div>
 						</div>
+						<div class="col-sm-7">
+							<div class="form-group">
+								<label for="nomb_oficina">Nombre de la Oficina:</label>
+								<input id="nomb_oficina"	class="form-control" type="text" name="nomb_oficina" required>
+							</div>
+						</div>
+						<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
 						<div class="col-sm-7">
 							<div class="form-group">
 								<input class="btn btn-primary" type="submit" value="Crear Oficina" >	
