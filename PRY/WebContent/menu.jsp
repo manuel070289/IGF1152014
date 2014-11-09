@@ -165,6 +165,12 @@
 					</div>
 					<%} %>
 				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading" data-toggle="collapse"
+						data-target="cerrarSesion.jsp" data-parent="#menu_izq">
+						<a href="cerrarSesion.jsp" style="color:white;"><b>Cerrar Sesión</b></a>
+					</div>
+				</div>
 			</div> <!-- Fin col-md-3 -->
 			<div id="dinamico" class="col-md-9">
 			</div>

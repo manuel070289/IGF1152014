@@ -16,7 +16,7 @@
 	 
 	CtrlOficina ofic=new CtrlOficina();
 	if(ofic.crearOficina(nomb,domic,municipio,id_usuario))
-		mensaje+="Exito";
+		mensaje+="Oficina creada con exito";
 	else
 		mensaje+="Error";
 	
@@ -28,6 +28,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class='container-fluid '>
+		<div class="row">
+			<div class="col-md-7">
+				<fieldset>
+						<legend>Informacion</legend>
+						<%=mensaje%>
+					</fieldset>
+			
+			
+			</div>
+		</div>
+	</div>
 </body>
 </html>
