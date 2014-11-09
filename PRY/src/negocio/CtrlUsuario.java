@@ -7,7 +7,7 @@ public class CtrlUsuario {
 	private UsuarioDAO daoUsuario=new UsuarioDAO();
 	
 	
-	public boolean modificarOficina(Integer idUsuario, String nombre, String apellido,Genero genero) {
+	public boolean modificarOficina(Short idUsuario, String nombre, String apellido,Genero genero) {
 		if(daoUsuario.daoUsuarioByNombre(nombre) != null) {
 			Usuario usuario =	daoUsuario.daoUsuarioById(idUsuario) ;
 			usuario.setNombre(nombre);
@@ -23,12 +23,17 @@ public class CtrlUsuario {
 	public List<Usuario> daoUsuario(){
 		return daoUsuario.daoUsuario() ;
 	}
-	public Usuario daoUsuarioById(Integer idUsuario) {
+	public Usuario daoUsuarioById(Short idUsuario) {
 		return daoUsuario.daoUsuarioById(idUsuario) ;
+	}
+	
+	public Usuario daoUsuarioByUserPass(String user,String pass) {
+		return daoUsuario.daoUsuarioByUserPass(user,pass) ;
 	}
 	public Usuario daoUsuarioByNombre(String nombre) {
 		return daoUsuario.daoUsuarioByNombre(nombre) ;
 	}
+	
 	public Usuario daoUsuarioByApellido(String apellido) {
 		return daoUsuario.daoUsuarioByApellido(apellido) ;
 	}

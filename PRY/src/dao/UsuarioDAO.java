@@ -57,13 +57,24 @@ public class UsuarioDAO {
 		}  
 	}
 	
-	public Usuario daoUsuarioById(Integer idUsuario){
+	public Usuario daoUsuarioById(Short idUsuario){
 		sesion = sessionFactory.openSession() ;
 		Criteria var = sesion.createCriteria(Usuario.class).add(Restrictions.eq("id_usuario", idUsuario));
 		Usuario usuario = (Usuario)var.uniqueResult() ;
 		sesion.close() ;
 		return usuario ;
 	}
+	
+	public Usuario daoUsuarioByUserPass(String user,String pass) {
+		sesion= sessionFactory.openSession() ;
+		Criteria criteria = sesion.createCriteria(Usuario.class)
+				.add(Restrictions.like("username",user))
+				.add(Restrictions.like("passwd",pass)); 
+		Usuario ofic = (Usuario) criteria.uniqueResult(); 
+		sesion.close() ; 
+		return ofic ; 
+	}
+	
 	
 	public Usuario daoUsuarioByNombre(String nombre) {
 		sesion= sessionFactory.openSession() ;
