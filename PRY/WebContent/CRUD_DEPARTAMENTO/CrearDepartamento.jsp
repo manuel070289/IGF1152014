@@ -13,8 +13,8 @@
      CtrlDepartamento depto = new CtrlDepartamento();
  	 /* List empleados = nomina.daDepartamentoCriteria(nombre,ciudad);
 	 int numeroEmpleados = empleados.size(); */
-	 Short creador = 1;
-	 Short modifica = 1;
+	 Short creador = (Short)session.getAttribute("id_usuario");//1;
+	 Short modifica =(Short)session.getAttribute("id_usuario"); //1;
 	 
 	 
  	 if (depto.crearDepartamento(id_depto, nombre_depto, zona_geografica, creador, modifica))

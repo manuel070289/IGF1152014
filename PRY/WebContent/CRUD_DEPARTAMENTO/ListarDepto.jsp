@@ -12,12 +12,9 @@
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="panel container-fluid col-xs-7">
-
-		<div class="panel panel-primary ">
-			<div class="panel-heading" 	>
-				<h3 class="panel-title">LISTAR DEPARTAMENTO</h3>
-			</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-7">
 
 			<div class="panel" id="listarDepartamentosZonas"
 				class="list-group collapse in">

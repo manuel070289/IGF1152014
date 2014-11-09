@@ -85,8 +85,25 @@ public class CtrlMunicipio {
 	public List<Municipio> daMunicipiobyDepto(String id_depto){
 		return daoMun.daMunicipioByDepto(id_depto) ;
 	}
+	
+	
+	public List<Municipio> daMunicipioActivos(){
+		return daoMun.daMunicipioActivos() ;
+	}
 
-
+	public boolean darBajaMuni(String id_municipio, Short activo, Short umodifica) {
+		if(daoMun.daMunicipioById(id_municipio) != null) {
+			Municipio municipio =	daoMun.daMunicipioById(id_municipio) ;
+			municipio.setActivo(activo);
+			municipio.setId_usuario_modifica(umodifica);
+			municipio.setFecha_modifica(fecha_modifica);
+			
+			daoMun.Actualiza(municipio) ;
+			return true ;
+		}
+		else
+			return false ;
+	}
 
 
 

@@ -7,17 +7,17 @@
 
 <%!String mensaje = "";%>
 <%
-	String id_depto = request.getParameter("departamento").trim();
-	String nombre_depto = request.getParameter("nombre_depto").trim();
-	String zona_geografica = request.getParameter("zona_geografica").trim();
-	CtrlDepartamento modifica = new CtrlDepartamento();
+	String id_municipio = request.getParameter("municipio").trim();
+	String nomb_municipio = request.getParameter("nomb_municipio").trim();
+	
+	CtrlMunicipio modifica = new CtrlMunicipio();
 	Short umodifica = (Short)session.getAttribute("id_usuario");//2 ;
 	
-	if (id_depto.isEmpty())
-		mensaje += "<div class='text-warning'> Debe seleccionar un departamento</div>";
+	if (id_municipio.isEmpty())
+		mensaje += "<div class='text-warning'> Debe seleccionar un municipio</div>";
 	else {
-		if (modifica.modificarDepartamento(id_depto, nombre_depto, zona_geografica, umodifica))
-			mensaje += "<div class='text-warning'> El departamento fue actualizado</div>";
+		if (modifica.modificarMunicipio(id_municipio, nomb_municipio, umodifica))
+			mensaje += "<div class='text-warning'> El municipio  fue actualizado</div>";
 		else
 
 			mensaje += "<div class='text-warning'>El departamento no pude ser actualizado</div>";
@@ -27,7 +27,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Departamento Actualizado</title>
+<title>Municipio Actualizado</title>
 <link rel="stylesheet" type="text/css"
 	href="../bootstrap-3.2.0-dist/normalize.css">
 <link rel="stylesheet" type="text/css"

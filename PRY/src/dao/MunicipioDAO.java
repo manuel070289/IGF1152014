@@ -45,6 +45,21 @@ public class MunicipioDAO {
 			sesion.close() ;
 		}
 	}
+	
+	public void Actualiza(Municipio municipio) {
+		try {
+			iniciaOperacion() ;
+			sesion.update(municipio) ;
+			tx.commit() ;
+			sesion.flush() ;
+		} catch (HibernateException he) {
+			manejaExcepcion(he) ;
+			throw he ;
+		} finally {
+			sesion.close() ;
+		}
+	}
+	
 	public void eliminar(Municipio municipio) {
 		try {
 			iniciaOperacion() ;
@@ -97,7 +112,15 @@ public class MunicipioDAO {
 		return munis ;
 	}
 
-
+	public List<Municipio> daMunicipioActivos() {
+		sesion = sessionFactory.openSession() ;
+//		Query query = sesion.getNamedQuery("Departamentos.findAll") ;
+		Short activo = 1;
+		Criteria var = sesion.createCriteria(Municipio.class).add(Restrictions.eq("activo",activo));
+		List<Municipio> municipios = var.list() ;
+		sesion.close() ;
+		return municipios ;
+	}
 
 
 }

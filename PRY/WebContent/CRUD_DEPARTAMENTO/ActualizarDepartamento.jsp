@@ -70,6 +70,7 @@
 						</div>
 						
 					</div>
+					<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
 					<input class="btn btn-primary" type="submit" value="Actualizar Departamento">
 				</form>
 			</div>

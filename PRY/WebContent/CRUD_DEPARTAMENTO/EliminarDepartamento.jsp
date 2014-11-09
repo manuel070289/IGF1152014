@@ -17,8 +17,11 @@
  		mensaje += "<div class='text-warning'> No Hay Departamentos</div>";
  	 else {
  		 Departamento depActual;
- 		mensaje += "<select name='departamento' >"+
- 		 			"<option value=' '>Seleccione</option>";
+ 		 mensaje += "<select name='departamento' >"+
+ 		 			"<option value=' '>Seleccione</option>"; 
+ 		   /* mensaje += "<input type='text' list='departamentos' name='departamentos' />" 
+ 		 				+ " <datalist id='departamentos'>"
+ 		 				+"<select>"; */
  		 
  		 for (int i=0; i < numeroDeptos; i++) {
  			 depActual = (Departamento) departamentos.get(i);
@@ -40,6 +43,7 @@
 <script type="text/javascript" src="../jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+	
 </head>
 <body>
 	<div class="container-fluid">

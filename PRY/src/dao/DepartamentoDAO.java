@@ -116,5 +116,15 @@ public class DepartamentoDAO {
 		sesion.close() ;
 		return municipioList ;
 	}
+	
+	public List<Departamento> daDepartamentoActivo() {
+		sesion = sessionFactory.openSession() ;
+		Short activo = 1;
+//		Query query = sesion.getNamedQuery("Departamentos.findAll") ;
+		Criteria var = sesion.createCriteria(Departamento.class).add(Restrictions.eq("activo",activo));
+		List<Departamento> departamentos = var.list() ;
+		sesion.close() ;
+		return departamentos ;
+	}
 
 }

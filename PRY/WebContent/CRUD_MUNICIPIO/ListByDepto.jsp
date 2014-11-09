@@ -15,9 +15,11 @@
 	int numeroMunis = municipios.size();
 	mensaje +="<table class='table-condensed table-bordered'>"+
 			"<tr class='panel-heading'>"+
-	"<th class='panel-title'>id_municipio</th>"+
-	"<th class='panel-title'>nombre_municipio</th>"+
-	"</tr>";
+			"<th class='panel-title'>id_municipio</th>"+
+			"<th class='panel-title'>nombre_municipio</th>"+
+			"<th class='panel-title'>fecha_creacion</th>"+
+			"<th class='panel-title'>fecha_modifica</th>"+
+			"</tr>";
 
 	if (municipios.isEmpty())
 		mensaje += "</table><div class='text-warning'> No Hay municipios para ese departamento</div>";
@@ -29,6 +31,8 @@
 			/* Departamento depto =(Departamento) muniActual.getDepartamento(); */
 			 mensaje += ("<tr><td> " + muniActual.getId_municipio()
 					+ "</td> <td> " + muniActual.getNomb_municipio()
+					+ "</td> " + "<td> " +muniActual.getFecha_creacion()
+					+ "</td> " + "<td> " +muniActual.getFecha_modifica()
 					+ "</td></tr>" );
 		 nombreDepto = muniActual.getDepartamento().getNombre_depto(); 
 		}
@@ -49,7 +53,7 @@
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class='panel container-fluid col-xs-7'>
+	<div class='panel container-fluid'>
 		<div class='panel panel-primary '>
 			<div class='panel-heading'>
 				<h3 class='title'>

@@ -55,7 +55,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listar Municipio</title>
+<title>Eliminar Municipio</title>
 <link rel="stylesheet" type="text/css"
 	href="../bootstrap-3.2.0-dist/normalize.css">
 <link rel="stylesheet" type="text/css"
@@ -69,7 +69,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="panel-heading">
-			<h3 class="panel-title">ELIMINAR MUNICIPIO</h3>
+			<!-- <h3 class="panel-title">ELIMINAR MUNICIPIO</h3> -->
 		</div>
 		<div class="row">
 			<div class="col-md-7">

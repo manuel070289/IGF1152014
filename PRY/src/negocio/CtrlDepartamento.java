@@ -50,6 +50,23 @@ public class CtrlDepartamento {
 		else
 			return false ;
 	}
+	
+	
+	public boolean darBajaDepto(String id_depto, Short activo, Short umodifica) {
+		if(daoDepto.daDepartamentoById(id_depto) != null) {
+			Departamento departamento =	daoDepto.daDepartamentoById(id_depto);
+			departamento.setActivo(activo);
+			departamento.setId_usuario_modifica(umodifica);
+			departamento.setFecha_modifica(fecha_modifica);
+			daoDepto.Actualiza(departamento);
+			return true ;
+		}
+		else
+			return false ;
+	}
+	
+	
+	
 	public List<Departamento> daDepartamentos(){
 		return daoDepto.daDepartamentos() ;
 	}
@@ -63,6 +80,9 @@ public class CtrlDepartamento {
 		return daoDepto.daDepartamentoByZona(zona_geografica) ;
 	}
 	
+	public List<Departamento> daDeptoActivos() {
+		return daoDepto.daDepartamentoActivo() ;
+	}
 	
 	
 

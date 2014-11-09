@@ -11,9 +11,11 @@
 	String id_municipio = request.getParameter("id_municipio").trim();
 	String nomb_municipio = request.getParameter("nomb_municipio").trim();
 	CtrlMunicipio crear = new CtrlMunicipio();
+	Short usuario_creador = (Short)session.getAttribute("id_usuario");//1;
+	Short usuario_modifica= (Short)session.getAttribute("id_usuario");//1;
 	
 	
-		if (crear.crearMunicipio(id_municipio, id_depto, nomb_municipio))
+		if (crear.crearMunicipio(id_municipio, id_depto, nomb_municipio, usuario_creador, usuario_modifica))
 			mensaje += "<div class='text-warning'>El municipio fue creado con exito</div>";
 		else
 
@@ -34,17 +36,18 @@
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class='panel container-fluid col-xs-7'>
-		<div class='panel panel-primary '>
-			<div class='panel-heading'>
-				<h3 class='title'>Informacion</h3>
-			</div>
-
+	<div class='container-fluid '>
+		<div class="row">
+			<div class="col-md-7">
+				<fieldset>
+						<legend>Informacion</legend>
+					</fieldset>
+			
 			<%=mensaje%>
+			</div>
 		</div>
 	</div>
-	<%=mensaje=""%>a
-
+	<%=mensaje = ""%>
 
 </body>
 </html>
