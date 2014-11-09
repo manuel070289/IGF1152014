@@ -66,13 +66,19 @@
 								<input id="nomb_municipio"	class="form-control" type="text" name="nombOficina" required>
 							</div>
 						</div>
-						
+						<div class="col-sm-7">
+							<div class="form-group">
+								<input class="btn btn-primary" type="submit" value="Crear Oficina" >	
+							</div>
+						</div>
 					</div>
-					<input class="btn btn-primary" type="submit" value="Crear Oficina" >
+					
 				</form>
 			</div>
 			<%=mensaje=""%>
 		</div>
 	</div>
+	<script>
+	</script>
 </body>
 </html>

@@ -15,7 +15,8 @@
 		out.print("<div class='text-warning'> No Hay municipios para ese departamento</div>");
 	else { 
 		Municipio muniActual;
-		out.print("<select>");
+		out.print("<select required name='municipio'>");
+		out.print("<option value=''>Seleccione</option>");
 		for (int i = 0; i < numeroMunis; i++) {
 			 muniActual = (Municipio) municipios.get(i); 
 			 out.print("<option value=\""+muniActual.getId_municipio()+"\">"+muniActual.getNomb_municipio()+"</option>");
