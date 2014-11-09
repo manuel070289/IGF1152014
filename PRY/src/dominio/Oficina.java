@@ -39,7 +39,7 @@ public class Oficina implements Serializable{
 	}
 	
 	@Basic(optional = false)
-	@Column(name="nom_oficina")
+	@Column(name="nomb_oficina")
 	public String getNombOficina() {
 		return nombOficina;
 	}

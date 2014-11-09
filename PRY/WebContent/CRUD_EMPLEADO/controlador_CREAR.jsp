@@ -18,6 +18,11 @@ String telefono = request.getParameter("tel");
 String email = request.getParameter("email");
 String sexo = request.getParameter("sexo");
 String fechaIngreso = request.getParameter("f_ingreso");
+String puesto = request.getParameter("puesto");
+String oficina = request.getParameter("oficina");
+String jefe = request.getParameter("jefe");
+String sueldo = request.getParameter("sueldo");
+String activo = request.getParameter("activo");
 
 
 SimpleDateFormat aux = new SimpleDateFormat("dd/mm/yyyy");

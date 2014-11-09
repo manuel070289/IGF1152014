@@ -6,11 +6,10 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "empleado", catalog = "igf2014", schema = "")
 public class Empleado implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	private String idEmpleado;
 	private String nit;
@@ -28,12 +27,15 @@ public class Empleado implements Serializable {
 	private short idPuesto;
 	private Oficina oficina;
 	private Genero genero;
-	
-	public Empleado () {
-		
+
+	public Empleado() {
+
 	}
-	
-	public Empleado(String nombres, String apellPaterno, String apellMaterno, Genero genero, Date fechaNacimiento, Date fechaIngreso, String dui, String nit, String telefono, String email) {
+
+	public Empleado(String nombres, String apellPaterno, String apellMaterno,
+			Genero genero, Date fechaNacimiento, Date fechaIngreso, String dui,
+			String nit, String telefono, String email, Oficina oficina,
+			String jefe, BigDecimal sueldo, String activo) {
 		this.nombres = nombres;
 		this.apellidoPaterno = apellPaterno;
 		this.apellidoMaterno = apellMaterno;
@@ -44,8 +46,12 @@ public class Empleado implements Serializable {
 		this.nit = nit;
 		this.telefono = telefono;
 		this.email = email;
+		this.oficina = oficina;
+		this.idJefe = jefe;
+		this.sueldo = sueldo;
+		this.activo = activo;
 	}
-	
+
 	@Id
 	@Basic(optional = false)
 	@Column(name = "id_empleado")
@@ -56,7 +62,7 @@ public class Empleado implements Serializable {
 	public void setIdEmpleado(String idEmpleado) {
 		this.idEmpleado = idEmpleado;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "nit")
 	public String getNit() {
@@ -66,7 +72,7 @@ public class Empleado implements Serializable {
 	public void setNit(String nit) {
 		this.nit = nit;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "dui")
 	public String getDui() {
@@ -76,7 +82,7 @@ public class Empleado implements Serializable {
 	public void setDui(String dui) {
 		this.dui = dui;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "nombres")
 	public String getNombres() {
@@ -86,7 +92,7 @@ public class Empleado implements Serializable {
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "apellido_paterno")
 	public String getApellidoPaterno() {
@@ -96,7 +102,7 @@ public class Empleado implements Serializable {
 	public void setApellidoPaterno(String apellidoPaterno) {
 		this.apellidoPaterno = apellidoPaterno;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "apellido_materno")
 	public String getApellidoMaterno() {
@@ -106,7 +112,7 @@ public class Empleado implements Serializable {
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "fecha_nacimiento")
 	public Date getFechaNacimiento() {
@@ -116,7 +122,7 @@ public class Empleado implements Serializable {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "fecha_ingreso")
 	public Date getFechaIngreso() {
@@ -126,7 +132,7 @@ public class Empleado implements Serializable {
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "sueldo")
 	public BigDecimal getSueldo() {
@@ -136,7 +142,7 @@ public class Empleado implements Serializable {
 	public void setSueldo(BigDecimal sueldo) {
 		this.sueldo = sueldo;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "e_mail")
 	public String getEmail() {
@@ -146,7 +152,7 @@ public class Empleado implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "telefono")
 	public String getTelefono() {
@@ -156,7 +162,7 @@ public class Empleado implements Serializable {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "activo")
 	public String getActivo() {
@@ -166,8 +172,8 @@ public class Empleado implements Serializable {
 	public void setActivo(String activo) {
 		this.activo = activo;
 	}
-	
-	@ManyToOne(optional=false)
+
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_sexo", referencedColumnName = "id_sexo")
 	public Genero getGenero() {
 		return genero;
@@ -176,8 +182,8 @@ public class Empleado implements Serializable {
 	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
-	
-	@ManyToOne(optional=false)
+
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_oficina", referencedColumnName = "id_oficina")
 	public Oficina getOficina() {
 		return oficina;
@@ -186,6 +192,5 @@ public class Empleado implements Serializable {
 	public void setOficina(Oficina oficina) {
 		this.oficina = oficina;
 	}
-	
-	
+
 }

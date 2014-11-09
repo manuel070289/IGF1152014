@@ -54,7 +54,7 @@
 	<!-- <div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7"> -->
-	<form class="" action="CRUD_EMPLEADO/crear.jsp" method="get"
+	<form class="" action="CRUD_EMPLEADO/controlador_CREAR.jsp" method="get"
 		role="form">
 		<div class="row">
 			<div class="col-md-7">
@@ -150,7 +150,9 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Jefe Inmediato:</label> <select class="form-control" name="jefe"><%=jefes%></select>
+								<label>Jefe Inmediato:</label> <select class="form-control" name="jefe">
+								<option value="ninguno">Ninguno</option>
+								<%=jefes%></select>
 							</div>
 						</div>
 						<div class="col-md-6">

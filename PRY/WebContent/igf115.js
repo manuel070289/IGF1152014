@@ -19,7 +19,7 @@ function setearBotones() {
 	});
 	
 	$('#crearGenero').click(function(event) {
-		$.post('CRUD_GENERO/crear.html', function(responseText) {
+		$.post('CRUD_GENERO/formulario_CREAR.html', function(responseText) {
 			$('#dinamico').html(responseText);
 		});
 	});	
