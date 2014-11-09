@@ -11,8 +11,8 @@ import javax.persistence.*;
 @NamedQueries({})
 public class Oficina implements Serializable{
 	private static final long serialVersionUID=1L;
-	private String idOficina;
-	private String nombOficina;
+	private String id_oficina;
+	private String nomb_oficina;
 	private String domicilio;
 	private Municipio municipio;
 	
@@ -27,7 +27,7 @@ public class Oficina implements Serializable{
 	private Oficina(){}
 	
 	public Oficina(String nombOficina,String domicilio,Municipio municipio,Departamento idDepto){
-		this.nombOficina=nombOficina;
+		this.nomb_oficina=nombOficina;
 		this.domicilio=domicilio;
 		this.municipio=municipio;
 	}
@@ -35,20 +35,20 @@ public class Oficina implements Serializable{
 	@Basic(optional = false)
 	@Column(name="id_oficina")
 	public String getIdOficina(){
-		return this.idOficina;
+		return this.id_oficina;
 	}
 	public void setIdOficina(String idOficina){
-		this.idOficina=idOficina;
+		this.id_oficina=idOficina;
 	}
 	
 	@Basic(optional = false)
 	@Column(name="nomb_oficina")
 	public String getNombOficina() {
-		return nombOficina;
+		return nomb_oficina;
 	}
 
 	public void setNombOficina(String nombOficina) {
-		this.nombOficina = nombOficina;
+		this.nomb_oficina = nombOficina;
 	}
 
 	@Basic(optional = false)
@@ -125,7 +125,7 @@ public class Oficina implements Serializable{
 	
 	/////////////////////////////////////////////////////////////
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="oficina")
-	//un municipio tiene muchas oficinas
+	//una oficina tiene muchos empleados
 	public List<Empleado> getListEmpleado() {
 		return listEmpleado;
 	}
