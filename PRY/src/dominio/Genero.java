@@ -1,6 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Basic;
@@ -24,7 +25,7 @@ public class Genero implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String id_sexo;
 	private String d_sexo;
-//	private List<Empleado> empleadoList;
+	private List<Usuario> usuarioList = new ArrayList<Usuario>();
 	
 	private Genero(){
 		
@@ -71,6 +72,13 @@ public class Genero implements Serializable {
 //		this.empleadoList = empleadoList;
 //	}
 	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="genero")
+	public List<Usuario> getUsuarioList(){
+		return usuarioList;
+	}
 	
+	public void setUsuarioList(List<Usuario> usuarioList){
+		this.usuarioList=usuarioList;
+	}
 
 }

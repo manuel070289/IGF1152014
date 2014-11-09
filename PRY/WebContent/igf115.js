@@ -1,6 +1,6 @@
 function setearBotones() {
 	$('#crearEmpleado').click(function(event) {
-		$.post('CRUD_EMPLEADO/crearForm.jsp', function(responseText) {
+		$.post('CRUD_EMPLEADO/formulario_CREAR.jsp', function(responseText) {
 			$('#dinamico').html(responseText);
 		});
 	});
@@ -8,6 +8,13 @@ function setearBotones() {
 	$('#obtenerEmpleado').click(function(event) {
 		$.post('CRUD_EMPLEADO/obtener.jsp', function(responseText) {
 			$('#dinamico').html(responseText);
+		});
+	});
+	
+	$('#actualizarEmpleado').click(function(event) {
+		$.post('CRUD_EMPLEADO/actualizar.jsp', function(responseText) {
+			$('#dinamico').html(responseText);
+			$(".chosen-select").chosen();
 		});
 	});
 	
