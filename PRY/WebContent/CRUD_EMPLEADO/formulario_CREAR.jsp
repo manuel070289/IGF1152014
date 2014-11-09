@@ -7,14 +7,34 @@
 
 
 <%
-String aux = "";
-GeneroDAO daoGenero = new GeneroDAO();
-List<Genero> lista = daoGenero.dameTodosLosGeneros();
+	String aux = "";
+	GeneroDAO daoGenero = new GeneroDAO();
+	List<Genero> lista = daoGenero.dameTodosLosGeneros();
+	for (int i = 0; i < lista.size(); i++) {
+		aux = aux + "<option value=" + lista.get(i).getId_sexo() + ">"
+				+ lista.get(i).getD_sexo() + "</option>";
+	}
 
-for(int i=0; i<lista.size();i++) {
-	aux = aux + "<option value=" + lista.get(i).getId_sexo() + ">" + lista.get(i).getD_sexo() + "</option>";
-}
+	String oficinas = "";
+	OficinaDAO daoOficina = new OficinaDAO();
+	List<Oficina> listaOficina = daoOficina.daoOficina();
+	for (int i = 0; i < listaOficina.size(); i++) {
+		oficinas = oficinas + "<option value="
+				+ listaOficina.get(i).getIdOficina() + ">"
+				+ listaOficina.get(i).getNombOficina() + "</option>";
+	}
 
+	String jefes = "";
+	EmpleadoDAO daoEmpleado = new EmpleadoDAO();
+	List<Empleado> listaEmpleados = daoEmpleado.dameTodosLosEmpleados();
+	for (int i = 0; i < listaEmpleados.size(); i++) {
+		jefes = jefes + "<option value="
+				+ listaEmpleados.get(i).getIdEmpleado() + ">"
+				+ listaEmpleados.get(i).getNombres() + " "
+				+ listaEmpleados.get(i).getApellidoPaterno() + " "
+				+ listaEmpleados.get(i).getApellidoMaterno()
+				+ "</option>";
+	}
 %>
 
 <!DOCTYPE html>
@@ -34,92 +54,86 @@ for(int i=0; i<lista.size();i++) {
 	<!-- <div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7"> -->
-			<form class="" action="CRUD_EMPLEADO/crear.jsp" method="get" role="form">
-			<div class="row">
-			
+	<form class="" action="CRUD_EMPLEADO/crear.jsp" method="get"
+		role="form">
+		<div class="row">
 			<div class="col-md-7">
-			<fieldset>
-						<legend>Información Personal</legend>
-					</fieldset>
+				<fieldset>
+					<legend>Información Personal</legend>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="nombres">Nombres:</label> <input id="nombres"
-									class="form-control" type="text" name="nombres">
+									class="form-control" type="text" name="nombres"
+									required="required">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
-								<label for="a_paterno">A. Paterno:</label> <input
-									id="a_paterno" class="form-control" type="text"
-									name="a_paterno">
+								<label for="a_paterno">A. Paterno:</label> <input id="a_paterno"
+									class="form-control" type="text" name="a_paterno"
+									required="required">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
-								<label for="a_materno">A. Materno:</label> <input
-									id="a_materno" class="form-control" type="text"
-									name="a_materno">
+								<label for="a_materno">A. Materno:</label> <input id="a_materno"
+									class="form-control" type="text" name="a_materno"
+									required="required">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="f_nacimiento">F. Nacimiento:</label> <input
 									id="f_nacimiento" class="form-control" type="text"
-									name="f_nacimiento">
+									name="f_nacimiento" required="required">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="dui">DUI:</label> <input id="dui"
 									class="form-control" type="text" name="dui"
-									placeholder="99999999-9">
+									placeholder="99999999-9" required="required">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="nit">NIT:</label> <input id="nit"
 									class="form-control" type="text" name="nit"
-									placeholder="9999-999999-999-9">
+									placeholder="9999-999999-999-9" required="required">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="tel">Teléfono:</label> <input id="tel"
 									class="form-control" type="text" name="tel"
-									placeholder="99999999">
+									placeholder="99999999" required="required">
 							</div>
 						</div>
 						<div class="col-md-8">
 							<div class="form-group">
 								<label for="email">E-mail:</label> <input id="email"
 									class="form-control" type="text" name="email"
-									placeholder="ejemplo@ejemplo.com">
+									placeholder="ejemplo@ejemplo.com" required="required">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
-								<label>Sexo:</label> <select class="form-control" name="sexo"><%= aux %></select>
+								<label>Sexo:</label> <select class="form-control" name="sexo"><%=aux%></select>
 							</div>
 						</div>
-			</div>
+					</div>
+				</fieldset>
+
 			</div>
 			<div class="col-md-5">
-			<fieldset>
-						<legend>Información del Puesto</legend>
-					</fieldset>
+				<fieldset>
+					<legend>Información del Puesto</legend>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="f_ingreso">F. Ingreso:</label> <input
-									id="f_ingreso" class="form-control" type="text"
-									name="f_ingreso">
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="oficina">Oficina:</label> <input id="oficina"
-									class="form-control" type="text" name="oficina">
+								<label for="f_ingreso">F. Ingreso:</label> <input id="f_ingreso"
+									class="form-control" type="text" name="f_ingreso">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -128,10 +142,15 @@ for(int i=0; i<lista.size();i++) {
 									class="form-control" type="text" name="puesto">
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<div class="form-group">
-								<label for="nit">Jefe Inmediato:</label> <input id="jefe"
-									class="form-control" type="text" name="jefe">
+								<label>Oficina:</label> <select class="form-control"
+									name="oficina"><%=oficinas%></select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Jefe Inmediato:</label> <select class="form-control" name="jefe"><%=jefes%></select>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -156,27 +175,26 @@ for(int i=0; i<lista.size();i++) {
 							</div>
 						</div>
 					</div>
-					
-					
+				</fieldset>
 			</div>
-			
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<input class="btn btn-primary" type="submit" value="Crear Empleado">
 			</div>
-			<div class="row">
-					<div class="col-md-12">
-					<input class="btn btn-primary" type="submit" value="Crear Empleado">
-					</div>
-					</div>
-			</form>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-				<%-- <form class="" action="crear.jsp" method="get" role="form">
+		</div>
+	</form>
+
+
+
+
+
+
+
+
+
+
+	<%-- <form class="" action="crear.jsp" method="get" role="form">
 					<fieldset>
 						<legend>Información Personal</legend>
 					</fieldset>
@@ -295,7 +313,7 @@ for(int i=0; i<lista.size();i++) {
 					</div>
 					<input class="btn btn-primary" type="submit" value="Crear Empleado">
 				</form> --%>
-			<!-- </div>
+	<!-- </div>
 		</div>
 	</div> -->
 </body>
