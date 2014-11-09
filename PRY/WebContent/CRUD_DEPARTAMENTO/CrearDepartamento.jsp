@@ -28,8 +28,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Departamento</title>
+<link rel="stylesheet" type="text/css"
+	href="../bootstrap-3.2.0-dist/normalize.css">
+<link rel="stylesheet" type="text/css"
+	href="../bootstrap-3.2.0-dist/css/bootstrap.min.css">
+<script type="text/javascript" src="../jquery-2.1.1.min.js"></script>
+<script type="text/javascript"
+	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-       <%= mensaje %><br>
+<div class='container-fluid '>
+		<div class="row">
+			<div class="col-md-7">
+				<fieldset>
+						<legend>Informacion</legend>
+					</fieldset>
+			
+			<%=mensaje%>
+			</div>
+		</div>
+	</div>
+       <%= mensaje="" %><br>
 </body>
 </html>

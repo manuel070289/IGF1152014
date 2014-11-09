@@ -13,10 +13,15 @@
 	 int numeroDeptos = departamentos.size();
 	 mensaje +="<table class='table-condensed table-bordered'>"+
 				"<tr class='panel-heading'>"+
-		"<th class='panel-title'>id_depto</th>"+
-		"<th class='panel-title'>nombre_depto</th>"+
-		"<th class='panel-title'>zona_geografica</th>"+
-		"</tr>";
+				"<th class='panel-title'>id_depto</th>"+
+				"<th class='panel-title'>nombre_depto</th>"+
+				"<th class='panel-title'>zona_geografica</th>"+
+				"<th class='panel-title'>id_usuario_creador</th>"+
+				"<th class='panel-title'>fecha_creacion</th>"+
+				"<th class='panel-title'>id_usuario_modifica</th>"+
+				"<th class='panel-title'>fecha_modifica</th>"+	
+				"</tr>";
+				
  	 if (departamentos.isEmpty())
  		mensaje += "</table><div class='text-warning'> No Hay Departamentos</div>";
  	 else {
@@ -27,6 +32,10 @@
  			mensaje += ("<tr><td> " + depActual.getId_depto() + "</td> "
 					+ "<td> " + depActual.getNombre_depto()
 					+ "</td><td> " + depActual.getZona_geografica()
+					+ "</td><td> " + depActual.getId_usuario_creador()
+					+ "</td><td> " + depActual.getFecha_creacion()
+					+ "</td><td> " + depActual.getId_usuario_modifica()
+					+ "</td><td> " + depActual.getFecha_modifica()
 					+ "</td>" + "</tr>" + "");
  		 }
  		 mensaje += "</table>";
@@ -46,7 +55,7 @@
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class='panel container-fluid col-xs-7'>
+	<div class='panel container-fluid'>
 		<div class='panel panel-primary '>
 			<div class='panel-heading'>
 				<h3 class='title'>Datos de los Departamentos</h3>

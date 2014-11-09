@@ -12,10 +12,14 @@
 	Departamento departamento = nomina.daDepartamentoByNombre(nombre_depto);
 	 mensaje +="<table class='table-condensed table-bordered'>"+
 				"<tr class='panel-heading'>"+
-		"<th class='panel-title'>id_depto</th>"+
-		"<th class='panel-title'>nombre_depto</th>"+
-		"<th class='panel-title'>zona_geografica</th>"+
-		"</tr>";
+				"<th class='panel-title'>id_depto</th>"+
+				"<th class='panel-title'>nombre_depto</th>"+
+				"<th class='panel-title'>zona_geografica</th>"+
+				"<th class='panel-title'>id_usuario_creador</th>"+
+				"<th class='panel-title'>fecha_creacion</th>"+
+				"<th class='panel-title'>id_usuario_modifica</th>"+
+				"<th class='panel-title'>fecha_modifica</th>"+	
+				"</tr>";
 
 	if (departamento == null)
 		mensaje += "</table><div class='text-warning'> No Hay Departamentos con ese nombre</div>";	else {
@@ -23,6 +27,10 @@
 		mensaje += ("<tr><td> " + departamento.getId_depto() + "</td> "
 				+ "<td> " + departamento.getNombre_depto()
 				+ "</td><td> " + departamento.getZona_geografica()
+				+ "</td><td> " + departamento.getId_usuario_creador()
+				+ "</td><td> " + departamento.getFecha_creacion()
+				+ "</td><td> " + departamento.getId_usuario_modifica()
+				+ "</td><td> " + departamento.getFecha_modifica()
 				+ "</td>" + "</tr>" + "</table>");
 	}
 %>
@@ -40,7 +48,7 @@
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class='panel container-fluid col-xs-7'>
+	<div class='panel container-fluid'>
 		<div class='panel panel-primary '>
 			<div class='panel-heading'>
 				<h3 class='title'>Datos del Departamento <%=nombre_depto %></h3>

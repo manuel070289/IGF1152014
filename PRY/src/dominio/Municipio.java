@@ -28,14 +28,14 @@ public class Municipio implements Serializable{
 	private String id_municipio;
 	private Departamento departamento;
 	private String nomb_municipio;
-	/*private List<Oficina> listOficina ;*/
+	private List<Oficina> listOficina ;
 	
 	private Short id_usuario_creador;
 	private Short id_usuario_modifica;
 	private Date fecha_creacion;
 	private Date fecha_modifica;
 	private Short activo; 
-	SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	/*SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");*/
 	
 	
 	private Municipio(){
@@ -54,7 +54,8 @@ public class Municipio implements Serializable{
 		
 	}
 	
-	
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public Short getId_usuario_creador() {
 		return id_usuario_creador;
 	}
@@ -63,6 +64,8 @@ public Short getId_usuario_creador() {
 		this.id_usuario_creador = id_usuario_creador;
 	}
 
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public Short getId_usuario_modifica() {
 		return id_usuario_modifica;
 	}
@@ -71,6 +74,8 @@ public Short getId_usuario_creador() {
 		this.id_usuario_modifica = id_usuario_modifica;
 	}
 
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public Date getFecha_creacion() {
 		return fecha_creacion;
 	}
@@ -79,6 +84,8 @@ public Short getId_usuario_creador() {
 		this.fecha_creacion = fecha_creacion;
 	}
 
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public Date getFecha_modifica() {
 		return fecha_modifica;
 	}
@@ -87,6 +94,8 @@ public Short getId_usuario_creador() {
 		this.fecha_modifica = fecha_modifica;
 	}
 
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public Short getActivo() {
 		return activo;
 	}
@@ -136,7 +145,7 @@ public Short getId_usuario_creador() {
 	
 	
 	/////////////////////////////////////////////////////////////
-	/*@OneToMany(cascade=CascadeType.ALL, mappedBy="municipio")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="municipio")
 	//un municipio tiene muchas oficinas
 	public List<Oficina> getListOficina() {
 		return listOficina;
@@ -146,5 +155,5 @@ public Short getId_usuario_creador() {
 	public void setListOficina(List<Oficina> listOficina) {
 		this.listOficina = listOficina;
 	}	
-*/
+
 }

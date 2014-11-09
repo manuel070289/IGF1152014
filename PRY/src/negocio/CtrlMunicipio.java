@@ -19,7 +19,7 @@ public class CtrlMunicipio {
 	private MunicipioDAO daoMun = new MunicipioDAO() ;
 	private DepartamentoDAO daoDepto = new DepartamentoDAO();
 	private OficinaDAO daoOfi = new OficinaDAO();
-	SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	/*SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");*/
 	Date fecha_creacion = new Date();
 	Date fecha_modifica = new Date();
 	

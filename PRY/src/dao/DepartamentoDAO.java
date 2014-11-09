@@ -82,9 +82,8 @@ public class DepartamentoDAO {
 	}
 	public List<Departamento> daDepartamentos() {
 		sesion = sessionFactory.openSession() ;
-//		Query query = sesion.getNamedQuery("Departamentos.findAll") ;
 		Criteria var = sesion.createCriteria(Departamento.class);
-		List<Departamento> departamentos = var.list() ;
+		List<Departamento> departamentos = var.list();
 		sesion.close() ;
 		return departamentos ;
 	}
