@@ -156,7 +156,7 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_usuario">
 
-							<a id="#" href="#" class="list-group-item">Crear</a><a href="#"
+							<a href="CRUD_USUARIO/crearUsuario.jsp" class="list-group-item">Crear</a><a href="#"
 								class="list-group-item">Obtener</a> <a href="#"
 								class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>

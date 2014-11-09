@@ -2,6 +2,7 @@ package dominio;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -20,6 +21,8 @@ public class Oficina implements Serializable{
 	private Date fecha_creacion;
 	private Date fecha_modifica;
 	private Short activo;
+	
+	private List<Empleado> listEmpleado ;
 	
 	private Oficina(){}
 	
@@ -120,5 +123,16 @@ public class Oficina implements Serializable{
 		this.activo = activo;
 	} 
 	
+	/////////////////////////////////////////////////////////////
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="oficina")
+	//un municipio tiene muchas oficinas
+	public List<Empleado> getListEmpleado() {
+		return listEmpleado;
+	}
+	
+	
+	public void setListEmpleado(List<Empleado> listEmpleado) {
+		this.listEmpleado = listEmpleado;
+	}
 	
 }
