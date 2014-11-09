@@ -10,18 +10,18 @@ import javax.persistence.*;
 @NamedQueries({})
 public class Usuario implements Serializable{
 	private static final long serialVersionUID=1L;
-	private Integer id_usuario;
+	private Short id_usuario;
 	private String nombre;
 	private String apellido;
 	private Genero id_sexo;
 	private String username;
 	private String passwd;
-	private Integer rol;
-	private Integer activo;
+	private Short rol;
+	private Short activo;
 	
 	private Usuario(){}
 	
-	public Usuario(String nombre,String apellido,Genero id_sexo,String username,String passwd,Integer rol, Integer activo){
+	public Usuario(String nombre,String apellido,Genero id_sexo,String username,String passwd,Short rol, Short activo){
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.id_sexo=id_sexo;
@@ -34,11 +34,11 @@ public class Usuario implements Serializable{
 	@Id
 	@Basic(optional = false)
 	@Column(name="id_usuario")
-	public Integer getId_usuario() {
+	public Short getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(Integer id_usuario) {
+	public void setId_usuario(Short id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 
@@ -95,21 +95,21 @@ public class Usuario implements Serializable{
 
 	@Basic(optional = false)
 	@Column(name="rol")
-	public Integer getRol() {
+	public Short getRol() {
 		return rol;
 	}
 
-	public void setRol(Integer rol) {
+	public void setRol(Short rol) {
 		this.rol = rol;
 	}
 
 	@Basic(optional = false)
 	@Column(name="activo")
-	public Integer getActivo() {
+	public Short getActivo() {
 		return activo;
 	}
 
-	public void setActivo(Integer activo) {
+	public void setActivo(Short activo) {
 		this.activo = activo;
 	}
 	
