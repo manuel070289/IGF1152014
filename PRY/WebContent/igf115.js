@@ -39,6 +39,12 @@ function setearBotones() {
 		});
 	});
 	
+	$('#eliminarGenero').click(function(event) {
+		$.post('CRUD_GENERO/formulario_ELIMINAR.jsp', function(responseText) {
+			$('#dinamico').html(responseText);
+		});
+	});
+	
 	$('#crearDepartamento').click(function(event) {
 		$.post('CRUD_DEPARTAMENTO/CrearDepto.jsp', function(responseText) {
 			$('#dinamico').html(responseText);

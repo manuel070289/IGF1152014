@@ -4,6 +4,7 @@ import java.util.Date;
 
 import dao.GeneroDAO;
 import dominio.Genero;
+import dominio.Oficina;
 
 public class CtrlGenero {
 	GeneroDAO daoGenero = new GeneroDAO();
@@ -36,6 +37,19 @@ public class CtrlGenero {
 			return true;
 		}
 		return false;
+	}
+	
+	public boolean eliminarGenero(String idGenero,String id_usuario,Short activo) {
+		if(daoGenero.daGeneroById(idGenero) != null) {
+			Genero genero =	daoGenero.daGeneroById(idGenero) ;
+			genero.setUsuario_modifica(Short.parseShort(id_usuario));
+			genero.setFecha_modifica(new Date());
+			genero.setActive(activo);
+			daoGenero.guardaActualiza(genero) ;
+			return true ;
+		}
+		else
+			return false ;
 	}
 	
 	

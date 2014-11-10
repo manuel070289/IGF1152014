@@ -153,7 +153,7 @@
 
 							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a id="obtenerGenero"
 								href="#" class="list-group-item">Obtener</a> <a id="actualizarGenero" href="#"
-								class="list-group-item">Actualizar</a> <a href="#"
+								class="list-group-item">Actualizar</a> <a id="eliminarGenero" href="#"
 								class="list-group-item">Eliminar</a>
 
 						</div>
