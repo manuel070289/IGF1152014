@@ -30,14 +30,14 @@ function resultado_mas_detalle(){
 	}
 }
 
-function cargarOfi(idOfi){
+function cargarOfi(idOfi,accion){
     xmlHttp=new XMLHttpRequest();
     if (xmlHttp==null){
         alert ("Tu navegador no soporta AJAX!");
         return;
     }
     var url = "../JS/traerOficinaById.jsp";
-    url = url + "?idOfi=" + idOfi;
+    url = url + "?idOfi=" + idOfi+"&accion="+accion;
     xmlHttp.onreadystatechange = resultado_mas_detalle2;
     xmlHttp.open("GET",url,true);
     xmlHttp.send(null);

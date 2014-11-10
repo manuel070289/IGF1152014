@@ -10,9 +10,10 @@
 	String munic=request.getParameter("municipio").trim();
 	String domic=request.getParameter("domicilio").trim();
 	String id_usuario=request.getParameter("id_usuario_creador").trim();
+	String id_dep=request.getParameter("id_depto").trim();
 	
 	CtrlMunicipio mun=new CtrlMunicipio();
-	Municipio municipio=mun.daMunicipioById(munic);
+	Municipio municipio=mun.daoMunicipioByMunByDep(munic,id_dep);
 	 
 	CtrlOficina ofic=new CtrlOficina();
 	if(ofic.crearOficina(nomb,domic,municipio,id_usuario))
@@ -35,10 +36,12 @@
 						<legend>Informacion</legend>
 						<%=mensaje%>
 					</fieldset>
-			
-			
 			</div>
 		</div>
 	</div>
 </body>
+<script>
+function redireccionar(){window.location="../menu.jsp";}
+setTimeout ("redireccionar()", 2000);
+</script>
 </html>

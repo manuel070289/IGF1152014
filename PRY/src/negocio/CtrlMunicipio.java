@@ -105,6 +105,10 @@ public class CtrlMunicipio {
 			return false ;
 	}
 
+	public Municipio daoMunicipioByMunByDep(String munic,String depto){
+		return daoMun.daoMunicipioByMunByDep(munic,depto);
+	}
+	
 
 
 }

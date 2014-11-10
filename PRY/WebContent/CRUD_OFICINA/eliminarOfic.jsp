@@ -8,19 +8,14 @@
    <%
    	CtrlOficina ctrlOfic=new CtrlOficina();
    	String id_ofic=request.getParameter("id_oficina").trim(); 
-   	String nomb=request.getParameter("nomb_oficina").trim();
-	String munic=request.getParameter("municipio").trim();
-	String domic=request.getParameter("domicilio").trim();
 	String id_usuario=request.getParameter("id_usuario_creador").trim();
-	String depto=request.getParameter("id_oficina").trim();
-	CtrlMunicipio mun=new CtrlMunicipio();
-	Municipio municipio=mun.daoMunicipioByMunByDep(munic,depto);
 	
-	
-	if(ctrlOfic.modificarOficina(id_ofic, municipio, domic, nomb, id_usuario)!=false)
-		mensaje+="Oficina Actualizada";
+	if(ctrlOfic.eliminarOficina(id_ofic,id_usuario,Short.parseShort("0"))!=false)
+		mensaje+="Oficina Eliminada";
 	else
 		mensaje+="Error en la Actualización"; 
+	
+	
 	  
    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -42,8 +37,8 @@
 	</div>
 	<%=mensaje=""%>
 </body>
-</html>
 <script>
 function redireccionar(){window.location="../menu.jsp";}
 setTimeout ("redireccionar()", 2000);
 </script>
+</html>

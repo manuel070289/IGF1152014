@@ -14,7 +14,7 @@
 	else
 	{
 		Oficina ofiActual;	
-		mensaje += "<select required name='id_oficina'  onchange='cargarOfi(this.value,1);'>"+
+		mensaje += "<select required name='id_oficina'  onchange='cargarOfi(this.value,2);'>"+
 	 			"<option value=''>Seleccione</option>";
 		for (int i=0; i < numOficinas; i++) {
 			 ofiActual = (Oficina) oficinas.get(i);
@@ -27,7 +27,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Actualizar Oficina</title>
+<title>Eliminar Oficina</title>
 <link rel="stylesheet" type="text/css"
 	href="../bootstrap-3.2.0-dist/normalize.css">
 <link rel="stylesheet" type="text/css"
@@ -44,9 +44,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-7">
-			<form class="" action="actualizarOfic.jsp" method="post" role="form">
+			<form class="" action="eliminarOfic.jsp" method="post" role="form">
 				<fieldset>
-					<legend>ACTUALIZAR OFICINA</legend>
+					<legend>ELIMINAR OFICINA</legend>
 				</fieldset>
 				<div class="form-group">
 					<label for="departamento">Seleccione la Oficina:</label>

@@ -14,7 +14,7 @@
 		mensaje += "<div class='text-warning'> No Hay Departamentos</div>";
  	else {
 		Departamento depActual;
-		mensaje += "<select required name='departamento'  onchange='cargarMun(this.value);'>"+
+		mensaje += "<select name='id_depto' required name='departamento'  onchange='cargarMun(this.value);'>"+
 	 			"<option value=''>Seleccione</option>";
 	 for (int i=0; i < numeroDeptos; i++) {
 		 depActual = (Departamento) departamentos.get(i);

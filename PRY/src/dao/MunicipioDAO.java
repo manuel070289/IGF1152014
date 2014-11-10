@@ -119,8 +119,19 @@ public class MunicipioDAO {
 		Criteria var = sesion.createCriteria(Municipio.class).add(Restrictions.eq("activo",activo));
 		List<Municipio> municipios = var.list() ;
 		sesion.close() ;
-		return municipios ;
+		return municipios;
 	}
 
+	public Municipio daoMunicipioByMunByDep(String id_municipio,String id_depto){
+		sesion = sessionFactory.openSession() ;
+		Criteria depVar=sesion.createCriteria(Departamento.class).add(Restrictions.eq("id_depto", id_depto));
+		Departamento departamento = (Departamento) depVar.uniqueResult();
+		Criteria var = sesion.createCriteria(Municipio.class)
+				.add(Restrictions.eq("id_municipio", id_municipio))
+				.add(Restrictions.eq("departamento",departamento));
+		Municipio municipio = (Municipio)var.uniqueResult();
+		sesion.close() ;
+		return municipio ;
+	}
 
 }
