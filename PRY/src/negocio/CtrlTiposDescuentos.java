@@ -11,10 +11,6 @@ import java.util.List;
 
 public class CtrlTiposDescuentos {
 private TiposDescuentosDAO daoTD = new TiposDescuentosDAO();
-
-public void CtrlTiposDescuentos(){
-	
-}
 	
 	public boolean actualizarTipoDescuento(TiposDescuentos tipos) {
 			if (tipos != null) {
@@ -26,7 +22,7 @@ public void CtrlTiposDescuentos(){
 	}
 	
 	public boolean guardarTipoDescuento(TiposDescuentos TD){
-		if (TD.getIdTiposDescuentos()!=null){
+		if (TD.getIdTiposdescuentos()!=null){
 			daoTD.guarda(TD);
 			return true;
 		}else{

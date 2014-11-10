@@ -58,9 +58,10 @@ String fechaText = fecha.format(CTD.get(id).getFechaIngreso());
 					<tr><td>Fecha de Ingreso:</td> <td><input type="text" name="fecha_ingreso" value=<%=fechaText%>><br></td></tr>
 					<tr><td>Porcentaje de Descuento:</td> <td> <input type="text" name="porcentaje_descuento" value=<%=CTD.get(id).getPorcentajeDescuento().doubleValue()%>>%</td></tr>
 					<tr><td>Descripción:</td> <td> <input type="text" name="descripcion" value=<%=CTD.get(id).getDescripcion()%>></td></tr>
-					<tr><td>Id Tipos de Descuentos:</td> <td> <input type="Text"name="id_tiposdescuentos" value=<%=CTD.get(id).getIdTiposDescuentos()%> readonly="readonly"></td></tr>
+					<tr><td>Id Tipos de Descuentos:</td> <td> <input type="Text"name="id_tiposdescuentos" value=<%=CTD.get(id).getIdTiposdescuentos()%> readonly="readonly"></td></tr>
 						</table>
-						
+						<br>
+						<br>
 					<input type="submit" class="btn-primary" value="Actualizar">
 					
 						

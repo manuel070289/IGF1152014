@@ -1,58 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%> <%@ page import="dominio.*" %>
-<%@ page import="dao.*" %>
-<%@ page import="negocio.*" %>
-<%@ page import="java.util.List"%>
-<%@ page import="java.math.BigDecimal"%>
-<%@ page import="java.util.Date"%>
-<%@ page import="java.text.DateFormat"%>
-<%@ page import="java.text.SimpleDateFormat"%>
-<%
-String fecha_ingreso = request.getParameter("fecha_ingreso");
-String porcentaje_descuento = request.getParameter("porcentaje_descuento") ;
-String descripcion = request.getParameter("descripcion") ;
-String id_tiposdescuentos = request.getParameter("id_tiposdescuentos") ;
-
-SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-Date date = formatter.parse(fecha_ingreso);
-boolean exito=false;
-String titulo=null;
-String mensaje1=null;
-String mensaje2=null;
-
-CtrlTiposDescuentos CTD= new CtrlTiposDescuentos();
-TiposDescuentos TD=new TiposDescuentos();
-
-if(CTD.get(id_tiposdescuentos)==null){
-
-	TD.setFechaIngreso(date);
-TD.setPorcentajeDescuento(new BigDecimal(porcentaje_descuento.toString()));
-TD.serDescripcion(descripcion);
-TD.setIdTiposDescuentos(id_tiposdescuentos);
-
-exito = CTD.guardarTipoDescuento(TD);
-
-	if (exito) {
-		titulo="Mensaje de Confirmaci&oacuten";
-		mensaje1 ="Creaci&oacuten Exitosa";
-		mensaje2 = "Se creo el nuevo Tipo Descuento";
-	}
-}
-else{
-	titulo="Mensaje de Error";
-	mensaje1 ="Error no se pudo guardar";
-	mensaje2 = "Ya hay un Tipo Descuento con el numero de id "+id_tiposdescuentos;
-}
-
-
-
-
-%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title><%=titulo%>></title>
+<title>Guardar Tipo Descuento</title>
 <link rel="stylesheet" type="text/css"
 	href="../bootstrap-3.2.0-dist/normalize.css">
 <link rel="stylesheet" type="text/css"
@@ -62,25 +14,35 @@ else{
 	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <div class="panel container-fluid col-xs-7">
 		<div class="panel panel-primary ">
 			<div class="panel-heading" data-toggle="collapse"
 				data-target="#crud_tiposdescuentos" data-parent="#menu_izq">
-				<h3 class="panel-title"><%=mensaje1%></h3>
+				<h3 class="panel-title">Tipo Descuentos</h3>
 			</div>
 
 			<div class="panel" id="TiposDescuentos">
-				<h3 class="panel-title text-warning"><%=mensaje2 %></h3>
+				<h3 class="panel-title text-warning">Datos del nuevo Tipo Descuento</h3>
 
-				<form action="TiposDescuentosGuardar.html"><HR width="5%">
-				
-					<input type="submit" class="btn-primary" value="Regresar">
-					
+				<form action="TiposDescuentosGuardar.jsp" method="post"><HR width="5%">
+				<table>
+					<tr><td>Fecha de Ingreso:</td> <td><input type="text" name="fecha_ingreso"><br></td></tr>
+					<tr><td>Porcentaje de Descuento:</td> <td> <input type="text" name="porcentaje_descuento">%</td></tr>
+					<tr><td>Descripción:</td> <td> <input type="text" name="descripcion"></td></tr>
+					<tr><td>Id Tipos de Descuentos:</td> <td> <input type="Text"name="id_tiposdescuentos"></td></tr>
+						</table>
+					<br>
+					<br>	
+					<input type="submit" class="btn-primary" value="Guardar">
+					<input type="reset" class="btn-primary" value="borrar">
+			
 						
 						
 				</form>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

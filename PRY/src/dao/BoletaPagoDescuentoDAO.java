@@ -1,17 +1,19 @@
 package dao;
-import java.util.*;
 
-import org.hibernate.*;
+import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import utilidades.HibernateUtil;
-import dominio.*;
+import dominio.BoletaPagoDescuento;
 
-
-public class TiposDescuentosDAO {
+public class BoletaPagoDescuentoDAO {
 private HibernateUtil hibernateUtil = new HibernateUtil() ;
 	
-	public void guarda(TiposDescuentos TD){
+	public void guarda(BoletaPagoDescuento BPD){
 		//1. Obtengo la SessionFactory
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		//2. Obtengo la Session
@@ -19,7 +21,7 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 		//3. Obtengo la Transaccion
 		Transaction tx = sesion.beginTransaction();
 		//4. Guardo el tipo descuentos
-		sesion.save(TD);
+		sesion.save(BPD);
 		//5. Guardo los cambios del tipo descuentos
 		tx.commit();
 		sesion.flush();
@@ -27,7 +29,7 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 		sesion.close();
 	}
 	
-	public void actualizar(TiposDescuentos TD) {
+	public void actualizar(BoletaPagoDescuento BPD) {
 	    // 1. Obtengo la SessionFactory
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 	    // 2. Obtengo la Session
@@ -35,7 +37,7 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 	    // 3. Obtengo la Transaccion
 	    Transaction tx = sesion.beginTransaction() ;
 	    // 4. Actualizo el tipo descuentos
-	    sesion.update(TD) ;
+	    sesion.update(BPD) ;
 	    // 5. Guardo los Cambios del tipo descuentos
 	    tx.commit() ;
 	    sesion.flush() ;
@@ -43,7 +45,7 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 	    sesion.close() ;
    }
 	
-	public void eliminar(TiposDescuentos TD) {
+	public void eliminar(BoletaPagoDescuento BPD) {
 	    // 1. Obtengo la SessionFactory
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 	    // 2. Obtengo la Session
@@ -51,7 +53,7 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 	    // 3. Obtengo la Transaccion
 	    Transaction tx = sesion.beginTransaction() ;
 	    // 4. Actualizo el tipo descuentos
-	    sesion.delete(TD) ;
+	    sesion.delete(BPD) ;
 	    // 5. Guardo los Cambios del tipo descuentos
 	    tx.commit() ;
 	    sesion.flush() ;
@@ -59,41 +61,28 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 	    sesion.close() ;
    }
 	
-	public TiposDescuentos obtenerTipoDescuento(String idTD){
+	public BoletaPagoDescuento obtenerBoletaPagoDescuento(int idBPD){
 		//1. Obtengo la SessionFactory
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		//2. Obtengo la Session
 		Session sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("daTipoDescuentoPorId");
-		query.setString("id_TiposDescuentos",idTD);
-		List TD = query.list();
+		Query query = sesion.getNamedQuery("daBoletaPagoDescuentoPorId");
+		query.setInteger("id_BoletaPagosDescuento",idBPD);
+		List BPD = query.list();
 		sesion.close();
-		if (TD.isEmpty()){
+		if (BPD.isEmpty()){
 			return null;
 		}else{
-			return (TiposDescuentos)TD.get(0);
+			return (BoletaPagoDescuento)BPD.get(0);
 		}
 
 	}
-	public TiposDescuentos get(String key){
-		//1. Obtengo la SessionFactory
-		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
-	    // 2. Obtengo la Session
-	    Session sesion = sessionFactory.openSession() ;
-	    // 3. Obtengo la Transaccion
-	    Transaction tx = sesion.beginTransaction() ;
-	    // 4. Actualizo el tipo descuentos
-		
-		TiposDescuentos u=this.get(key);
-		tx.commit();
-		return u;
-	}
-	public List<TiposDescuentos> findAll(){
+		public List<BoletaPagoDescuento> findAll(){
 		//1. Obtengo la SessionFactory
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		//2. Obtengo la Session
 		Session sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("buscarTodos");
+		Query query = sesion.getNamedQuery("buscarTodosBPD");
 		//query.setString();
 		List TD = query.list();
 		sesion.close();
@@ -103,7 +92,7 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 			return TD;
 		}
 	}
-	public List<TiposDescuentos> findByExample(TiposDescuentos filters){		
+	public List<BoletaPagoDescuento> findByExample(BoletaPagoDescuento filters){		
 		//1. Obtengo la SessionFactory
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		// 2. Obtengo la Session
@@ -111,10 +100,11 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 		// 3. Obtengo la Transaccion
 		Transaction tx = sesion.beginTransaction() ;
 		// 4. Actualizo el tipo descuentos
-		List<TiposDescuentos> u=this.findByExample(filters);
+		List<BoletaPagoDescuento> u=this.findByExample(filters);
 		tx.commit();
 		return u;
 		
 	}
+
 
 }

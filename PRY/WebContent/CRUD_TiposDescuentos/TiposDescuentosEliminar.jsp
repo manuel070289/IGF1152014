@@ -49,9 +49,11 @@ Seleccione el Registro que Desea Eliminar: <select id="usuariosSelect" name="usu
 <% 
 if(lista!=null)			               
 for(TiposDescuentos TiposDesc:lista){%> 
-<option><%=TiposDesc.getIdTiposDescuentos()%> <%=TiposDesc.getPorcentajeDescuento().doubleValue()%>%</option>
+<option><%=TiposDesc.getIdTiposdescuentos()%> <%=TiposDesc.getPorcentajeDescuento().doubleValue()%>%</option>
 <%} %>>
-				
+</select>	
+<br>
+<br>		
 <input type="submit" class="btn-primary" value="Eliminar">
 					
 			

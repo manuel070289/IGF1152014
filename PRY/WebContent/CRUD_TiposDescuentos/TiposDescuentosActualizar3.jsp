@@ -23,8 +23,8 @@ Date date = formatter.parse(fecha_ingreso);
 
 TD.setFechaIngreso(date);
 TD.setPorcentajeDescuento(new BigDecimal(porcentaje_descuento.toString()));
-TD.serDescripcion(descripcion);
-TD.setIdTiposDescuentos(id_tiposdescuentos);
+TD.setDescripcion(descripcion);
+TD.setIdTiposdescuentos(id_tiposdescuentos);
 
 
 
@@ -66,7 +66,8 @@ if (exito) {
 				<h3 class="panel-title text-warning">Actualizado el  Tipo Descuento</h3>
 
 				<form action="TiposDescuentosActualizar.jsp"><HR width="5%">
-				
+				<br>
+				<br>
 					<input type="submit" class="btn-primary" value="Regresar">
 					
 						
