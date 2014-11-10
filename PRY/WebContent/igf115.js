@@ -14,9 +14,14 @@ function setearBotones() {
 	$('#actualizarEmpleado').click(function(event) {
 		$.post('CRUD_EMPLEADO/formulario_ACTUALIZAR.jsp', function(responseText) {
 			$('#dinamico').html(responseText);
-			$(".chosen-select").chosen();
+			//$(".chosen-select").chosen();
+			$("#btnMostrar").click(function(event) {
+				var str = $("#1").serialize();
+				$.post('CRUD_EMPLEADO/empleado_info.jsp', str, function(responseText) {
+					$("#dinamico_2").html(responseText);
+				});
 		});
-	});
+	}); });
 	
 	$('#crearGenero').click(function(event) {
 		$.post('CRUD_GENERO/formulario_CREAR.jsp', function(responseText) {

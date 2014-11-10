@@ -8,10 +8,12 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import dominio.Empleado;
 import dominio.Genero;
+import dominio.Oficina;
 import utilidades.HibernateUtil;
 
 public class EmpleadoDAO {
@@ -59,5 +61,13 @@ public class EmpleadoDAO {
 		List<Empleado> listadoDeEmpleados = criteria.list();
 		sesion.close();
 		return listadoDeEmpleados;
+	}
+	
+	public Empleado daoEmpleadoById(String idEmpleado){
+		sesion = sessionFactory.openSession() ;
+		Criteria var = sesion.createCriteria(Empleado.class).add(Restrictions.eq("idEmpleado", idEmpleado));
+		Empleado empleado = (Empleado)var.uniqueResult() ;
+		sesion.close();
+		return empleado;
 	}
 }
