@@ -39,10 +39,9 @@
 						<legend>Información</legend>
 						<%=mensaje%>
 					</fieldset>
-			
-			
 			</div>
 		</div>
 	</div>
+	<%=mensaje=""%>
 </body>
 </html>

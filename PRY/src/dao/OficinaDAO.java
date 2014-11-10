@@ -90,7 +90,7 @@ public class OficinaDAO {
 	public Oficina daoNombreOficina(String nomb_oficina) {
 		sesion= sessionFactory.openSession() ;
 		Criteria criteria = sesion.createCriteria(Oficina.class).add(Restrictions.eq("nomb_oficina",nomb_oficina)); 
-		Oficina ofic = (Oficina) criteria.uniqueResult(); 
+		Oficina ofic = (Oficina) criteria.uniqueResult();
 		sesion.close() ; 
 		return ofic ; 
 	}

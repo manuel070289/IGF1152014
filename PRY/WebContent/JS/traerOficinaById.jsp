@@ -82,6 +82,8 @@
 		out.print("<input class='btn btn-primary' type='submit' value='Actualizar Oficina'>");
 		out.print("</div>");
 		out.print("</div>");
+		out.flush();
+	    out.close();
 
 	}
 %>
