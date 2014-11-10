@@ -20,7 +20,7 @@ public class Oficina implements Serializable{
 	private Short id_usuario_modifica;
 	private Date fecha_creacion;
 	private Date fecha_modifica;
-	private Short activo;
+	private Short activo; 
 	
 	private List<Empleado> listEmpleado ;
 	

@@ -157,7 +157,7 @@
 								class="list-group-item">Eliminar</a>
 
 						</div>
-					</div>
+					</div> 
 					<div class="panel panel-primary">
 						<div class="panel-heading" data-toggle="collapse"
 							data-target="#crud_boleta_pago" data-parent="#menu_izq">

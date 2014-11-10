@@ -15,7 +15,7 @@ public class CtrlOficina {
 				Oficina oficina = new Oficina(idOficina,nombOficina, domicilio, municipio,id_usuario,new Date());
 				daoOficina.guardaActualiza(oficina) ; 
 				return true;  
-		  } 
+		  }  
 		else
 			return false; 
 		 }

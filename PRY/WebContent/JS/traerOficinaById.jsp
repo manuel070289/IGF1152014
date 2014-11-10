@@ -17,7 +17,7 @@
 		out.print("Descripción de la Oficina");
 	}
 	else { 
-		
+		 
 		Municipio municipio= oficina.getMunicipio();
 		Departamento departamento=municipio.getDepartamento();
 		List departamentos = ctrlDep.daDepartamentos();

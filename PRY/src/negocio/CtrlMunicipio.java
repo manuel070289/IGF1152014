@@ -13,7 +13,7 @@ import dominio.Municipio;
 
 
 
-public class CtrlMunicipio {
+public class CtrlMunicipio { 
 
 
 	private MunicipioDAO daoMun = new MunicipioDAO() ;

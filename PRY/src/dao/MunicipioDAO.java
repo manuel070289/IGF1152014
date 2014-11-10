@@ -130,7 +130,7 @@ public class MunicipioDAO {
 				.add(Restrictions.eq("id_municipio", id_municipio))
 				.add(Restrictions.eq("departamento",departamento));
 		Municipio municipio = (Municipio)var.uniqueResult();
-		sesion.close() ;
+		sesion.close() ; 
 		return municipio ;
 	}
 

@@ -21,7 +21,7 @@ import javax.persistence.Table;
 
 
 
-@Entity
+@Entity 
 @Table(name = "municipio", catalog = "igf2014", schema = "")
 public class Municipio implements Serializable{
 	private static final long serialVersionUID = 1L;

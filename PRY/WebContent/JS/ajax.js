@@ -10,7 +10,7 @@ function cargarMun(depto){
     url = url + "?idDep=" + depto;
     xmlHttp.onreadystatechange = resultado_mas_detalle;
     xmlHttp.open("GET",url,true);
-    xmlHttp.send(null);
+    xmlHttp.send(null); 
 }
 
 function resultado_mas_detalle(){
