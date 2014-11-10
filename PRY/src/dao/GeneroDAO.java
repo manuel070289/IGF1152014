@@ -57,7 +57,7 @@ public class GeneroDAO {
 	public Genero daGeneroById(String id) {
 		id = id.trim().substring(0,1).toUpperCase() + id.substring(1);	
 		sesion = sessionFactory.openSession();
-		Criteria criteria = sesion.createCriteria(Genero.class).add(Restrictions.like("id_sexo",id));
+		Criteria criteria = sesion.createCriteria(Genero.class).add(Restrictions.eq("id_sexo",id));
 		Genero genero = (Genero) criteria.uniqueResult();
 		sesion.close();
 		return genero;

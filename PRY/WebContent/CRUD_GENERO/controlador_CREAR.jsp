@@ -4,7 +4,7 @@
 <%
 String dSexo = request.getParameter("genero");
 CtrlGenero ctrlGenero = new CtrlGenero();
-boolean exito = ctrlGenero.crearGenero(dSexo);
+boolean exito = ctrlGenero.crearGenero(dSexo, Short.valueOf(request.getParameter("id_usuario_creador").trim()));
 
 String mensaje;
 

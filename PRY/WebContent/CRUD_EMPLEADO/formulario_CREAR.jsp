@@ -93,21 +93,21 @@
 							<div class="form-group">
 								<label for="dui">DUI:</label> <input id="dui"
 									class="form-control" type="text" name="dui"
-									placeholder="99999999-9" required="required">
+									placeholder="999999999" required="required" maxlength="9">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="nit">NIT:</label> <input id="nit"
 									class="form-control" type="text" name="nit"
-									placeholder="9999-999999-999-9" required="required">
+									placeholder="99999999999999" required="required" maxlength="14">
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="tel">Teléfono:</label> <input id="tel"
 									class="form-control" type="text" name="tel"
-									placeholder="99999999" required="required">
+									placeholder="99999999" required="required" maxlength="8">
 							</div>
 						</div>
 						<div class="col-md-8">

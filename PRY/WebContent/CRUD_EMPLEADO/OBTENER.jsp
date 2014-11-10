@@ -12,12 +12,12 @@ EmpleadoDAO daoEmpleado = new EmpleadoDAO();
 List<Empleado> lista = daoEmpleado.dameTodosLosEmpleados();
 
 for(int i=0; i<lista.size();i++) {
-	aux = "<tr><td>" + lista.get(0).getNombres() + " " + lista.get(0).getApellidoPaterno() + " " + lista.get(0).getApellidoMaterno() + "</td>"
-			+ "<td>" + lista.get(0).getDui() + "</td>" 
-			+ "<td>" + lista.get(0).getFechaNacimiento() 
-			+ "<td>" + lista.get(0).getGenero().getD_sexo() + "</td>"
-			+ "<td>" + lista.get(0).getTelefono() + "</td>"
-			+ "<td>" + lista.get(0).getEmail() + "</td></tr>";
+	aux = aux + "<tr><td>" + lista.get(i).getNombres() + " " + lista.get(i).getApellidoPaterno() + " " + lista.get(i).getApellidoMaterno() + "</td>"
+			+ "<td>" + lista.get(i).getDui() + "</td>" 
+			+ "<td>" + lista.get(i).getFechaNacimiento() 
+			+ "<td>" + lista.get(i).getGenero().getD_sexo() + "</td>"
+			+ "<td>" + lista.get(i).getTelefono() + "</td>"
+			+ "<td>" + lista.get(i).getEmail() + "</td></tr>";
 }
 
 %>

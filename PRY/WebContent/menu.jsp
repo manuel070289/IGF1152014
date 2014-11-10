@@ -66,8 +66,8 @@
 						<div id="crud_empleado" class="list-group collapse in">
 							<a id="crearEmpleado" href="#" class="list-group-item">Crear</a><a
 								id="obtenerEmpleado" href="#" class="list-group-item">Obtener</a>
-							<a href="#" class="list-group-item">Actualizar</a> <a href="#"
-								class="list-group-item">Eliminar</a>
+							<a id="actualizarEmpleado" href="#" class="list-group-item">Actualizar</a>
+							<a href="#" class="list-group-item">Eliminar</a>
 						</div>
 
 
@@ -94,9 +94,10 @@
 						<div class="list-group list-collapse collapse" id="crud_oficina">
 
 							<a href="CRUD_OFICINA/CrearOficina.jsp" class="list-group-item">Crear</a>
-							<a href="#" class="list-group-item">Obtener</a> 
-							<a href="CRUD_OFICINA/actualizarOficina.jsp"	class="list-group-item">Actualizar</a> 
-							<a href="#" class="list-group-item">Eliminar</a>
+							<a href="#" class="list-group-item">Obtener</a> <a
+								href="CRUD_OFICINA/actualizarOficina.jsp"
+								class="list-group-item">Actualizar</a> <a href="#"
+								class="list-group-item">Eliminar</a>
 
 						</div>
 					</div>
@@ -108,11 +109,19 @@
 						<div class="list-group list-collapse collapse"
 							id="crud_departamento">
 
-							<a id="crearDeapartamento" href="CRUD_DEPARTAMENTO/CrearDepto.jsp" class="list-group-item">Crear</a>
-							<a id="obtenerDepartamento" href="CRUD_DEPARTAMENTO/ListarDepartamentos.html" class="list-group-item">Obtener</a>
-							<a id="actualizarDepartamento" href="CRUD_DEPARTAMENTO/ActualizarDepartamento.jsp" class="list-group-item">Actualizar</a> 
-							<a id="eliminarDepartamento" href="CRUD_DEPARTAMENTO/EliminarDepartamento.jsp" class="list-group-item">Eliminar</a>
-							<a id="darBajaDepartamento" href="CRUD_DEPARTAMENTO/DarBajaDepto.jsp"	class="list-group-item">Dar de Baja</a>
+							<a id="crearDeapartamento"
+								href="CRUD_DEPARTAMENTO/CrearDepto.jsp" class="list-group-item">Crear</a>
+							<a id="obtenerDepartamento"
+								href="CRUD_DEPARTAMENTO/ListarDepartamentos.html"
+								class="list-group-item">Obtener</a> <a
+								id="actualizarDepartamento"
+								href="CRUD_DEPARTAMENTO/ActualizarDepartamento.jsp"
+								class="list-group-item">Actualizar</a> <a
+								id="eliminarDepartamento"
+								href="CRUD_DEPARTAMENTO/EliminarDepartamento.jsp"
+								class="list-group-item">Eliminar</a> <a id="darBajaDepartamento"
+								href="CRUD_DEPARTAMENTO/DarBajaDepto.jsp"
+								class="list-group-item">Dar de Baja</a>
 
 						</div>
 					</div>
@@ -123,11 +132,16 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_municipio">
 
-							<a id="crearMunicipio" href="CRUD_MUNICIPIO/CrearMunicipio.jsp"	class="list-group-item">Crear</a>
-							<a id="obtenerMunicipio" href="CRUD_MUNICIPIO/ListarMunicipio.jsp" class="list-group-item">Obtener</a>
-							<a id="actualizarMunicipio" href="CRUD_MUNICIPIO/ModificarMunicipio.jsp" class="list-group-item">Actualizar</a>
-							<a id="eliminarMunicipio" href="CRUD_MUNICIPIO/EliminarMunicipios.jsp" class="list-group-item">Eliminar</a>
-							<a id="darBajaMunicipio" href="CRUD_MUNICIPIO/DarBajaMuni.jsp" class="list-group-item">Dar de Baja</a>
+							<a id="crearMunicipio" href="CRUD_MUNICIPIO/CrearMunicipio.jsp"
+								class="list-group-item">Crear</a> <a id="obtenerMunicipio"
+								href="CRUD_MUNICIPIO/ListarMunicipio.jsp"
+								class="list-group-item">Obtener</a> <a id="actualizarMunicipio"
+								href="CRUD_MUNICIPIO/ModificarMunicipio.jsp"
+								class="list-group-item">Actualizar</a> <a id="eliminarMunicipio"
+								href="CRUD_MUNICIPIO/EliminarMunicipios.jsp"
+								class="list-group-item">Eliminar</a> <a id="darBajaMunicipio"
+								href="CRUD_MUNICIPIO/DarBajaMuni.jsp" class="list-group-item">Dar
+								de Baja</a>
 
 						</div>
 					</div>
@@ -138,8 +152,8 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_genero">
 
-							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a
-								href="#" class="list-group-item">Obtener</a> <a href="#"
+							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a id="obtenerGenero"
+								href="#" class="list-group-item">Obtener</a> <a id="actualizarGenero" href="#"
 								class="list-group-item">Actualizar</a> <a href="#"
 								class="list-group-item">Eliminar</a>
 

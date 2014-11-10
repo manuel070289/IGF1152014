@@ -27,9 +27,8 @@ public class Empleado implements Serializable {
 	private short idPuesto;
 	private Oficina oficina;
 	private Genero genero;
-	
-	
-	//CAMPOS PARA AUDITORIA
+
+	// CAMPOS PARA AUDITORIA
 	private Short id_usuario_creador;
 	private Short id_usuario_modifica;
 	private Date fecha_creacion;
@@ -59,7 +58,7 @@ public class Empleado implements Serializable {
 		this.sueldo = sueldo;
 		this.activo = activo;
 		this.idPuesto = puesto;
-		
+
 		this.active = 1;
 	}
 
@@ -203,7 +202,7 @@ public class Empleado implements Serializable {
 	public void setOficina(Oficina oficina) {
 		this.oficina = oficina;
 	}
-	
+
 	@Basic(optional = true)
 	@Column(name = "id_jefe")
 	public String getIdJefe() {
@@ -213,7 +212,7 @@ public class Empleado implements Serializable {
 	public void setIdJefe(String idJefe) {
 		this.idJefe = idJefe;
 	}
-	
+
 	@Basic(optional = false)
 	@Column(name = "id_puesto")
 	public short getIdPuesto() {
@@ -223,11 +222,12 @@ public class Empleado implements Serializable {
 	public void setIdPuesto(short idPuesto) {
 		this.idPuesto = idPuesto;
 	}
-	
-	//METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA
-	
+
+	// METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA
+	// METODOS PARA AUDITORIA METODOS PARA AUDITORIA
+
 	@Basic(optional = false)
-	@Column(name="id_usuario_creador")
+	@Column(name = "id_usuario_creador")
 	public Short getUsuario_creador() {
 		return id_usuario_creador;
 	}
@@ -237,7 +237,7 @@ public class Empleado implements Serializable {
 	}
 
 	@Basic(optional = false)
-	@Column(name="id_usuario_modifica")
+	@Column(name = "id_usuario_modifica")
 	public Short getUsuario_modifica() {
 		return id_usuario_modifica;
 	}
@@ -247,7 +247,7 @@ public class Empleado implements Serializable {
 	}
 
 	@Basic(optional = false)
-	@Column(name="fecha_creacion")
+	@Column(name = "fecha_creacion")
 	public Date getFecha_creacion() {
 		return fecha_creacion;
 	}
@@ -257,7 +257,7 @@ public class Empleado implements Serializable {
 	}
 
 	@Basic(optional = false)
-	@Column(name="fecha_modifica")
+	@Column(name = "fecha_modifica")
 	public Date getFecha_modifica() {
 		return fecha_modifica;
 	}
@@ -265,16 +265,17 @@ public class Empleado implements Serializable {
 	public void setFecha_modifica(Date fecha_modifica) {
 		this.fecha_modifica = fecha_modifica;
 	}
-	
+
 	@Basic(optional = false)
-	@Column(name="active")
+	@Column(name = "active")
 	public Short getActive() {
 		return active;
 	}
 
 	public void setActive(Short activo) {
 		this.active = activo;
-	} 
-	
-	//FIN METODOS PARA AUDITORIA FIN METODOS PARA AUDITORIA FIN METODOS PARA AUDITORIA FIN METODOS PARA AUDITORIA
+	}
+
+	// FIN METODOS PARA AUDITORIA FIN METODOS PARA AUDITORIA FIN METODOS PARA
+	// AUDITORIA FIN METODOS PARA AUDITORIA
 }

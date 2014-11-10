@@ -6,23 +6,38 @@ function setearBotones() {
 	});
 	
 	$('#obtenerEmpleado').click(function(event) {
-		$.post('CRUD_EMPLEADO/obtener.jsp', function(responseText) {
+		$.post('CRUD_EMPLEADO/OBTENER.jsp', function(responseText) {
 			$('#dinamico').html(responseText);
 		});
 	});
 	
 	$('#actualizarEmpleado').click(function(event) {
-		$.post('CRUD_EMPLEADO/actualizar.jsp', function(responseText) {
+		$.post('CRUD_EMPLEADO/formulario_ACTUALIZAR.jsp', function(responseText) {
 			$('#dinamico').html(responseText);
 			$(".chosen-select").chosen();
 		});
 	});
 	
 	$('#crearGenero').click(function(event) {
-		$.post('CRUD_GENERO/formulario_CREAR.html', function(responseText) {
+		$.post('CRUD_GENERO/formulario_CREAR.jsp', function(responseText) {
 			$('#dinamico').html(responseText);
 		});
-	});	
+	});
+	
+	$('#obtenerGenero').click(function(event) {
+		$.post('CRUD_GENERO/OBTENER.jsp', function(responseText) {
+			$('#dinamico').html(responseText);
+		});
+	});
+	
+	$('#actualizarGenero').click(function(event) {
+		$.post('CRUD_GENERO/formulario_ACTUALIZAR.jsp', function(responseText) {
+			$('#dinamico').html(responseText);
+			$('select').change(function () {
+				$('#genero').val($(this).find('option:selected').text());
+			});
+		});
+	});
 	
 	$('#crearDepartamento').click(function(event) {
 		$.post('CRUD_DEPARTAMENTO/CrearDepto.jsp', function(responseText) {

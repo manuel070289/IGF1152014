@@ -15,7 +15,7 @@
 	
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="CRUD_GENERO/crear.jsp" method="get" role="form">
+				<form class="" action="CRUD_GENERO/controlador_CREAR.jsp" method="get" role="form">
 					<fieldset>
 						<legend>Creación de Género</legend>
 						<div class="row">
@@ -27,6 +27,7 @@
 							</div>
 						</div>
 					</fieldset>
+					<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
 					<input class="btn btn-primary" type="submit" value="Crear Género">
 				</form>
 			</div>
