@@ -65,7 +65,7 @@ public class GeneroDAO {
 	
 	public List<Genero> dameTodosLosGeneros() {
 		sesion = sessionFactory.openSession();
-		Criteria criteria = sesion.createCriteria(Genero.class);
+		Criteria criteria = sesion.createCriteria(Genero.class).add(Restrictions.like("activo",Short.parseShort("1")));
 		List<Genero> listadoDeGeneros = criteria.list();
 		sesion.close();
 		return listadoDeGeneros;
