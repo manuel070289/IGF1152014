@@ -58,9 +58,9 @@ public class CtrlMunicipio {
 		else
 			return false ;
 	}
-	public boolean modificarMunicipio(String nomb_municipio, String nuevo_nombre, Short usuario_modifica) {
-		if(daoMun.daMunicipioByNombre(nomb_municipio) != null) {
-			Municipio municipio =	daoMun.daMunicipioByNombre(nomb_municipio) ;
+	public boolean modificarMunicipio(String id_municipio, String nuevo_nombre, Short usuario_modifica) {
+		if(daoMun.daMunicipioById(id_municipio) != null) {
+			Municipio municipio =	daoMun.daMunicipioById(id_municipio) ;
 			municipio.setNomb_municipio(nuevo_nombre);
 			municipio.setId_usuario_modifica(usuario_modifica);
 			municipio.setFecha_modifica(fecha_modifica);
