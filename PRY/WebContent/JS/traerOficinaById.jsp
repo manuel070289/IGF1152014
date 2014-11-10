@@ -30,7 +30,6 @@
 		if(accion==1)
 		{
 			Departamento depActual;
-			out.print("<label for='departamento'>Seleccione el departamento:</label>");
 			
 			out.print("<select required name='departamento'  id='departamento' onchange='cargarMun(this.value);'>");
 			out.print("<option value=''>Seleccione</option>");
