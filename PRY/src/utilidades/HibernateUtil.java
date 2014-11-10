@@ -6,6 +6,26 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
+	
+	private static final SessionFactory sessionFactory;  
+	  
+    static {  
+        try {  
+            // Create the SessionFactory from hibernate.cfg.xml  
+            sessionFactory = new Configuration().configure().buildSessionFactory();  
+        } catch (Throwable ex) {  
+            // Make sure you log the exception, as it might be swallowed  
+            System.err.println("Initial SessionFactory creation failed." + ex);  
+            throw new ExceptionInInitializerError(ex);  
+        }  
+    }  
+  
+    public static SessionFactory getSessionFactory() {  
+        return sessionFactory;  
+    }  
+    /*
+     * ESTE METODO NO SIRVE PORQUE CREA MULTIPLES SESIONES HASTA LLEGAR AL LIMITE ACEPTADO POR MYSQL
+     * 
     private static SessionFactory sessionFactory;
     
     public HibernateUtil(){ 
@@ -23,5 +43,5 @@ public class HibernateUtil {
         
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
-    }
+    }*/
 }
