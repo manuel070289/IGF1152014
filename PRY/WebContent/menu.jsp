@@ -188,10 +188,10 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_usuario">
 
-							<a href="CRUD_USUARIO/crearUsuario.jsp" class="list-group-item">Crear</a><a
-								href="#" class="list-group-item">Obtener</a> <a href="#"
-								class="list-group-item">Actualizar</a> <a href="#"
-								class="list-group-item">Eliminar</a>
+							<a href="CRUD_USUARIO/crearUsuario.jsp" class="list-group-item">Crear</a>
+							<a href="#" class="list-group-item">Obtener</a> 
+							<a href="CRUD_USUARIO/actualizarUsuario.jsp" class="list-group-item">Actualizar</a> 
+							<a href="CRUD_USUARIO/eliminarUsuario.jsp" class="list-group-item">Eliminar</a>
 
 						</div>
 					</div>

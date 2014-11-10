@@ -97,7 +97,7 @@ public class OficinaDAO {
 	
 	public List<Oficina> daoOficina(){
 		sesion = sessionFactory.openSession() ;
-		Criteria var = sesion.createCriteria(Oficina.class).add(Restrictions.like("activo",Short.parseShort("1")));
+		Criteria var = sesion.createCriteria(Oficina.class).add(Restrictions.eq("activo",Short.parseShort("1")));
 		List<Oficina> oficina = var.list() ;
 		sesion.close() ;
 		return oficina ;

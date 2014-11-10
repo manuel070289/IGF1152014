@@ -13,7 +13,14 @@
 	String rol = request.getParameter("rol").trim();
 	
 	CtrlGenero gen = new CtrlGenero();
-	Genero gene;
+	Genero gene=gen.daGeneroById(genero);
+	CtrlUsuario ctrlUsua=new CtrlUsuario();
+	if(ctrlUsua.crearUsuario(nombre,apellido,gene,user,pass,Short.parseShort(rol)))
+		mensaje+="Usuario creado con exito";
+	else
+		mensaje+="Error en la creación del Usuario";
+		
+	
 	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,6 +39,10 @@
 			<%=mensaje%>
 		</div>
 	</div>
-	<%=mensaje=""%>a
+	<%=mensaje=""%>
 </body>
 </html>
+<script>
+function redireccionar(){window.location="../menu.jsp";}
+setTimeout ("redireccionar()", 2000);
+</script>

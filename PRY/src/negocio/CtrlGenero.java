@@ -1,6 +1,7 @@
 package negocio;
 
 import java.util.Date;
+import java.util.List;
 
 import dao.GeneroDAO;
 import dominio.Genero;
@@ -50,6 +51,14 @@ public class CtrlGenero {
 		}
 		else
 			return false ;
+	}
+	
+	public Genero daGeneroById(String id_genero){
+		return daoGenero.daGeneroById(id_genero);
+	}
+	
+	public List<Genero> dameTodosLosGeneros(){
+		return daoGenero.dameTodosLosGeneros();
 	}
 	
 	

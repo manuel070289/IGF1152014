@@ -5,29 +5,23 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.math.BigDecimal"%>
 <%!String mensaje = "";%>
-   <%
-   	CtrlOficina ctrlOfic=new CtrlOficina();
-   	String id_ofic=request.getParameter("id_oficina").trim(); 
-   	String nomb=request.getParameter("nomb_oficina").trim();
-	String munic=request.getParameter("municipio").trim();
-	String domic=request.getParameter("domicilio").trim();
-	String id_usuario=request.getParameter("id_usuario_creador").trim();
-	String depto=request.getParameter("departamento").trim();
-	CtrlMunicipio mun=new CtrlMunicipio();
-	Municipio municipio=mun.daoMunicipioByMunByDep(munic,depto);
+<%
+	CtrlUsuario ctrlUsuario= new CtrlUsuario();
+	Short id_user=Short.parseShort(request.getParameter("id_usu"));
+
 	
-	
-	if(ctrlOfic.modificarOficina(id_ofic, municipio, domic, nomb, id_usuario)!=false)
-		mensaje+="Oficina Actualizada";
+	if(ctrlUsuario.eliminarUsuario(id_user)!=false)
+		mensaje+="Usuario Eliminado"; 
 	else
-		mensaje+="Error en la Actualización"; 
-	 
-   %>
+		mensaje+="Error en la Eliminación";
+	
+	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Actualizar Oficina</title>
+<title>Eliminar Usuario</title>
 </head>
 <body>
 <div class='container-fluid '>

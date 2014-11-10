@@ -18,8 +18,8 @@
 	}
 	else { 
 		 
-		Municipio municipio= oficina.getMunicipio();
-		Departamento departamento=municipio.getDepartamento();
+		/*Municipio municipio= oficina.getMunicipio();
+		Departamento departamento=municipio.getDepartamento();*/
 		List departamentos = ctrlDep.daDepartamentos();
 		int numeroDeptos = departamentos.size();
 		
@@ -32,11 +32,11 @@
 			Departamento depActual;
 			out.print("<label for='departamento'>Seleccione el departamento:</label>");
 			
-			out.print("<select required name='departamento'  onchange='cargarMun(this.value);'>");
+			out.print("<select required name='departamento'  id='departamento' onchange='cargarMun(this.value);'>");
 			out.print("<option value=''>Seleccione</option>");
 			for (int i=0; i < numeroDeptos; i++) {
 				depActual = (Departamento) departamentos.get(i);
-				if(depActual.getId_depto().equals(departamento.getId_depto()))
+				if(depActual.getId_depto().equals(oficina.getMunicipio().getDepartamento().getId_depto()))
 					out.print("<option value='" + depActual.getId_depto() + "' selected> " + depActual.getNombre_depto()+"</option>");
 				else
 					out.print("<option value='" + depActual.getId_depto() + "'> " + depActual.getNombre_depto()+"</option>");
@@ -58,17 +58,17 @@
 		{
 			out.print("<label for='municipio'>Seleccione el municipio:</label>");
 			out.print("<div id='muni' name='muni'>");
-			List municipios = ctrlMun.daMunicipios();
-			int numeroMuni = departamentos.size();
+			List municipios = ctrlMun.daMunicipiobyDepto(oficina.getMunicipio().getDepartamento().getId_depto());
+			int numeroMuni = municipios.size();
 			Municipio munActual;
-			out.print("<select required name='municipio'>");
+			out.print("<select required name='municipio' id='municipio'>");
 			out.print("<option value=''>Seleccione</option>");
-			for (int i=0; i < numeroDeptos; i++) {
+			for (int i=0; i < numeroMuni; i++) {
 				munActual = (Municipio) municipios.get(i);
-				if(munActual.getId_municipio().equals(municipio.getId_municipio()))
-					out.print("<option value=' " + munActual.getId_municipio() + "' selected> " + munActual.getNomb_municipio()+"</option>");
+				if(munActual.getId_municipio().equals(oficina.getMunicipio().getId_municipio()))
+					out.print("<option value='" + munActual.getId_municipio() + "' selected> " + munActual.getNomb_municipio()+"</option>");
 				else
-					out.print("<option value=' " + munActual.getId_municipio() + "'> " + munActual.getNomb_municipio()+"</option>");
+					out.print("<option value='" + munActual.getId_municipio() + "'> " + munActual.getNomb_municipio()+"</option>");
 			}
 			out.print("</select>");
 		}
@@ -76,7 +76,7 @@
 		{
 			out.print("<label for='municipio'>Municipio:</label>");
 			out.print("<div id='muni' name='muni'>");
-			out.print("<input id='municipio' class='form-control' type='text' name='municipio' disabled value='"+oficina.getMunicipio().getNomb_municipio()+"' required>");
+			out.print("<input id='municipio' class='form-control' type='text' name='municipio' disabled value='"+oficina.getMunicipio().getNomb_municipio()+"'>");
 		}
 		out.print("</div>");
 		out.print("</div>");

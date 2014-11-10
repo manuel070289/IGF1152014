@@ -59,7 +59,7 @@
 						<div class="col-sm-7">
 							<div class="form-group">
 								<label for="passwd">Contraseña de Usuario:</label>
-								<input id="passwd"	class="form-control" type="text" name="passwd" required>
+								<input id="passwd"	class="form-control" type="password" name="passwd" required>
 							</div>
 						</div>
 						<div class="col-sm-7">

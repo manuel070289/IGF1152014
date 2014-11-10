@@ -21,14 +21,14 @@ public class Usuario implements Serializable{
 	
 	private Usuario(){}
 	
-	public Usuario(String nombre,String apellido,Genero id_sexo,String username,String passwd,Short rol, Short activo){
+	public Usuario(String nombre,String apellido,Genero id_sexo,String username,String passwd,Short rol){
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.id_sexo=id_sexo;
 		this.username=username;
 		this.passwd=passwd;
 		this.rol=rol;
-		this.activo=activo;
+		this.activo=Short.parseShort("1");
 	}
 
 	@Id
