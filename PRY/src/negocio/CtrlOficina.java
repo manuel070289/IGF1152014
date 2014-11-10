@@ -33,11 +33,14 @@ public class CtrlOficina {
 			return false ;
 	}
 	
-	public boolean modificarOficina(String nombOficina, Municipio municipio) {
-		if(daoOficina.daoNombreOficina(nombOficina) != null) {
-			Oficina oficina =	daoOficina.daoNombreOficina(nombOficina) ;
-			oficina.setNomb_oficina(nombOficina);
+	public boolean modificarOficina(String id_oficina,Municipio municipio,String domic,String nomb,String id_usuario) {
+		if(daoOficina.daoOficinaById(id_oficina) != null) {
+			Oficina oficina =	daoOficina.daoOficinaById(id_oficina) ;
+			oficina.setNomb_oficina(nomb);
 			oficina.setMunicipio(municipio);
+			oficina.setDomicilio(domic);
+			oficina.setUsuario_modifica(Short.parseShort(id_usuario));
+			oficina.setFecha_modifica(new Date());
 			daoOficina.guardaActualiza(oficina) ;
 			return true ;
 		}
