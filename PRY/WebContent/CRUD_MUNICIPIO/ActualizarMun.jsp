@@ -20,7 +20,7 @@
 			mensaje += "<div class='text-warning'> El municipio  fue actualizado</div>";
 		else
 
-			mensaje += "<div class='text-warning'>El departamento no pude ser actualizado</div>";
+			mensaje += "<div class='text-warning'>El municipio no pude ser actualizado</div>";
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

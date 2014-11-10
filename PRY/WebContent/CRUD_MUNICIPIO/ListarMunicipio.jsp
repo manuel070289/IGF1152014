@@ -88,7 +88,7 @@
 				<%=depto=""%>
 				<form class="" action="ListarTodos.jsp" method="post" role="form">
 					<fieldset>
-						<legend>Listar Municipios por Nombre</legend>
+						<legend>Listar  Municipios</legend>
 					</fieldset>
 					<div class="row">
 						<div class="col-sm-7">

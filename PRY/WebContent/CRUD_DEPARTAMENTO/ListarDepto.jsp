@@ -15,6 +15,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
+			<div class='panel-heading'>
+				<h3 class='title'>LISTAR DEPARTAMENTOS</h3>
+			</div>
 
 			<div class="panel" id="listarDepartamentosZonas"
 				class="list-group collapse in">
