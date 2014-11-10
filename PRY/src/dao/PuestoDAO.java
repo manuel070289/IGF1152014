@@ -81,7 +81,7 @@ public class PuestoDAO {
 	
 	public List<Puesto> daPuesto() {
 		sesion = sessionFactory.openSession();
-		Criteria criteria = sesion.createCriteria(Puesto.class).addOrder(Property.forName("nomb_puesto").asc());
+		Criteria criteria = sesion.createCriteria(Puesto.class).add(Restrictions.like("activo", Short.parseShort("1")));
 		List<Puesto> ps = criteria.list();
 		sesion.close();
 		return ps;
