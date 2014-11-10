@@ -47,11 +47,11 @@ public class Puesto implements Serializable {
 	
 	@Basic(optional = false)
 	@Column(name="id_usuario_creador")
-	private String id_usuario_creador;
+	private Short id_usuario_creador;
 	
 	@Basic(optional = false)
 	@Column(name="id_usuario_modifica")
-	private String id_usuario_modifica;
+	private Short id_usuario_modifica;
 	
 	@Basic(optional = false)
 	@Column(name="fecha_creacion")
@@ -63,7 +63,7 @@ public class Puesto implements Serializable {
 	
 	@Basic(optional = false)
 	@Column(name="activo")
-	private Integer activo;
+	private Short activo;
 	
 	
 	
@@ -73,18 +73,17 @@ public class Puesto implements Serializable {
 
 	public Puesto(String nomb_puesto, String perfil_puesto, Date fecha_ing,
 			BigDecimal sueldo_min, BigDecimal sueldo_max,
-			String id_usuario_creador, String id_usuario_modifica,
-			Date fecha_creacion, Date fecha_modifica, Integer activo) {
+			String id_usuario, Date fecha) {
 		this.nomb_puesto = nomb_puesto;
 		this.perfil_puesto = perfil_puesto;
 		this.fecha_ing = fecha_ing;
 		this.sueldo_min = sueldo_min;
 		this.sueldo_max = sueldo_max;
-		this.id_usuario_creador = id_usuario_creador;
-		this.id_usuario_modifica = id_usuario_modifica;
-		this.fecha_creacion = fecha_creacion;
-		this.fecha_modifica = fecha_modifica;
-		this.activo = activo;
+		this.id_usuario_creador = Short.parseShort(id_usuario);
+		this.id_usuario_modifica = Short.parseShort(id_usuario);
+		this.fecha_creacion = fecha;
+		this.fecha_modifica = fecha;
+		this.activo = 1;
 	}
 
 
@@ -124,16 +123,16 @@ public class Puesto implements Serializable {
 	public void setSueldo_max(BigDecimal sueldo_max) {
 		this.sueldo_max = sueldo_max;
 	}
-	public String getId_usuario_creador() {
+	public Short getId_usuario_creador() {
 		return id_usuario_creador;
 	}
-	public void setId_usuario_creador(String id_usuario_creador) {
+	public void setId_usuario_creador(Short id_usuario_creador) {
 		this.id_usuario_creador = id_usuario_creador;
 	}
-	public String getId_usuario_modifica() {
+	public Short getId_usuario_modifica() {
 		return id_usuario_modifica;
 	}
-	public void setId_usuario_modifica(String id_usuario_modifica) {
+	public void setId_usuario_modifica(Short id_usuario_modifica) {
 		this.id_usuario_modifica = id_usuario_modifica;
 	}
 	public Date getFecha_creacion() {
@@ -148,10 +147,10 @@ public class Puesto implements Serializable {
 	public void setFecha_modifica(Date fecha_modifica) {
 		this.fecha_modifica = fecha_modifica;
 	}
-	public Integer getActivo() {
+	public Short getActivo() {
 		return activo;
 	}
-	public void setActivo(Integer activo) {
+	public void setActivo(Short activo) {
 		this.activo = activo;
 	}
 	

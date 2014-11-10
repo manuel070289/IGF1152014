@@ -12,8 +12,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="crearPuesto.jsp" method="get"
-					role="form">
+				<form class="" action="crearPuesto.jsp" method="get" role="form">
 					<fieldset>
 						<legend>Información del Puesto</legend>
 					</fieldset>
@@ -33,7 +32,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="fecha_ing">Fecha de Ingreso:</label> <input
-									id="datepicker" class="form-control" type="text" name="fecha_ing" required>
+									id="fecha_ing" class="form-control" type="text" name="fecha_ing" required>
 							</div>
 						</div>
 						<div class="col-md-4">
@@ -55,14 +54,13 @@
 							</div>
 						</div>
 					</div>
-					<input class="btn btn-primary" type="submit" value="Crear Puesto">
+					<div class="row">
+						<div class="col-md-12">
+							<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
+							<input class="btn btn-primary" type="submit" value="Crear Puesto">
+						</div>
+					</div>
 				</form>
-				<script>     
-			 		//funcion para el calendario
-					$('#datepicker').datepicker({
-				    format: 'yyyy/mm/dd'
-					});
-				</script>
 			</div>
 		</div>
 	</div>
