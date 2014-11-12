@@ -1,87 +1,111 @@
 package dao;
 
-//import java.util.List;
-import org.hibernate.*;
-import org.hibernate.criterion.Restrictions;
+import java.util.List;
 
-import com.sun.xml.internal.org.jvnet.fastinfoset.sax.RestrictedAlphabetContentHandler;
-//import org.hibernate.Criteria;
-//import org.hibernate.HibernateException;
-//import org.hibernate.Query;
-//import org.hibernate.Session;
-//import org.hibernate.SessionFactory;
-//import org.hibernate.Transaction;
-//import org.hibernate.criterion.Restrictions;
-import dominio.BoletaPago;
-import dominio.Departamento;
-import dominio.Empleado;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 import utilidades.HibernateUtil;
+import dominio.BoletaPago;
 
 public class BoletaPagoDAO {
-	private HibernateUtil hibernateUtil = new HibernateUtil() ;
-	private SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
-	private Session sesion;
-	private Transaction tx;
+private HibernateUtil hibernateUtil = new HibernateUtil() ;
 	
-	private void iniciaOperacion() throws HibernateException {
-		sesion = sessionFactory.openSession() ;
-		tx = sesion.beginTransaction() ;
+	public void guardar(BoletaPago BP){
+		//1. Obtengo la SessionFactory
+		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+		//2. Obtengo la Session
+		Session sesion = sessionFactory.openSession();
+		//3. Obtengo la Transaccion
+		Transaction tx = sesion.beginTransaction();
+		//4. Guardo el tipo descuentos
+		sesion.save(BP);
+		//5. Guardo los cambios del tipo descuentos
+		tx.commit();
+		sesion.flush();
+		//6. Cierro la sesion
+		sesion.close();
 	}
 	
-	private void manejaExcepcion(HibernateException he) throws
-	HibernateException {
-		tx.rollback();
-		throw new HibernateException("Ocurrió un error en la capa DAO", he);
-	}
-///////////////////////////FUNCIONES///////////////////////////
-	//////Guarda una nueva BoletaPago
-	public void guardaActualiza(BoletaPago boleta) {
-		try {
-			iniciaOperacion() ;
-			sesion.saveOrUpdate(boleta) ;
-			tx.commit() ;
-			sesion.flush() ;
-		} catch (HibernateException he) {
-			manejaExcepcion(he) ;
-			throw he ;
-		} finally {
-			sesion.close() ;
+	public void actualizar(BoletaPago BP) {
+	    // 1. Obtengo la SessionFactory
+		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+	    // 2. Obtengo la Session
+	    Session sesion = sessionFactory.openSession() ;
+	    // 3. Obtengo la Transaccion
+	    Transaction tx = sesion.beginTransaction() ;
+	    // 4. Actualizo el tipo descuentos
+	    sesion.update(BP) ;
+	    // 5. Guardo los Cambios del tipo descuentos
+	    tx.commit() ;
+	    sesion.flush() ;
+	    // 6. Cierro la sesion
+	    sesion.close() ;
+   }
+	
+	public void eliminar(BoletaPago BP) {
+	    // 1. Obtengo la SessionFactory
+		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+	    // 2. Obtengo la Session
+	    Session sesion = sessionFactory.openSession() ;
+	    // 3. Obtengo la Transaccion
+	    Transaction tx = sesion.beginTransaction() ;
+	    // 4. Actualizo el tipo descuentos
+	    sesion.delete(BP) ;
+	    // 5. Guardo los Cambios del tipo descuentos
+	    tx.commit() ;
+	    sesion.flush() ;
+	    // 6. Cierro la sesion
+	    sesion.close() ;
+   }
+	
+	public BoletaPago obtenerBoletaPago(short idBP){
+		//1. Obtengo la SessionFactory
+		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+		//2. Obtengo la Session
+		Session sesion = sessionFactory.openSession();
+		Query query = sesion.getNamedQuery("daBoletaPagoPorId");
+		query.setShort("id_BoletaPago",idBP);
+		List BP = query.list();
+		sesion.close();
+		if (BP.isEmpty()){
+			return null;
+		}else{
+			return (BoletaPago)BP.get(0);
 		}
-	}
-	
-	
-	////Elimina una BoletaPago
-	public void eliminar(BoletaPago boleta) {
-		try {
-			iniciaOperacion() ;
-			sesion.delete(boleta) ;
-			tx.commit() ;
-			sesion.flush() ;
-		} catch (HibernateException he) {
-			manejaExcepcion(he) ;
-			throw he ;
-		} finally {
-			sesion.close() ;
-		}
-	}
-	
-	
-	
-	
-	
-	//////Verifica si existe la BoletaPago por periodo y id_empleado
-	public BoletaPago daBoletaPagoByPeriodoPagoyIdEMpleado(String periodo, Empleado empleado){
-		sesion = sessionFactory.openSession();
-		Criteria var = sesion.createCriteria(BoletaPago.class).add(Restrictions.eq("periodo",periodo)).add(Restrictions.eq("id_empleado", empleado));
-		BoletaPago bol = (BoletaPago)var.uniqueResult();
-		return bol;
-	}
-	
-	
-	
-	
 
+	}
 	
 	
-	
+	public List<BoletaPago> findAll(){
+		//1. Obtengo la SessionFactory
+		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+		//2. Obtengo la Session
+		Session sesion = sessionFactory.openSession();
+		Query query = sesion.getNamedQuery("buscarTodosBP");
+		//query.setString();
+		List BP = query.list();
+		sesion.close();
+		if (BP.isEmpty()){
+					return null;
+		}else{
+			return BP;
+		}
+	}
+	public List<BoletaPago> findByExample(BoletaPago filters){		
+		//1. Obtengo la SessionFactory
+		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+		// 2. Obtengo la Session
+		Session sesion = sessionFactory.openSession() ;
+		// 3. Obtengo la Transaccion
+		Transaction tx = sesion.beginTransaction() ;
+		// 4. Actualizo el tipo descuentos
+		List<BoletaPago> u=this.findByExample(filters);
+		tx.commit();
+		return u;
+		
+	}
+
 }
