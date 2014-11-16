@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select id_oficina,nomb_oficina from oficina]]>
+		<![CDATA[select o.id_oficina,o.nomb_oficina,o.domicilio,d.nombre_depto,m.nomb_municipio from oficina o inner join municipio m on m.id_municipio=o.id_municipio inner join departamento d on m.id_depto=d.id_depto and o.id_depto=d.id_depto]]>
 	</queryString>
 	<field name="id_oficina" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -12,36 +12,95 @@
 	<field name="nomb_oficina" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="domicilio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_depto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomb_municipio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="36" splitType="Stretch"/>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="572" height="27" uuid="2a96b963-1250-48ac-b092-919e9e3a970b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="20" uuid="87f193e9-cbf3-4b56-85b3-c6eda848b3ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Oficinas]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="18" y="2" width="100" height="20" uuid="6286cca4-0b4d-47eb-a573-24bd184448b8"/>
-				<text><![CDATA[id_oficina]]></text>
+				<reportElement x="0" y="0" width="100" height="20" uuid="6286cca4-0b4d-47eb-a573-24bd184448b8"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="215" y="2" width="100" height="20" uuid="3cb70da0-3ed4-4640-86b8-3fcb457050ca"/>
-				<text><![CDATA[nomb_oficina]]></text>
+				<reportElement x="100" y="0" width="100" height="20" uuid="3cb70da0-3ed4-4640-86b8-3fcb457050ca"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="172" height="20" uuid="d80f7253-7554-4f89-b069-53ca74200531"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="0" width="100" height="20" uuid="4348ad4c-8750-43b8-b743-6195d18d793f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="0" width="100" height="20" uuid="b7493fef-513a-4c0c-b0ae-469b3b32d638"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Municipio]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="38" splitType="Stretch">
+		<band height="21" splitType="Stretch">
 			<textField>
-				<reportElement x="18" y="11" width="100" height="20" uuid="4d78f389-f789-478e-ba33-f2ae34fa86e8"/>
+				<reportElement x="0" y="0" width="100" height="20" uuid="4d78f389-f789-478e-ba33-f2ae34fa86e8"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{id_oficina}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="215" y="14" width="100" height="20" uuid="349a994b-8fbe-48ec-9d56-a50b455c210c"/>
+				<reportElement x="100" y="0" width="100" height="20" uuid="349a994b-8fbe-48ec-9d56-a50b455c210c"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{nomb_oficina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="172" height="20" uuid="f76dcb92-bdc8-420f-b9b8-c0f9979b06d1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{domicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="1" width="100" height="20" uuid="9ae6dc92-b02a-4a9f-afec-3710de185193"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nombre_depto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="1" width="100" height="20" uuid="b3f43f49-dc81-44d1-8cc5-e9af5b906fa8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nomb_municipio}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -49,7 +108,20 @@
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="521" y="0" width="15" height="20" uuid="6f988ce8-5319-4cee-a476-d347c37c7163"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="547" y="0" width="15" height="20" uuid="06f0aed0-b0d4-4b83-afa9-51ee4fdd1e2c"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="536" y="0" width="11" height="20" uuid="9282bd6a-8edd-4281-b6a5-33d79c23be79"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
