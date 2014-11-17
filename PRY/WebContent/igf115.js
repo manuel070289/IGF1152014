@@ -23,6 +23,12 @@ function setearBotones() {
 		});
 	}); });
 	
+	$('#eliminarEmpleado').click(function(event) {
+		$.post('CRUD_EMPLEADO/formulario_ELIMINAR.jsp', function(responseText) {
+			$('#dinamico').html(responseText);
+		});
+	});
+	
 	$('#crearGenero').click(function(event) {
 		$.post('CRUD_GENERO/formulario_CREAR.jsp', function(responseText) {
 			$('#dinamico').html(responseText);

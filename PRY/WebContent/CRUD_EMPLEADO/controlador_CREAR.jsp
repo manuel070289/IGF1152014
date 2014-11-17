@@ -24,16 +24,14 @@ String telefono = request.getParameter("tel");
 String email = request.getParameter("email");
 String sexo = request.getParameter("sexo");
 String fechaIngreso = request.getParameter("f_ingreso");
-
-/* String puesto = request.getParameter("puesto"); */
-short puesto = 1; //por lo que falta de la lilian
+String id_puesto = request.getParameter("puesto");
 String oficina = request.getParameter("oficina");
 String jefe = request.getParameter("jefe");
 String sueldo = request.getParameter("sueldo");
 String activo = request.getParameter("activo");
 
 
-SimpleDateFormat aux = new SimpleDateFormat("dd/mm/yyyy");
+SimpleDateFormat aux = new SimpleDateFormat("dd/MM/yyyy");
 
 Date f_nacimiento;
 Date f_ingreso; 
@@ -46,6 +44,9 @@ Genero genero = daoGenero.daGeneroById(sexo);
 
 OficinaDAO daoOficina = new OficinaDAO();
 Oficina objOficina = daoOficina.daoOficinaById(oficina);
+
+PuestoDAO daoPuesto = new PuestoDAO();
+Puesto puesto = daoPuesto.daPuestoById(Short.parseShort(id_puesto));
 
 jefe = (jefe.equals("ninguno"))? null : jefe;
 
@@ -61,6 +62,7 @@ if(exito){
 }else{
 	mensaje = "No se ha podido crear el empleado porque ya existe!";
 }
+
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -5,6 +5,7 @@
 <%@ page import="dominio.*"%>
 <%@ page import="negocio.*"%>
 <%@ page import="java.util.List"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 
 <%
 	String empleadoId = request.getParameter("empleado");
@@ -12,18 +13,23 @@
 EmpleadoDAO daoEmpleado = new EmpleadoDAO();
 GeneroDAO daoGenero = new GeneroDAO();
 CtrlOficina ctrlOficina = new CtrlOficina();
+CtrlPuesto ctrlPuesto = new CtrlPuesto();
 
 	Empleado empleado = daoEmpleado.daoEmpleadoById(empleadoId);
 
 	String sexo = "";
 	String oficina = "";
+	String puesto = "";
+	String jefe = "";
 
 	List<Genero> lista = daoGenero.dameTodosLosGeneros();
 	List<Oficina> lista2 = ctrlOficina.daoOficina();
+	List<Puesto> lista3 = ctrlPuesto.daPuestoTodos();
+	List<Empleado> lista4 = daoEmpleado.dameTodosLosEmpleados();
 
 	for (int i = 0; i < lista.size(); i++) {
-		sexo = sexo + "<option value=" + lista.get(i).getId_sexo();
-		if (lista.get(i).getId_sexo() == empleado.getGenero().getId_sexo()) {
+		sexo = sexo + "<option value=\"" + lista.get(i).getId_sexo();
+		if (lista.get(i).getId_sexo().equals(empleado.getGenero().getId_sexo())) {
 			sexo = sexo + "\" selected>";
 		} else
 			sexo = sexo + "\">";
@@ -31,13 +37,33 @@ CtrlOficina ctrlOficina = new CtrlOficina();
 	}
 	
 	for (int i = 0; i < lista2.size(); i++) {
-		oficina = oficina + "<option value=" + lista2.get(i).getId_oficina();
-		if (lista2.get(i).getId_oficina() == empleado.getGenero().getId_sexo()) {
+		oficina = oficina + "<option value=\"" + lista2.get(i).getId_oficina();
+		if (lista2.get(i).getId_oficina().equals(empleado.getOficina().getId_oficina())) {
 			oficina = oficina + "\" selected>";
 		} else
 			oficina = oficina + "\">";
 		oficina = oficina + lista2.get(i).getNomb_oficina() +  "</option>";
+	}
+	
+	for (int i = 0; i < lista3.size(); i++) {
+		puesto = puesto + "<option value=\"" + lista3.get(i).getId_puesto();
+		if (lista3.get(i).getId_puesto().equals(empleado.getPuesto().getId_puesto())) {
+			puesto = puesto + "\" selected>";
+		} else
+			puesto = puesto + "\">";
+		puesto = puesto + lista3.get(i).getNomb_puesto() +  "</option>";
+	}
+	
+	for (int i = 0; i < lista4.size(); i++) {
+		jefe = jefe + "<option value=\"" + lista4.get(i).getIdEmpleado();
+		if (lista4.get(i).getIdEmpleado().equals(empleado.getIdJefe())) {
+			jefe = jefe + "\" selected>";
+		} else
+			jefe = jefe + "\">";
+		jefe = jefe + lista4.get(i).getNombres() + " " + lista4.get(i).getApellidoPaterno() + " " + lista4.get(i).getApellidoMaterno() +  "</option>";
 	}	
+	
+	SimpleDateFormat aux = new SimpleDateFormat("dd/MM/yyyy");
 
 	String nombre = empleado.getNombres();
 	String apellido_paterno = empleado.getApellidoPaterno();
@@ -47,13 +73,14 @@ CtrlOficina ctrlOficina = new CtrlOficina();
 	String telefono = empleado.getTelefono();
 	String email = empleado.getEmail();
 	String sueldo = String.valueOf(empleado.getSueldo());
+	String f_nacimiento = aux.format(empleado.getFechaNacimiento());
+	String f_ingreso = aux.format(empleado.getFechaIngreso());
 	
-	System.out.println(sueldo);
 %>
 
 <!-- <div class="row" id="dinamico_2"> -->
 	<div class="col-md-12">
-		<form class="" action="CRUD_EMPLEADO/controlador_CREAR.jsp"
+		<form class="" action="CRUD_EMPLEADO/controlador_ACTUALIZAR.jsp"
 			method="get" role="form">
 			<div class="row">
 				<div class="col-md-7">
@@ -87,7 +114,7 @@ CtrlOficina ctrlOficina = new CtrlOficina();
 								<div class="form-group">
 									<label for="f_nacimiento">F. Nacimiento:</label> <input
 										id="f_nacimiento" class="form-control" type="text"
-										name="f_nacimiento" required="required">
+										name="f_nacimiento" value="<%=f_nacimiento%>" required="required">
 								</div>
 							</div>
 							<div class="col-md-4">
@@ -141,13 +168,15 @@ CtrlOficina ctrlOficina = new CtrlOficina();
 								<div class="form-group">
 									<label for="f_ingreso">F. Ingreso:</label> <input
 										id="f_ingreso" class="form-control" type="text"
-										name="f_ingreso">
+										name="f_ingreso" value="<%=f_ingreso%>">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="puesto">Puesto:</label> <input id="puesto"
-										class="form-control" type="text" name="puesto">
+									<label for="puesto">Puesto:</label> <select class="form-control"
+										name="puesto">
+										<%=puesto %>
+									</select>
 								</div>
 							</div>
 							<div class="col-md-12">
@@ -163,7 +192,7 @@ CtrlOficina ctrlOficina = new CtrlOficina();
 									<label>Jefe Inmediato:</label> <select class="form-control"
 										name="jefe">
 										<option value="ninguno">Ninguno</option>
-										<%-- <%=jefes% --%>>
+										<%=jefe%>
 									</select>
 								</div>
 							</div>
@@ -196,7 +225,7 @@ CtrlOficina ctrlOficina = new CtrlOficina();
 				<div class="col-md-12">
 					<input type="hidden" name="id_usuario_creador"
 						value="<%=session.getAttribute("id_usuario")%>"> <input
-						class="btn btn-primary" type="submit" value="Crear Empleado">
+						class="btn btn-primary" type="submit" value="Actualizar Empleado">
 				</div>
 			</div>
 		</form>

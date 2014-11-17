@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -46,7 +47,7 @@ public class EmpleadoDAO {
 			sesion.close();
 		}
 	}
-	
+
 	public Empleado daEmpleadoByDUI(String dui) {
 		sesion = sessionFactory.openSession();
 		Criteria criteria = sesion.createCriteria(Empleado.class).add(Restrictions.like("dui",dui));
@@ -54,20 +55,45 @@ public class EmpleadoDAO {
 		sesion.close();
 		return empleado;
 	}
-	
+
 	public List<Empleado> dameTodosLosEmpleados() {
 		sesion = sessionFactory.openSession();
-		Criteria criteria = sesion.createCriteria(Empleado.class);
+		Criteria criteria = sesion.createCriteria(Empleado.class).add(Restrictions.eq("active",Short.parseShort("1")));;
 		List<Empleado> listadoDeEmpleados = criteria.list();
 		sesion.close();
 		return listadoDeEmpleados;
 	}
-	
+
 	public Empleado daoEmpleadoById(String idEmpleado){
 		sesion = sessionFactory.openSession() ;
 		Criteria var = sesion.createCriteria(Empleado.class).add(Restrictions.eq("idEmpleado", idEmpleado));
 		Empleado empleado = (Empleado)var.uniqueResult() ;
 		sesion.close();
 		return empleado;
+	}
+
+	//Este metodo otorga un nuevo id para usarlo como llave primaria en Empleado
+	public String dameAlgunIdParaEmpleado() {
+		sesion= sessionFactory.openSession() ;
+		Criteria criteria = sesion.createCriteria(Empleado.class).addOrder(Order.desc("idEmpleado")).setMaxResults(1); 
+		Empleado empleado = (Empleado) criteria.uniqueResult();
+		String numeroN="";
+		if(empleado == null)
+			return "E0001";
+		else
+		{
+			Integer numero = Integer.parseInt(empleado.getIdEmpleado().substring(1));
+			numero++;
+			if(numero < 10)
+				numeroN = "E000"+ numero;
+			if(numero > 9 && numero < 100)
+				numeroN = "E00" + numero;
+			if(numero > 99 && numero < 1000)
+				numeroN = "E0" + numero;
+			if(numero > 999)
+				numeroN = "E" + numero;
+		}
+		sesion.close(); 
+		return numeroN;		
 	}
 }

@@ -34,7 +34,7 @@ public class Genero implements Serializable {
 	}
 
 	public Genero(String id_sexo, String d_sexo) {
-		this.id_sexo = id_sexo.trim().toUpperCase();
+		this.id_sexo = id_sexo;
 		this.d_sexo = d_sexo.trim().substring(0, 1).toUpperCase()
 				+ d_sexo.substring(1);
 		
@@ -50,7 +50,7 @@ public class Genero implements Serializable {
 	}
 
 	public void setId_sexo(String id_sexo) {
-		this.id_sexo = id_sexo.trim().toUpperCase();
+		this.id_sexo = id_sexo;
 	}
 
 	// /////////////////////////d_sexo///////////////////////////

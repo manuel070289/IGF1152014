@@ -24,7 +24,7 @@ public class Empleado implements Serializable {
 	private String telefono;
 	private String activo;
 	private String idJefe;
-	private short idPuesto;
+	private Puesto puesto;
 	private Oficina oficina;
 	private Genero genero;
 
@@ -42,7 +42,7 @@ public class Empleado implements Serializable {
 	public Empleado(String nombres, String apellPaterno, String apellMaterno,
 			Genero genero, Date fechaNacimiento, Date fechaIngreso, String dui,
 			String nit, String telefono, String email, Oficina oficina,
-			String jefe, BigDecimal sueldo, String activo, short puesto) {
+			String jefe, BigDecimal sueldo, String activo, Puesto puesto) {
 		this.nombres = nombres;
 		this.apellidoPaterno = apellPaterno;
 		this.apellidoMaterno = apellMaterno;
@@ -57,7 +57,7 @@ public class Empleado implements Serializable {
 		this.idJefe = jefe;
 		this.sueldo = sueldo;
 		this.activo = activo;
-		this.idPuesto = puesto;
+		this.puesto = puesto;
 
 		this.active = 1;
 	}
@@ -213,14 +213,14 @@ public class Empleado implements Serializable {
 		this.idJefe = idJefe;
 	}
 
-	@Basic(optional = false)
-	@Column(name = "id_puesto")
-	public short getIdPuesto() {
-		return idPuesto;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "id_puesto", referencedColumnName = "id_puesto")
+	public Puesto getPuesto() {
+		return puesto;
 	}
 
-	public void setIdPuesto(short idPuesto) {
-		this.idPuesto = idPuesto;
+	public void setPuesto(Puesto puesto) {
+		this.puesto = puesto;
 	}
 
 	// METODOS PARA AUDITORIA METODOS PARA AUDITORIA METODOS PARA AUDITORIA

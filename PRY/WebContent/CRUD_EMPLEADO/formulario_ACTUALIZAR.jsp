@@ -15,6 +15,33 @@ for(int i=0; i<lista.size();i++) {
 + lista.get(i).getApellidoPaterno() + lista.get(i).getApellidoMaterno() + "</option>";
 }
 
+String oficinas = "";
+OficinaDAO daoOficina = new OficinaDAO();
+List<Oficina> listaOficina = daoOficina.daoOficina();
+for (int i = 0; i < listaOficina.size(); i++) {
+	oficinas = oficinas + "<option value="
+			+ listaOficina.get(i).getId_oficina() + ">"
+			+ listaOficina.get(i).getNomb_oficina() + "</option>";
+}
+
+String puestos = "";
+PuestoDAO daoPuesto = new PuestoDAO();
+List<Puesto> listaPuestos = daoPuesto.daPuesto();
+for (int i = 0; i < listaPuestos.size(); i++) {
+	puestos = puestos + "<option value="
+			+ listaPuestos.get(i).getId_puesto() + ">"
+			+ listaPuestos.get(i).getNomb_puesto() + " "
+			+ "</option>";
+}
+
+String genero = "";
+GeneroDAO daoGenero = new GeneroDAO();
+List<Genero> listaGenero = daoGenero.dameTodosLosGeneros();
+for (int i = 0; i < listaGenero.size(); i++) {
+	genero = genero + "<option value=" + listaGenero.get(i).getId_sexo() + ">"
+			+ listaGenero.get(i).getD_sexo() + "</option>";
+}
+
 %>
 
 
@@ -118,7 +145,7 @@ for(int i=0; i<lista.size();i++) {
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
-								<label>Sexo:</label> <select class="form-control" name="sexo"><%-- <%=aux%> --%></select>
+								<label>Sexo:</label> <select class="form-control" name="sexo"><%=genero%></select>
 							</div>
 						</div>
 					</div>
@@ -137,21 +164,21 @@ for(int i=0; i<lista.size();i++) {
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="puesto">Puesto:</label> <input id="puesto"
-									class="form-control" type="text" name="puesto">
+								<label for="puesto">Puesto:</label> <select class="form-control"
+									name="puesto" required="required"><%=puestos%></select>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label>Oficina:</label> <select class="form-control"
-									name="oficina"><%-- <%=oficinas%> --%></select>
+									name="oficina" required="required"><%=oficinas%></select>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label>Jefe Inmediato:</label> <select class="form-control" name="jefe">
 								<option value="ninguno">Ninguno</option>
-								<%-- <%=jefes% --%>></select>
+								<%=aux%></select>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -182,7 +209,7 @@ for(int i=0; i<lista.size();i++) {
 		<div class="row">
 			<div class="col-md-12">
 			<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
-				<input class="btn btn-primary" type="submit" value="Crear Empleado">
+				<input class="btn btn-primary" type="submit" value="Actualizar Empleado">
 			</div>
 		</div>
 	</form>

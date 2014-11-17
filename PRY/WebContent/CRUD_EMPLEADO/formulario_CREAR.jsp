@@ -35,6 +35,16 @@
 				+ listaEmpleados.get(i).getApellidoMaterno()
 				+ "</option>";
 	}
+
+	String puestos = "";
+	PuestoDAO daoPuesto = new PuestoDAO();
+	List<Puesto> listaPuestos = daoPuesto.daPuesto();
+	for (int i = 0; i < listaPuestos.size(); i++) {
+		puestos = puestos + "<option value="
+				+ listaPuestos.get(i).getId_puesto() + ">"
+				+ listaPuestos.get(i).getNomb_puesto() + " "
+				+ "</option>";
+	}
 %>
 
 <!DOCTYPE html>
@@ -54,8 +64,8 @@
 	<!-- <div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7"> -->
-	<form class="" action="CRUD_EMPLEADO/controlador_CREAR.jsp" method="get"
-		role="form">
+	<form class="" action="CRUD_EMPLEADO/controlador_CREAR.jsp"
+		method="get" role="form">
 		<div class="row">
 			<div class="col-md-7">
 				<fieldset>
@@ -119,7 +129,7 @@
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
-								<label>Sexo:</label> <select class="form-control" name="sexo"><%=aux%></select>
+								<label>Sexo:</label> <select class="form-control" name="sexo" required="required"><%=aux%></select>
 							</div>
 						</div>
 					</div>
@@ -133,26 +143,27 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="f_ingreso">F. Ingreso:</label> <input id="f_ingreso"
-									class="form-control" type="text" name="f_ingreso">
+									class="form-control" type="text" name="f_ingreso" required="required">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="puesto">Puesto:</label> <input id="puesto"
-									class="form-control" type="text" name="puesto">
+								<label for="puesto">Puesto:</label><select class="form-control"
+									name="puesto" required="required"><%=puestos%></select>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label>Oficina:</label> <select class="form-control"
-									name="oficina"><%=oficinas%></select>
+									name="oficina" required="required"><%=oficinas%></select>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Jefe Inmediato:</label> <select class="form-control" name="jefe">
-								<option value="ninguno">Ninguno</option>
-								<%=jefes%></select>
+								<label>Jefe Inmediato:</label> <select class="form-control"
+									name="jefe">
+									<option value="ninguno">Ninguno</option>
+									<%=jefes%></select>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -160,7 +171,7 @@
 								<label for="nit">Sueldo:</label>
 								<div class="input-group">
 									<span class="input-group-addon">$</span><input id="sueldo"
-										class="form-control" type="text" name="sueldo">
+										class="form-control" type="text" name="sueldo" required="required">
 								</div>
 							</div>
 						</div>
@@ -182,142 +193,11 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-			<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
-				<input class="btn btn-primary" type="submit" value="Crear Empleado">
+				<input type="hidden" name="id_usuario_creador"
+					value="<%=session.getAttribute("id_usuario")%>"> <input
+					class="btn btn-primary" type="submit" value="Crear Empleado">
 			</div>
 		</div>
 	</form>
-
-
-
-
-
-
-
-
-
-
-	<%-- <form class="" action="crear.jsp" method="get" role="form">
-					<fieldset>
-						<legend>Información Personal</legend>
-					</fieldset>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="nombres">Nombres:</label> <input id="nombres"
-									class="form-control" type="text" name="nombres">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="a_paterno">Apellido Paterno:</label> <input
-									id="a_paterno" class="form-control" type="text"
-									name="a_paterno">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="a_materno">Apellido Materno:</label> <input
-									id="a_materno" class="form-control" type="text"
-									name="a_materno">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="f_nacimiento">Fecha de Nacimiento:</label> <input
-									id="f_nacimiento" class="form-control" type="text"
-									name="f_nacimiento">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="dui">DUI:</label> <input id="dui"
-									class="form-control" type="text" name="dui"
-									placeholder="99999999-9">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="nit">NIT:</label> <input id="nit"
-									class="form-control" type="text" name="nit"
-									placeholder="9999-999999-999-9">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="tel">Teléfono:</label> <input id="tel"
-									class="form-control" type="text" name="tel"
-									placeholder="99999999">
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="email">E-mail:</label> <input id="email"
-									class="form-control" type="text" name="email"
-									placeholder="ejemplo@ejemplo.com">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label>Sexo:</label> <select class="form-control" name="sexo"><%= aux %></select>
-							</div>
-						</div>
-					</div>
-					<fieldset>
-						<legend>Información del Puesto</legend>
-					</fieldset>
-					<div class="row">
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="f_ingreso">Fecha de Ingreso:</label> <input
-									id="f_ingreso" class="form-control" type="text"
-									name="f_ingreso">
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<label for="oficina">Oficina:</label> <input id="oficina"
-									class="form-control" type="text" name="oficina">
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="puesto">Puesto:</label> <input id="puesto"
-									class="form-control" type="text" name="puesto">
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<label for="nit">Jefe Inmediato:</label> <input id="jefe"
-									class="form-control" type="text" name="jefe">
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="nit">Sueldo:</label>
-								<div class="input-group">
-									<span class="input-group-addon">$</span><input id="sueldo"
-										class="form-control" type="text" name="sueldo">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>Activo:</label>
-								<div class="">
-									<label class="radio-inline"> <input type="radio"
-										name="activo" value="T" checked>Cierto
-									</label> <label class="radio-inline"> <input type="radio"
-										name="activo" value="F">Falso
-									</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<input class="btn btn-primary" type="submit" value="Crear Empleado">
-				</form> --%>
-	<!-- </div>
-		</div>
-	</div> -->
 </body>
 </html>

@@ -67,7 +67,7 @@
 							<a id="crearEmpleado" href="#" class="list-group-item">Crear</a><a
 								id="obtenerEmpleado" href="#" class="list-group-item">Obtener</a>
 							<a id="actualizarEmpleado" href="#" class="list-group-item">Actualizar</a>
-							<a href="#" class="list-group-item">Eliminar</a>
+							<a id="eliminarEmpleado" href="#" class="list-group-item">Eliminar</a>
 						</div>
 
 

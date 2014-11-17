@@ -12,7 +12,7 @@ public class CtrlGenero {
 	
 	public boolean crearGenero(String dSexo, short id_usuario) {
 		if(daoGenero.daGeneroByDefinicion(dSexo) == null) {
-			String idSexo = dSexo.substring(0, 1);
+			String idSexo = daoGenero.dameAlgunIdParaGenero();
 			Genero genero = new Genero(idSexo, dSexo);
 			
 			genero.setUsuario_creador(id_usuario);
