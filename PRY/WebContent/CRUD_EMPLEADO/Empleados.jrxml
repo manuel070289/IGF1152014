@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c5fbc17f-b9e1-4025-a617-424e4b270f81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     empleado.`id_empleado` AS empleado_id_empleado,
+     concat_ws(' ', empleado.`nombres`, empleado.`apellido_paterno`, empleado.`apellido_materno`) AS nombre_completo,
+     empleado.`dui` AS empleado_dui,
+	 empleado.`fecha_nacimiento` AS empleado_fecha_nacimiento,
+     genero.`d_sexo` AS genero_d_sexo,
+     empleado.`telefono` AS empleado_telefono,
+     empleado.`e_mail` AS empleado_e_mail
+FROM
+     `genero` genero INNER JOIN `empleado` empleado ON genero.`id_sexo` = empleado.`id_sexo`]]>
+	</queryString>
+	<field name="empleado_id_empleado" class="java.lang.String"/>
+	<field name="nombre_completo" class="java.lang.String"/>
+	<field name="empleado_dui" class="java.lang.String"/>
+	<field name="empleado_fecha_nacimiento" class="java.sql.Date"/>
+	<field name="genero_d_sexo" class="java.lang.String"/>
+	<field name="empleado_telefono" class="java.lang.String"/>
+	<field name="empleado_e_mail" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="752" height="27" uuid="ec21c13e-9d02-4e4f-a8e3-27a28ef32ed9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="27" width="752" height="20" uuid="614f0517-a8a4-4cf4-9f24-327e0a2fd442"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Empleados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="20" uuid="b7085b96-5aac-460f-a956-83617508f3df"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="71" height="20" uuid="71ae9cea-6d07-4bb4-977c-3e2f51261333"/>
+				<text><![CDATA[DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="0" width="100" height="20" uuid="a0495b92-f0a3-46f1-a3c1-8be7d02449cf"/>
+				<text><![CDATA[F. Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="0" width="100" height="20" uuid="273f410b-3086-470a-8054-c0cb0743ab6c"/>
+				<text><![CDATA[Genero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="0" width="100" height="20" uuid="bfb15209-d616-4c94-a178-02d4c9872d4d"/>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="0" width="177" height="20" uuid="f5ab8862-3932-406e-a65a-dcb345e8c8f5"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="200" height="20" uuid="0b41e832-e75d-4acd-954f-39c92b548dcc"/>
+				<textFieldExpression><![CDATA[$F{nombre_completo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="71" height="20" uuid="500c5c0e-7689-480f-9581-053ec5f9c642"/>
+				<textFieldExpression><![CDATA[$F{empleado_dui}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="275" y="0" width="100" height="20" uuid="8b022a99-aab3-44b7-bfef-06de72f2eae6"/>
+				<textFieldExpression><![CDATA[$F{empleado_fecha_nacimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="0" width="100" height="20" uuid="68644c1b-1a4c-49c4-a1d5-5a694d751da3"/>
+				<textFieldExpression><![CDATA[$F{genero_d_sexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="0" width="100" height="20" uuid="04c1ffd0-ac06-44e5-88ca-18a958bda2b9"/>
+				<textFieldExpression><![CDATA[$F{empleado_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="575" y="0" width="177" height="20" uuid="06c2ccc3-9bf0-457c-83e2-3660f5e7c9e4"/>
+				<textFieldExpression><![CDATA[$F{empleado_e_mail}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

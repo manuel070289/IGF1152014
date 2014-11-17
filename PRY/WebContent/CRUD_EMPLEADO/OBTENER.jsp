@@ -44,5 +44,6 @@ for(int i=0; i<lista.size();i++) {
         <%= aux %>
       </tbody>
     </table>
+    <a href="CRUD_EMPLEADO/reporte_pdf_empleado.jsp" class="btn btn-primary">Exportar a PDF</a>
  </body>
  </html>
