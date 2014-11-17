@@ -34,10 +34,17 @@ public class CtrlPuesto {
 	}//fin del metodo boolean consultarPuesto
 	
 	public boolean guardarPuesto(String nomb_puesto, String perfil_puesto, Date fecha_ing,
-			BigDecimal sueldo_min, BigDecimal sueldo_max, String id_usuario){
+			BigDecimal sueldo_min, BigDecimal sueldo_max, Short id_usuario){
 		
 		if(daopuesto.daPuestoByNombre(nomb_puesto)==null){
-			Puesto ps = new Puesto(nomb_puesto, perfil_puesto, fecha_ing, sueldo_min, sueldo_max,id_usuario, new Date());
+			Puesto ps = new Puesto(nomb_puesto, perfil_puesto, fecha_ing, sueldo_min, sueldo_max);
+			
+			//ESTABLECE LOS VALORES PARA AUDITORIA
+			ps.setId_usuario_creador(id_usuario);
+			ps.setId_usuario_modifica(id_usuario);
+			ps.setFecha_creacion(new Date());
+			ps.setFecha_modifica(new Date());
+			
 			daopuesto.guardaActualiza(ps);
 			return true;	
 		}
@@ -68,7 +75,7 @@ public class CtrlPuesto {
 			daopuesto.guardaActualiza(ps);
 			return true;	//si existe y se elimino
 		}else{
-			return false; //el pais no existe en la BD
+			return false; //el puesto no existe en la BD
 		}		
 	}
 	

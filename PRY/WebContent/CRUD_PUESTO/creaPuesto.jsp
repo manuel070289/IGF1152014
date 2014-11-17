@@ -12,11 +12,10 @@
 	String nomb_puesto = request.getParameter("nomb_puesto").trim();
 	String perfil_puesto = request.getParameter("perfil_puesto").trim();
 	String fecha_ing = request.getParameter("fecha_ing");
-	BigDecimal sueldo_min = new BigDecimal(
-			request.getParameter("sueldo_min"));
-	BigDecimal sueldo_max = new BigDecimal(
-			request.getParameter("sueldo_max"));
-	String id_usuario = request.getParameter("id_usuario_creador").trim();
+	BigDecimal sueldo_min = new BigDecimal(request.getParameter("sueldo_min"));
+	BigDecimal sueldo_max = new BigDecimal(request.getParameter("sueldo_max"));
+	Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+	//Short id_usuario = 1;
 
 	SimpleDateFormat aux = new SimpleDateFormat("dd/mm/yyyy");
 	Date f_ingreso;
@@ -38,6 +37,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Crear Puesto</title>
+<link rel="stylesheet" type="text/css"
+	href="../bootstrap-3.2.0-dist/normalize.css">
+<link rel="stylesheet" type="text/css"
+	href="../bootstrap-3.2.0-dist/css/bootstrap.min.css">
+<script type="text/javascript" src="../jquery-2.1.1.min.js"></script>
+<script type="text/javascript"
+	src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class='container-fluid '>
@@ -46,6 +52,13 @@
 				<fieldset>
 					<legend>Información</legend>
 					<%=mensaje%>
+					<form class="" action="crearPuesto.jsp" method="get" role="form">
+						<div class="row">
+							<div class="col-md-12">
+								<input class="btn btn-primary" type="submit" value="Regresar">
+							</div>
+						</div>
+					</form>
 				</fieldset>
 			</div>
 		</div>

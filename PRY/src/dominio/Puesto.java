@@ -19,6 +19,7 @@ public class Puesto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
@@ -72,17 +73,13 @@ public class Puesto implements Serializable {
 	}
 
 	public Puesto(String nomb_puesto, String perfil_puesto, Date fecha_ing,
-			BigDecimal sueldo_min, BigDecimal sueldo_max,
-			String id_usuario, Date fecha) {
+			BigDecimal sueldo_min, BigDecimal sueldo_max) {
 		this.nomb_puesto = nomb_puesto;
 		this.perfil_puesto = perfil_puesto;
 		this.fecha_ing = fecha_ing;
 		this.sueldo_min = sueldo_min;
 		this.sueldo_max = sueldo_max;
-		this.id_usuario_creador = Short.parseShort(id_usuario);
-		this.id_usuario_modifica = Short.parseShort(id_usuario);
-		this.fecha_creacion = fecha;
-		this.fecha_modifica = fecha;
+		
 		this.activo = 1;
 	}
 

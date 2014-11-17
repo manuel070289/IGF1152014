@@ -38,18 +38,65 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="actualizaPuesto.jsp" method="post" role="form">
+				<form class="" action="CRUD_PUESTO/actualizaPuesto.jsp" method="get" role="form">
 					<fieldset>
 						<legend>ACTUALIZAR PUESTO</legend>
+						<div class="row">
+						<div class="col-md-7">
+							<div class="form-group">
+								<label>Puestos Almacenados: </label>
+								<%=mensaje%>
+								<!--  <select data-placeholder="Elija un Puesto" class="form-control" name="puesto">
+									<%=mensaje%>
+								</select>-->
+							</div>
+						</div>
+					</div>
 					</fieldset>
-					<%=mensaje%>
-					<br>
-					<div name="divPuesto" id="divPuesto"></div>
-					<input type="hidden" name="id_usuario_creador"
-						value="<%=session.getAttribute("id_usuario")%>">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="nombres">Nuevo Nombre:</label> <input id="nvo_puesto"
+										class="form-control" type="text" name="nvo_puesto">
+								</div>
+							</div>
+							<div class="col-md-4">
+							<div class="form-group">
+								<label for="perfil_puesto">Nuevo Perfil del Puesto:</label> <input
+									id="nvo_perfil_puesto" class="form-control" type="text"
+									name="nvo_perfil_puesto">
+							</div>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="sueldo_min">Sueldo Minimo:</label>
+								<div class="input-group">
+									<span class="input-group-addon">$</span><input id="nvo_sueldo_min"
+										class="form-control" type="text" name="nvo_sueldo_min">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="sueldo_max">Sueldo Máximo:</label>
+								<div class="input-group">
+									<span class="input-group-addon">$</span><input id="nvo_sueldo_max"
+										class="form-control" type="text" name="nvo_sueldo_max">
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-12">
+							<input type="hidden" name="id_usuario_creador"
+								value="<%=session.getAttribute("id_usuario")%>"> <input
+								class="btn btn-primary" type="submit" value="Modificar Puesto">
+						</div>
+					</div>
 				</form>
 			</div>
-			<%=mensaje = ""%>
 		</div>
 	</div>
 </body>
