@@ -10,19 +10,23 @@
 <%@ page import="negocio.CtrlTiposDescuentos" %>
 <%@ page import="negocio.CtrlBoletaPago" %>
 <%
+Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+
+
 String id_boleta_pago_descuento = request.getParameter("id_boleta_pago_descuento");
 String tipo_descuento = request.getParameter("tipo_descuento") ;
 String boleta_pago = request.getParameter("boleta_pago") ;
-String monto_descuento = request.getParameter("monto_descuento") ;
+
 
 int espacio=0;
 boolean exito=false;
 String titulo=null;
 String mensaje1=null;
 String mensaje2=null;
+Date fecha=new Date();
+int activo=1; //esto para crear el nuevo registro de forma activa
 
 
-/// todo esto se ejecuta si se cumple la condicion
 for (int n = 0; n <tipo_descuento.length (); n++){ 
 	if(tipo_descuento.charAt (n)==' '){
 		espacio=n;
@@ -30,6 +34,7 @@ for (int n = 0; n <tipo_descuento.length (); n++){
 	}
 		
 }
+
 tipo_descuento=tipo_descuento.substring(0,espacio);
 espacio=0;
 for (int n = 0; n <boleta_pago.length (); n++){ 
@@ -49,7 +54,13 @@ CtrlBoletaPago CBP=new CtrlBoletaPago();
 CtrlBoletaPagoDescuento CBD=new CtrlBoletaPagoDescuento();
 BoletaPagoDescuento BD=new BoletaPagoDescuento();
 int id=Integer.parseInt(id_boleta_pago_descuento);
-BigDecimal monto=new BigDecimal(monto_descuento);
+BigDecimal monto=CBP.get(Short.parseShort(boleta_pago)).getSueldoPago();
+BigDecimal descuento=CTD.get(tipo_descuento).getPorcentajeDescuento();
+
+//calcular momto descuento
+monto=monto.multiply(descuento.divide(new BigDecimal("100")));
+String tipo=""+CTD.get(tipo_descuento).getPorcentajeDescuento().floatValue()+"%";
+String montos="$"+CBP.get(Short.parseShort(boleta_pago)).getSueldoPago().floatValue(); 
 
 if(CBD.get(id)==null){
 
@@ -57,6 +68,11 @@ BD.setIdBoletapagosdescuento(Integer.parseInt(id_boleta_pago_descuento));
 BD.setTiposdescuentos(CTD.get(tipo_descuento));
 BD.setBoletapago(CBP.get(Short.parseShort(boleta_pago)));
 BD.setMontoDescuento(monto);
+BD.setFechaCreacion(fecha);
+BD.setFechaModifica(fecha);
+BD.setUsuarioCreador(id_usuario.intValue());
+BD.setUsuarioModifica(id_usuario.intValue());
+BD.setActivo(activo);
 
 
 
@@ -101,9 +117,25 @@ else{
 				<h3 class="panel-title text-warning"><%=mensaje2 %></h3>
 
 				<form action="boletaPagoDescuentoGuardar.jsp"><HR width="5%">
-				<br>
-				<br>
-					<input type="submit" class="btn-primary" value="Regresar">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<table>
+<tr><td>Id Boleta Pago Descuento:</td><td><input type="text" name="id_boleta_pago_descuento" value=<%=id_boleta_pago_descuento%> readonly="readonly"></td></tr>
+							     
+<tr><td>Porcentaje Descuento:</td><td> <input style=" width:175px" type="text" name="tipo" value=<%=tipo%> readonly="readonly">						
+<tr><td>Salario Boleta Pago:</td><td>	<input style=" width:175px" type="text"  name="boleta" value=<%=montos%> readonly="readonly"> 
+<tr><td>Monto Descuento:          $</td><td><input type="text" name="monto_descuento" value=<%=monto.doubleValue()%> readonly="readonly"></td></tr>
+</table>
+<br>
+<br>
+				
+		
+				<input type="submit" class="btn-primary" value="Regresar">
 					
 						
 						

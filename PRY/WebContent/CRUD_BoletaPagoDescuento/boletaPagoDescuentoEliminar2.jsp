@@ -8,6 +8,8 @@
 <%@ page import="java.text.DateFormat"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
+Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+
 String id = request.getParameter("usuariosSelect");
 int espacio=0;
 int idBPD=0;
@@ -22,6 +24,7 @@ if(id.equals("Seleccione la Boleta Pago Descuento")){
 }
 else
 {
+	//aqui todo bien se ejecuta la eliminación
 for (int n = 0; n <id.length (); n++){ 
 	if(id.charAt (n)==' '){
 		espacio=n;
@@ -32,8 +35,17 @@ for (int n = 0; n <id.length (); n++){
 id=id.substring(0,espacio);
 idBPD=Integer.parseInt(id);
 
+Date fechaActual=new Date();
 CtrlBoletaPagoDescuento CBPD= new CtrlBoletaPagoDescuento();
-boolean exito = CBPD.eliminarBoletaPagoDescuento(idBPD);
+BoletaPagoDescuento modificar=CBPD.get(idBPD);
+
+modificar.setActivo(0);
+modificar.setFechaModifica(fechaActual);
+modificar.setUsuarioModifica(id_usuario.intValue());
+
+
+boolean exito = CBPD.actualizarBoletaPagoDescuento(modificar);
+//boolean exito = CBPD.eliminarBoletaPagoDescuento(idBPD);
 
 
 

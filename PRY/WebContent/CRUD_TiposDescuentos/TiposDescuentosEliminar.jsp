@@ -53,7 +53,8 @@ for(TiposDescuentos TiposDesc:lista){%>
 <%} %>>
 </select>	
 <br>
-<br>		
+<br>	
+<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">	
 <input type="submit" class="btn-primary" value="Eliminar">
 					
 			

@@ -6,13 +6,22 @@
 <%@ page import="java.math.BigDecimal"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="dominio.TiposDescuentos" %>
 <%
+Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
 
 String id_tiposdescuentos = request.getParameter("id_tiposdescuentos") ;
 
 CtrlTiposDescuentos CTD= new CtrlTiposDescuentos();
+TiposDescuentos TP=CTD.get(id_tiposdescuentos);
+Date fechaActual=new Date();
 
-boolean exito = CTD.eliminarTipoDescuento(id_tiposdescuentos);
+TP.setActivo(0);
+TP.setFechaModifica(fechaActual);
+TP.setIdUsuarioModifica(id_usuario.intValue());
+
+boolean exito = CTD.actualizarTipoDescuento(TP);
+//boolean exito = CTD.eliminarTipoDescuento(id_tiposdescuentos);
 
 String mensaje;
 

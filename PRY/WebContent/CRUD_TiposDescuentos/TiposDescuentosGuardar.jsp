@@ -1,5 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@ page import="dao.*" %>
+<%@ page import="negocio.*" %>
+<%@ page import="java.util.List"%>
+<%@ page import="java.math.BigDecimal"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.text.DateFormat"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="dominio.TiposDescuentos" %>
+<%
+CtrlTiposDescuentos CTD= new CtrlTiposDescuentos();
+List<TiposDescuentos> lista=CTD.buscarTodos();
+int contador=0;
+if(lista!=null)			               
+for(TiposDescuentos TiposDesc:lista){
+	contador++;
+}
+contador++;//nuevo id si repetir de la base de datos
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,15 +44,16 @@
 			<div class="panel" id="TiposDescuentos">
 				<h3 class="panel-title text-warning">Datos del nuevo Tipo Descuento</h3>
 
-				<form action="TiposDescuentosGuardar.jsp" method="post"><HR width="5%">
+				<form action="TiposDescuentosGuardar2.jsp" method="post"><HR width="5%">
 				<table>
 					<tr><td>Fecha de Ingreso:</td> <td><input type="text" name="fecha_ingreso"><br></td></tr>
 					<tr><td>Porcentaje de Descuento:</td> <td> <input type="text" name="porcentaje_descuento">%</td></tr>
 					<tr><td>Descripción:</td> <td> <input type="text" name="descripcion"></td></tr>
-					<tr><td>Id Tipos de Descuentos:</td> <td> <input type="Text"name="id_tiposdescuentos"></td></tr>
+					<tr><td>Id Tipos de Descuentos:</td> <td> <input type="Text"name="id_tiposdescuentos" value=<%=contador%> readonly="readonly"></td></tr>
 						</table>
 					<br>
 					<br>	
+					<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">
 					<input type="submit" class="btn-primary" value="Guardar">
 					<input type="reset" class="btn-primary" value="borrar">
 			

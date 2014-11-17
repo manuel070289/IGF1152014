@@ -105,9 +105,13 @@ for(BoletaPago BoletaP:listaBP){%>
 <%} %>>
 </select>	</tr></td>
 <tr><td>Edite el Monto Descuento:</td><td><input  style=" width:175px" type="text" name="monto_descuento" value=<%=monto%>></td></tr>
+<tr><td>Registro Activo:</td><td> <input type="radio" name="activo" value="T" checked>Cierto
+									        <input type="radio" name="activo" value="F">Falso	
+								</td></tr>
 </table>
 <br>
-<br>		
+<br>	
+<input type="hidden" name="id_usuario_creador" value="<%=session.getAttribute("id_usuario") %>">	
 <input type="submit" class="btn-primary" value="Actualizar">
 					
 			

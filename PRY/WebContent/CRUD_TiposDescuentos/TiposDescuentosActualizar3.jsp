@@ -7,12 +7,16 @@
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
+Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+
+
 String fecha_ingreso = request.getParameter("fecha_ingreso");
 String porcentaje_descuento = request.getParameter("porcentaje_descuento") ;
 String descripcion = request.getParameter("descripcion") ;
 String id_tiposdescuentos = request.getParameter("id_tiposdescuentos") ;
+String activo = request.getParameter("activo");
 
-
+Date fechaActual=new Date();
 
 TiposDescuentos TD=new TiposDescuentos();
 CtrlTiposDescuentos CTD= new CtrlTiposDescuentos();
@@ -25,6 +29,13 @@ TD.setFechaIngreso(date);
 TD.setPorcentajeDescuento(new BigDecimal(porcentaje_descuento.toString()));
 TD.setDescripcion(descripcion);
 TD.setIdTiposdescuentos(id_tiposdescuentos);
+TD.setFechaCreacion(date);
+TD.setFechaModifica(fechaActual);
+TD.setIdUsuarioCreador(CTD.get(id_tiposdescuentos).getIdUsuarioCreador());
+TD.setIdUsuarioModifica(id_usuario.intValue());
+if(activo.equals("T"))
+	TD.setActivo(1);
+else TD.setActivo(0);
 
 
 

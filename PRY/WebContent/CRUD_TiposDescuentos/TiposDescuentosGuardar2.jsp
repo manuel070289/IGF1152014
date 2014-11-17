@@ -8,6 +8,8 @@
 <%@ page import="java.text.DateFormat"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
+Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+
 String fecha_ingreso = request.getParameter("fecha_ingreso");
 String porcentaje_descuento = request.getParameter("porcentaje_descuento") ;
 String descripcion = request.getParameter("descripcion") ;
@@ -19,16 +21,23 @@ boolean exito=false;
 String titulo=null;
 String mensaje1=null;
 String mensaje2=null;
+Date fecha=new Date();
+int activo=1; //esto para crear el nuevo registro de forma activa
 
 CtrlTiposDescuentos CTD= new CtrlTiposDescuentos();
 TiposDescuentos TD=new TiposDescuentos();
 
 if(CTD.get(id_tiposdescuentos)==null){
 
-	TD.setFechaIngreso(date);
+TD.setFechaIngreso(date);
 TD.setPorcentajeDescuento(new BigDecimal(porcentaje_descuento.toString()));
 TD.setDescripcion(descripcion);
 TD.setIdTiposdescuentos(id_tiposdescuentos);
+TD.setFechaCreacion(fecha);
+TD.setFechaModifica(fecha);
+TD.setIdUsuarioCreador(id_usuario.intValue());
+TD.setIdUsuarioModifica(id_usuario.intValue());
+TD.setActivo(activo);
 
 exito = CTD.guardarTipoDescuento(TD);
 
