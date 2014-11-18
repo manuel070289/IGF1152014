@@ -42,7 +42,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="CRUD_OFICINA/crearOfic.jsp" method="post" role="form">
+				<form class="" action="crearOfic.jsp" method="post" role="form">
 					<fieldset>
 						<legend>CREAR OFICINA</legend>
 					</fieldset>
