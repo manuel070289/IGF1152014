@@ -110,17 +110,9 @@
 	<pageFooter>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="521" y="0" width="15" height="20" uuid="6f988ce8-5319-4cee-a476-d347c37c7163"/>
+				<reportElement x="557" y="0" width="15" height="20" uuid="6f988ce8-5319-4cee-a476-d347c37c7163"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="547" y="0" width="15" height="20" uuid="06f0aed0-b0d4-4b83-afa9-51ee4fdd1e2c"/>
-				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="536" y="0" width="11" height="20" uuid="9282bd6a-8edd-4281-b6a5-33d79c23be79"/>
-				<text><![CDATA[/]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 	<summary>
