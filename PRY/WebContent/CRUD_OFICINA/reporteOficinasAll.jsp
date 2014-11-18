@@ -9,7 +9,7 @@
       
 <%
     Connection conexion; 
-	Class.forName("com.mysql.jdbc.Driver"); //se carga el driver
+	Class.forName("com.mysql.jdbc.Driver"); //se carga el driver 
 	conexion= DriverManager.getConnection("jdbc:mysql://localhost/igf2014","root","root");
 
   	File reportFile = new File(application.getRealPath("CRUD_OFICINA//oficina.jasper"));
