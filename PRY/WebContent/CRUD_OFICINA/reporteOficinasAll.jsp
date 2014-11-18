@@ -6,7 +6,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="net.sf.jasperreports.engine.*"%>
 
-     
+      
 <%
     Connection conexion; 
 	Class.forName("com.mysql.jdbc.Driver"); //se carga el driver

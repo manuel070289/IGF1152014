@@ -42,7 +42,7 @@
 			}
 			out.print("</select>");
 		}
-		if(accion==2)
+		if(accion==2 || accion==3)
 			out.print("<input id='departamento' class='form-control' type='text' name='departamento' disabled value='"+oficina.getMunicipio().getDepartamento().getNombre_depto()+"' required>");
 		
 		out.print("</div></div>");
@@ -71,7 +71,7 @@
 			}
 			out.print("</select>");
 		}
-		if(accion==2)
+		if(accion==2 || accion==3)
 		{
 			out.print("<label for='municipio'>Municipio:</label>");
 			out.print("<div id='muni' name='muni'>");
@@ -85,7 +85,7 @@
 		out.print("<label for='domicilio'>Domicilio de la Oficina:</label>");
 		if(accion==1)
 			out.print("<input id='domicilio' class='form-control' type='text' name='domicilio' value='"+oficina.getDomicilio()+"' required>");
-		if(accion==2)
+		if(accion==2 || accion==3)
 			out.print("<input id='domicilio' class='form-control' type='text' name='domicilio' disabled value='"+oficina.getDomicilio()+"' required>");
 		out.print("</div>");
 		out.print("</div>");
@@ -95,7 +95,7 @@
 		out.print("<label for='nomb_oficina'>Nombre de la Oficina:</label>");
 		if(accion==1)
 			out.print("<input id='nomb_oficina' class='form-control' type='text' name='nomb_oficina' value='"+oficina.getNomb_oficina()+"' required>");
-		if(accion==2)
+		if(accion==2 || accion==3)
 			out.print("<input id='nomb_oficina' class='form-control' type='text' disabled name='nomb_oficina' value='"+oficina.getNomb_oficina()+"' required>");
 		out.print("</div>");
 		out.print("</div>");
