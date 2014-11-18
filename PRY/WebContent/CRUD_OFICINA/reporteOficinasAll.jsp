@@ -8,7 +8,7 @@
 
      
 <%
-    Connection conexion;
+    Connection conexion; 
 	Class.forName("com.mysql.jdbc.Driver"); //se carga el driver
 	conexion= DriverManager.getConnection("jdbc:mysql://localhost/igf2014","root","root");
 
