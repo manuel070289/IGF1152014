@@ -16,7 +16,7 @@
   
 <% 
 	JasperReport reporte = null;
-	InputStream reportStream = getServletConfig().getServletContext().getResourceAsStream("CRUD_OFICINA/oficina.jasper");
+	InputStream reportStream = getServletConfig().getServletContext().getResourceAsStream("CRUD_USUARIO/usuario.jasper");
 	try {
 	reporte = (JasperReport) JRLoader.loadObject(reportStream);
 	} catch (JRException e) {
@@ -37,7 +37,7 @@
 		}
 	JRXlsExporter exportador = new JRXlsExporter();
 	exportador.setParameter(JRExporterParameter.JASPER_PRINT, print);
-	exportador.setParameter(JRExporterParameter.OUTPUT_FILE_NAME,"Oficinas.xls");
+	exportador.setParameter(JRExporterParameter.OUTPUT_FILE_NAME,"Usuarios.xls");
 	exportador.setParameter(JRExporterParameter.IGNORE_PAGE_MARGINS, true);
 	exportador.setParameter(JRXlsAbstractExporterParameter.IS_WHITE_PAGE_BACKGROUND, false);
 	exportador.setParameter(JRXlsAbstractExporterParameter.IS_IGNORE_CELL_BORDER, false);
@@ -53,11 +53,11 @@
 		}
 	
 	
-	FileInputStream entrada = new FileInputStream("Oficinas.xls");
+	FileInputStream entrada = new FileInputStream("Usuarios.xls");
 	byte[] lectura = new byte[entrada.available()];
 	entrada.read(lectura);
 	response.setContentType("application/vnd.ms-excel");
-	response.setHeader("Content-Disposition","attachment; filename=Oficinas.xls");
+	response.setHeader("Content-Disposition","attachment; filename=Usuarios.xls");
 	response.setContentLength(lectura.length);
 	response.getOutputStream().write(lectura);
 	response.getOutputStream().flush();

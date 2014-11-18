@@ -25,7 +25,7 @@
 					+"<label for='nombre'>Nombre:</label>");
 			if(accion==1)
 				out.print("<input id='nombre' class='form-control' type='text' name='nombre' value='"+usuario.getNombre()+"' required>");
-			if(accion==2)
+			if(accion==2 || accion==3)
 				out.print("<input id='nombre' class='form-control' type='text' name='nombre' disabled value='"+usuario.getNombre()+"' required>");
 			
 			out.print("</div></div>");
@@ -35,7 +35,7 @@
 					+"<label for='apellido'>Apellido:</label>");
 			if(accion==1)
 				out.print("<input id='apellido' class='form-control' type='text' name='apellido' value='"+usuario.getApellido()+"' required>");
-			if(accion==2)
+			if(accion==2 || accion==3)
 				out.print("<input id='apellido' class='form-control' type='text' name='apellido' disabled value='"+usuario.getApellido()+"' required>");
 			
 			out.print("</div></div>");
@@ -59,7 +59,7 @@
 				}
 				out.print("</select>");
 			}
-			if(accion==2)
+			if(accion==2 || accion==3)
 				out.print("<input id='genero' class='form-control' type='text' name='genero' disabled value='"+usuario.getGenero().getD_sexo()+"' required>");
 			
 			out.print("</div></div>");
@@ -69,7 +69,7 @@
 					+"<label for='username'>Usuario:</label>");
 			if(accion==1)
 				out.print("<input id='username' class='form-control' type='text' name='username' value='"+usuario.getUsername()+"' required>");
-			if(accion==2)
+			if(accion==2 || accion==3)
 				out.print("<input id='username' class='form-control' type='text' name='username' disabled value='"+usuario.getUsername()+"' required>");
 			out.print("</div></div>");
 			
@@ -99,7 +99,7 @@
 				}
 				out.print("</select>");
 			}
-			if(accion==2)
+			if(accion==2 || accion==3)
 			{
 				for(int i=0;i<stArray.length;i++)
 				{
