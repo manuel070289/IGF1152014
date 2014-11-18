@@ -93,10 +93,10 @@
 						</div>
 						<div class="list-group list-collapse collapse" id="crud_puesto">
 
-							<a href="#" class="list-group-item">Crear</a><a href="#"
-								class="list-group-item">Obtener</a> <a href="#"
-								class="list-group-item">Actualizar</a> <a href="#"
-								class="list-group-item">Eliminar</a>
+							<a id="crearPuesto" href="CRUD_PUESTO/crearPuesto.jsp" class="list-group-item ajaxIgf">Crear</a>
+							<a id="listarPuesto" href="CRUD_PUESTO/listarPuesto.jsp"	class="list-group-item ajaxIgf">Obtener</a>
+							<a id="actualizarPuesto" href="CRUD_PUESTO/actualizarPuesto.jsp" class="list-group-item ajaxIgf">Actualizar</a> 
+							<a id="eliminarPuesto" href="CRUD_PUESTO/eliminarPuesto.jsp" class="list-group-item ajaxIgf">Eliminar</a>
 
 						</div>
 					</div>
@@ -152,10 +152,10 @@
 						<div class="list-group list-collapse collapse"
 							id="crud_boleta_pago">
 
-							<a href="#" class="list-group-item">Crear</a><a href="#"
-								class="list-group-item">Obtener</a> <a href="#"
-								class="list-group-item">Actualizar</a> <a href="#"
-								class="list-group-item">Eliminar</a>
+							<a href="CRUD_BOLETAPAGO/crearBoletaPago.jsp" class="list-group-item ajaxIgf">Crear</a>
+							<a href="CRUD_BOLETAPAGO/listarBoletaPago.jsp" class="list-group-item ajaxIgf">Obtener</a>
+							<a href="CRUD_BOLETAPAGO/actualizarBoletaPago.jsp" class="list-group-item ajaxIgf">Actualizar</a>
+							<a href="CRUD_BOLETAPAGO/eliminarBoletaPago.jsp" class="list-group-item ajaxIgf">Eliminar</a>
 
 						</div>
 					</div>

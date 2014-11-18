@@ -38,17 +38,14 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="CRUD_PUESTO/actualizaPuesto.jsp" method="get" role="form">
+				<form class="" action="actualizaPuesto.jsp" method="post" role="form">
 					<fieldset>
 						<legend>ACTUALIZAR PUESTO</legend>
 						<div class="row">
 						<div class="col-md-7">
 							<div class="form-group">
 								<label>Puestos Almacenados: </label>
-								<%=mensaje%>
-								<!--  <select data-placeholder="Elija un Puesto" class="form-control" name="puesto">
 									<%=mensaje%>
-								</select>-->
 							</div>
 						</div>
 					</div>
@@ -97,6 +94,7 @@
 					</div>
 				</form>
 			</div>
+				<%=mensaje=""%>
 		</div>
 	</div>
 </body>

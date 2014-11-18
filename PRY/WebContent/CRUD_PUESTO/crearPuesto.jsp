@@ -32,7 +32,7 @@ $(document).ready(function(){
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="creaPuesto.jsp" method="get" role="form">
+				<form class="" action="creaPuesto.jsp" method="post" role="form">
 					<fieldset>
 						<legend>Información del Puesto</legend>
 					</fieldset>

@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="negocio.*"%>
 <%@ page import="dominio.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.math.BigDecimal"%>
 <%!String mensaje = "";%>
@@ -12,10 +13,10 @@
 	String perfil_puesto = request.getParameter("nvo_perfil_puesto").trim();
 	BigDecimal sueldo_min = new BigDecimal(request.getParameter("nvo_sueldo_min"));
 	BigDecimal sueldo_max = new BigDecimal(request.getParameter("nvo_sueldo_max"));
-	//String id_usuario = request.getParameter("id_usuario_creador").trim();
+	Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
 	
 	if (ctrlPuesto.modificarPuesto(nomb_puesto, perfil_puesto, sueldo_min, sueldo_max) != false)
-		mensaje += "Oficina Actualizada";
+		mensaje += "Puesto Actualizada";
 	else
 		mensaje += "Error en la Actualización";
 %>
@@ -43,5 +44,6 @@
 			</div>
 		</div>
 	</div>
+		<%=mensaje=""%>
 </body>
 </html>
