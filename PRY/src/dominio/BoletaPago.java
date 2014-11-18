@@ -29,45 +29,17 @@ import org.hibernate.annotations.NamedQuery;
 public class BoletaPago implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_boletapago", unique = true, nullable = false)
 	private short idBoletapago;
-	
-	@Basic(optional = false)
-	@Column(name = "periodo_pago", nullable = false, length = 25)
 	private String periodoPago;
-	
-	@Basic(optional = false)
-	@Column(name = "sueldo_pago", nullable = false, precision = 10)
 	private BigDecimal sueldoPago;
-	
-	@Basic(optional = false)
-	@Column(name = "id_empleado", nullable = false, length = 5)
 	private String idEmpleado;
-	
-	@Basic(optional = false)
-	@Column(name = "usuario_creador")
 	private Integer usuarioCreador;
-	
-	@Basic(optional = false)
-	@Column(name = "usuario_modifica")
 	private Integer usuarioModifica;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Basic(optional = false)
-	@Column(name = "fecha_creacion", length = 19)
 	private Date fechaCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Basic(optional = false)
-	@Column(name = "fecha_modifica", length = 19)
 	private Date fechaModifica;
-	
-	@Basic(optional = false)
-	@Column(name = "activo", nullable = false)
 	private int activo;
+	private Set<BoletaPagoDescuento> boletaPagoDescuentos = new HashSet<BoletaPagoDescuento>(
+			0);
 	
 
 	public BoletaPago() {
@@ -80,45 +52,49 @@ public class BoletaPago implements java.io.Serializable {
 		this.sueldoPago = sueldoPago;
 		this.idEmpleado = idEmpleado;
 		this.activo = 1;
+		this.boletaPagoDescuentos = boletaPagoDescuentos;
 	}
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_boletapago", unique = true, nullable = false)
 	public short getIdBoletapago() {
 		return this.idBoletapago;
 	}
-
+	
 	public void setIdBoletapago(short idBoletapago) {
 		this.idBoletapago = idBoletapago;
 	}
-
-	
+	@Basic(optional = false)
+	@Column(name = "periodo_pago", nullable = false, length = 25)
 	public String getPeriodoPago() {
 		return this.periodoPago;
 	}
-
+	
 	public void setPeriodoPago(String periodoPago) {
 		this.periodoPago = periodoPago;
 	}
-
-	
+	@Basic(optional = false)
+	@Column(name = "sueldo_pago", nullable = false, precision = 10)	
 	public BigDecimal getSueldoPago() {
 		return this.sueldoPago;
 	}
-
+	
 	public void setSueldoPago(BigDecimal sueldoPago) {
 		this.sueldoPago = sueldoPago;
 	}
 
-	
+	@Basic(optional = false)
+	@Column(name = "id_empleado", nullable = false, length = 5)
 	public String getIdEmpleado() {
 		return this.idEmpleado;
 	}
-
+	
 	public void setIdEmpleado(String idEmpleado) {
 		this.idEmpleado = idEmpleado;
 	}
-
-	
+	@Basic(optional = false)
+	@Column(name = "usuario_creador")
 	public Integer getUsuarioCreador() {
 		return this.usuarioCreador;
 	}
@@ -127,7 +103,8 @@ public class BoletaPago implements java.io.Serializable {
 		this.usuarioCreador = usuarioCreador;
 	}
 
-	
+	@Basic(optional = false)
+	@Column(name = "usuario_modifica")
 	public Integer getUsuarioModifica() {
 		return this.usuarioModifica;
 	}
@@ -136,7 +113,9 @@ public class BoletaPago implements java.io.Serializable {
 		this.usuarioModifica = usuarioModifica;
 	}
 
-	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Basic(optional = false)
+	@Column(name = "fecha_creacion", length = 19)
 	public Date getFechaCreacion() {
 		return this.fechaCreacion;
 	}
@@ -145,7 +124,9 @@ public class BoletaPago implements java.io.Serializable {
 		this.fechaCreacion = fechaCreacion;
 	}
 
-	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Basic(optional = false)
+	@Column(name = "fecha_modifica", length = 19)
 	public Date getFechaModifica() {
 		return this.fechaModifica;
 	}
@@ -159,16 +140,16 @@ public class BoletaPago implements java.io.Serializable {
 		return this.activo;
 	}
 
+	@Basic(optional = false)
+	@Column(name = "activo", nullable = false)
+	
+	
 	public void setActivo(int activo) {
 		this.activo = activo;
 	}
-	/*
-	 * 
-	 * 
-	 * this.boletaPagoDescuentos = boletaPagoDescuentos;
+	
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "boletapago")
-	private Set<BoletaPagoDescuento> boletaPagoDescuentos = new HashSet<BoletaPagoDescuento>(
-			0);
 	public Set<BoletaPagoDescuento> getBoletapagodescuentos() {
 		return this.boletaPagoDescuentos;
 	}
@@ -177,5 +158,4 @@ public class BoletaPago implements java.io.Serializable {
 			Set<BoletaPagoDescuento> boletaPagoDescuentos) {
 		this.boletaPagoDescuentos = boletaPagoDescuentos;
 	}
-	*/
 }

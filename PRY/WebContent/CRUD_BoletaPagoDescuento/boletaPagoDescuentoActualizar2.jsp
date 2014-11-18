@@ -46,7 +46,7 @@ id=id.substring(0,espacio);
 idBPD=Integer.parseInt(id);
 
 lista=TD.buscarTodos();
-listaBP=BP.buscarTodos();
+listaBP=BP.daBoletaPagoTodos();
 
 id_BPD=CBPD.get(idBPD).getIdBoletapagosdescuento();
 monto=CBPD.get(idBPD).getMontoDescuento();

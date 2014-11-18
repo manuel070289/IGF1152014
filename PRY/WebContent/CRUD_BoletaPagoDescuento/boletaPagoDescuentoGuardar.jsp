@@ -17,6 +17,7 @@ List<BoletaPago> listaBP=BP.daBoletaPagoTodos();
 
 CtrlBoletaPagoDescuento CBPD= new CtrlBoletaPagoDescuento();
 List<BoletaPagoDescuento> listaBPD=CBPD.buscarTodos();
+
 int contador=0;
 if(listaBPD!=null)			               
 for(BoletaPagoDescuento Tipos:listaBPD){
@@ -62,10 +63,11 @@ for(TiposDescuentos TiposDesc:lista){%>
 <option>Select la Boleta Pago .</option>
 <% 
 if(listaBP!=null)			               
-for(BoletaPago BoletaP:listaBP){%> 
-<option><%=BoletaP.getIdBoletapago()%> Sueldo: $<%=BoletaP.getSueldoPago()%></option>
-<%} %>>
-</select>	</tr></td>
+for(BoletaPago boleta:listaBP){%> 
+<option><%=boleta.getIdBoletapago()%> $<%=boleta.getSueldoPago().doubleValue()%>%</option>
+<%} %>
+</select>	
+</tr></td>
 <tr><td>Monto Descuento:</td><td><input type="text" name="monto_descuento"  readonly="readonly"></td></tr>
 </table>
 <br>
@@ -86,6 +88,6 @@ for(BoletaPago BoletaP:listaBP){%>
 
 
 
-</select>
+
 </body>
 </html>

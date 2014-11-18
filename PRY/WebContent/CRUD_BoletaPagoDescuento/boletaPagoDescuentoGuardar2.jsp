@@ -70,8 +70,8 @@ BD.setBoletapago(CBP.daBoletaPagoById(Short.parseShort(boleta_pago)));
 BD.setMontoDescuento(monto);
 BD.setFechaCreacion(fecha);
 BD.setFechaModifica(fecha);
-BD.setUsuarioCreador(id_usuario.intValue());
-BD.setUsuarioModifica(id_usuario.intValue());
+BD.setUsuarioCreador(1);
+BD.setUsuarioModifica(1);
 BD.setActivo(activo);
 
 

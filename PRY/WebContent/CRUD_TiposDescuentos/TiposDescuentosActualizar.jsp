@@ -50,7 +50,7 @@ Seleccione el Registro que Desea Actualizar <select id="usuariosSelect" name="us
 if(lista!=null)			               
 for(TiposDescuentos TiposDesc:lista){%> 
 <option><%=TiposDesc.getIdTiposdescuentos()%> <%=TiposDesc.getPorcentajeDescuento().doubleValue()%>%</option>
-<%} %>>
+<%} %>
 </select>	
 <br>
 <br>		
