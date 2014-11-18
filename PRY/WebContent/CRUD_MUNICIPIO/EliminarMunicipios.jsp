@@ -73,7 +73,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="Elimina.jsp" method="post" role="form">
+				<form class="" action="CRUD_MUNICIPIO/Elimina.jsp" method="post" role="form">
 					<fieldset>
 						<legend>Eliminar Municipio</legend>
 					</fieldset>

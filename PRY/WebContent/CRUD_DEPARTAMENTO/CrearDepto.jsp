@@ -25,7 +25,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form action="CrearDepartamento.jsp" method="post">
+				<form action="CRUD_DEPARTAMENTO/CrearDepartamento.jsp" method="post">
 					<fieldset>
 						<legend>CREAR DEPARTAMENTO</legend>
 					</fieldset>

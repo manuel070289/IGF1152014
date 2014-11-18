@@ -49,7 +49,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="Eliminar.jsp" method="post" role="form">
+				<form class="" action="CRUD_DEPARTAMENTO/Eliminar.jsp" method="post" role="form">
 					<fieldset>
 						<legend>ELIMINAR DEPARTAMENTO</legend>
 					</fieldset>

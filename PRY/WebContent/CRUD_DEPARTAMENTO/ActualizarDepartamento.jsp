@@ -45,7 +45,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="Actualizar.jsp" method="post" role="form">
+				<form class="" action="CRUD_DEPARTAMENTO/Actualizar.jsp" method="post" role="form">
 					<fieldset>
 						<legend>ACTUALIZAR DEPARTAMENTO</legend>
 					</fieldset>

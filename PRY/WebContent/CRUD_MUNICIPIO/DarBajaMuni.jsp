@@ -45,7 +45,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="DarBaja.jsp" method="post" role="form">
+				<form class="" action="CRUD_MUNICIPIO/DarBaja.jsp" method="post" role="form">
 					<fieldset>
 						<legend>DAR BAJA A MUNICIPIO</legend>
 					</fieldset>

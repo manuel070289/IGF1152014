@@ -44,7 +44,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-7">
-			<form class="" action="eliminarOfic.jsp" method="post" role="form">
+			<form class="" action="CRUD_OFICINA/eliminarOfic.jsp" method="post" role="form">
 				<fieldset>
 					<legend>OBTENER OFICINA</legend>
 				</fieldset>

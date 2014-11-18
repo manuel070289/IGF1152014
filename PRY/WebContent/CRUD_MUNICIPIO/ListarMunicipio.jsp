@@ -71,7 +71,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-7">
-				<form class="" action="ListByDepto.jsp" method="post" role="form">
+				<form class="" action="CRUD_MUNICIPIO/ListByDepto.jsp" method="post" role="form">
 					<fieldset>
 						<legend>Listar Municipios por Departamento</legend>
 					</fieldset>
@@ -86,7 +86,7 @@
 					<input class="btn btn-primary" type="submit" value="Listar Municipios">
 				</form>
 				<%=depto=""%>
-				<form class="" action="ListarTodos.jsp" method="post" role="form">
+				<form class="" action="CRUD_MUNICIPIO/ListarTodos.jsp" method="post" role="form">
 					<fieldset>
 						<legend>Listar  Municipios</legend>
 					</fieldset>
