@@ -59,6 +59,20 @@
 					%>
 					<div class="panel panel-primary">
 						<div class="panel-heading" data-toggle="collapse"
+							data-target="#crud_genero" data-parent="#menu_izq">
+							<h3 class="panel-title">CRUD Género</h3>
+						</div>
+						<div class="list-group list-collapse collapse" id="crud_genero">
+
+							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a id="obtenerGenero"
+								href="#" class="list-group-item">Obtener</a> <a id="actualizarGenero" href="#"
+								class="list-group-item">Actualizar</a> <a id="eliminarGenero" href="#"
+								class="list-group-item">Eliminar</a>
+
+						</div>
+					</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading" data-toggle="collapse"
 							data-target="#crud_empleado" data-parent="#menu_izq">
 							<h3 class="panel-title">CRUD Empleado</h3>
 						</div>
@@ -144,20 +158,7 @@
 
 						</div>
 					</div>
-					<div class="panel panel-primary">
-						<div class="panel-heading" data-toggle="collapse"
-							data-target="#crud_genero" data-parent="#menu_izq">
-							<h3 class="panel-title">CRUD Género</h3>
-						</div>
-						<div class="list-group list-collapse collapse" id="crud_genero">
-
-							<a id="crearGenero" href="#" class="list-group-item">Crear</a><a id="obtenerGenero"
-								href="#" class="list-group-item">Obtener</a> <a id="actualizarGenero" href="#"
-								class="list-group-item">Actualizar</a> <a id="eliminarGenero" href="#"
-								class="list-group-item">Eliminar</a>
-
-						</div>
-					</div> 
+					 
 					<div class="panel panel-primary">
 						<div class="panel-heading" data-toggle="collapse"
 							data-target="#crud_boleta_pago" data-parent="#menu_izq">
@@ -173,6 +174,39 @@
 
 						</div>
 					</div>
+					
+					<div class="panel panel-primary">
+						<div class="panel-heading" data-toggle="collapse"
+							data-target="#crud_tipo_descuento" data-parent="#menu_izq">
+							<h3 class="panel-title">CRUD Tipos Descuento</h3>
+						</div>
+
+						<div  id="crud_tipo_descuento" class="list-group collapse">
+							<a  href="#" class="list-group-item">Crear</a><a
+								 href="#" class="list-group-item">Obtener</a>
+							<a  href="#" class="list-group-item">Actualizar</a>
+							<a  href="#" class="list-group-item">Eliminar</a>
+						</div>
+
+
+					</div>
+					
+					<div class="panel panel-primary">
+						<div class="panel-heading" data-toggle="collapse"
+							data-target="#crud_boleta_pago_descuento" data-parent="#menu_izq">
+							<h3 class="panel-title">CRUD Boleta Pago Descuento</h3>
+						</div>
+
+						<div  id="crud_boleta_pago_descuento" class="list-group collapse">
+							<a  href="#" class="list-group-item">Crear</a><a
+								 href="#" class="list-group-item">Obtener</a>
+							<a  href="#" class="list-group-item">Actualizar</a>
+							<a  href="#" class="list-group-item">Eliminar</a>
+						</div>
+
+
+					</div>
+					
 					<%
 						}
 						}
