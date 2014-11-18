@@ -117,3 +117,13 @@ function setearBotones() {
 	});
 	
 }
+
+function setBotonesMenu() {
+	$('a.ajaxIgf').click(function(event) {
+		event.preventDefault();
+		var direccion = $(this).attr('href');
+		$.post(direccion, function(responseText) {
+			$('#dinamico').html(responseText);
+		});
+	});
+}
