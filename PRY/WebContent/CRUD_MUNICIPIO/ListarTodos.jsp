@@ -62,6 +62,7 @@
 			<%=mensaje%>
 		</div>
 		<%=mensaje=""%>
+		<a href="CRUD_DEPARTAMENTO/ReporteMunicipios.jsp" class="btn btn-primary">Exportar a PDF</a>
 	</div>
 </body>
 </html>

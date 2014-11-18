@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Departamentos" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a5017b48-78ef-4214-afc7-53613e483852">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[Select id_depto, nombre_depto, zona_geografica from departamento;]]>
+	</queryString>
+	<field name="id_depto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_depto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="zona_geografica" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="-6" y="0" width="572" height="34" forecolor="#000000" uuid="8b9e3504-b54e-43ad-8ed2-17b208398ffb"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IGF2014]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="572" height="21" uuid="0de09492-7fb2-40ca-98d2-bad52993e6e0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE DEPARTAMENTOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="11" width="100" height="20" uuid="1928e86b-3143-414e-b036-155b3f02a43d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="11" width="130" height="20" uuid="de121d1d-a78a-45ca-9d7e-f0b243522f96"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zona Geografica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="11" width="100" height="20" uuid="035ac6ff-5eb0-449b-88c2-bf645f76b75b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="33" y="5" width="100" height="20" uuid="964aa772-9bf0-4f44-afb4-7d2df11bd41a"/>
+				<textFieldExpression><![CDATA[$F{id_depto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="5" width="100" height="20" uuid="a993acc9-8284-4fcc-87ac-548666d48714"/>
+				<textFieldExpression><![CDATA[$F{nombre_depto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="408" y="5" width="100" height="20" uuid="84c04324-2dce-4202-86b0-eb176daa3f12"/>
+				<textFieldExpression><![CDATA[$F{zona_geografica}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="446" y="34" width="80" height="20" uuid="117fb087-cadc-4f2e-9dfe-0e424f4f7b5f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="526" y="34" width="40" height="20" uuid="6127a0f8-82ed-43fc-b3e6-0887e6c4fd45"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

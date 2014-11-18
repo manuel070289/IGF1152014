@@ -74,6 +74,7 @@
 			<!-- </table> --> 
 		</div>
 		<%=mensaje=""%>
+		<a href="CRUD_DEPARTAMENTO/ReporteDepto.jsp" class="btn btn-primary">Exportar a PDF</a>
 	</div>
 </body>
 </html>

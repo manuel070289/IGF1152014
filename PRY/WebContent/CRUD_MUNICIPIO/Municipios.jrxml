@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Municipios" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ed59fddd-2ec7-4ef0-96c0-128b1b84fa63">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select id_depto, id_municipio, nomb_municipio from municipio;]]>
+	</queryString>
+	<field name="id_depto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_municipio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomb_municipio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="37" uuid="57257bce-fd45-40c1-934a-c339b6ca1e2d"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IGF2014]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="453" y="-20" width="100" height="20" uuid="00744e21-9951-45a8-8c2b-3de85c04e159"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="572" height="20" uuid="c5c27b7d-73af-47c6-bb7b-c8da6ebdaae0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[REPORTE DE MUNICIPIOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="234" y="0" width="100" height="20" uuid="3b2cf143-db4b-4e7f-badb-9a38f164aa8c"/>
+				<text><![CDATA[id_municipio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="0" width="100" height="20" uuid="49c0d03e-856b-4221-8cda-0a9c0662d1a8"/>
+				<text><![CDATA[id_depto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="0" width="100" height="20" uuid="c27c49f3-1f6d-41f7-ab71-5b5b6a76208e"/>
+				<text><![CDATA[nomb_municipio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="234" y="0" width="100" height="20" uuid="738a9174-ad46-49de-8296-1b8fa3a3a10f"/>
+				<textFieldExpression><![CDATA[$F{id_municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="0" width="100" height="20" uuid="ea14d2a6-a169-4488-a88e-71c9ba852c7e"/>
+				<textFieldExpression><![CDATA[$F{id_depto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="0" width="100" height="20" uuid="5905c9a1-0535-4ede-9e89-5ce94cdac33e"/>
+				<textFieldExpression><![CDATA[$F{nomb_municipio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="452" y="11" width="80" height="20" uuid="ba44bca4-f731-47be-a576-fe116b6793b5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="532" y="11" width="40" height="20" uuid="6e4e0faa-765d-4487-bbb5-9265d95a97f3"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -68,5 +68,6 @@
 			<!-- <button class="btn-info" onclick="\ListarDepartamentos.html">Regresar</button> -->
 	</div>
 	<%=mensaje=""%>
+	<a href="CRUD_DEPARTAMENTO/ReporteZona.jsp?zona=<%=zona_geografica%>" class="btn btn-primary">Exportar a PDF</a>
 </body>
 </html>
