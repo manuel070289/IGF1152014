@@ -2,13 +2,16 @@ package dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import utilidades.HibernateUtil;
 import dominio.BoletaPagoDescuento;
+import dominio.Empleado;
 
 public class BoletaPagoDescuentoDAO {
 private HibernateUtil hibernateUtil = new HibernateUtil() ;
@@ -66,15 +69,13 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		//2. Obtengo la Session
 		Session sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("daBoletaPagoDescuentoPorId");
-		query.setInteger("id_BoletaPagosDescuento",idBPD);
-		List BPD = query.list();
-		sesion.close();
-		if (BPD.isEmpty()){
-			return null;
-		}else{
-			return (BoletaPagoDescuento)BPD.get(0);
-		}
+		
+			sesion = sessionFactory.openSession();
+			Criteria criteria = sesion.createCriteria(BoletaPagoDescuento.class).add(Restrictions.like("idBoletapagosdescuento",idBPD));
+			BoletaPagoDescuento BP = (BoletaPagoDescuento) criteria.uniqueResult();
+			sesion.close();
+			return BP;
+	
 
 	}
 		public List<BoletaPagoDescuento> findAll(){
@@ -82,15 +83,12 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		//2. Obtengo la Session
 		Session sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("buscarTodosBPD");
-		//query.setString();
-		List TD = query.list();
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(BoletaPagoDescuento.class).add(Restrictions.eq("active",Short.parseShort("1")));;
+		List<BoletaPagoDescuento> listadoBoleta = criteria.list();
 		sesion.close();
-		if (TD.isEmpty()){
-					return null;
-		}else{
-			return TD;
-		}
+		return listadoBoleta;
+	
 	}
 	public List<BoletaPagoDescuento> findByExample(BoletaPagoDescuento filters){		
 		//1. Obtengo la SessionFactory

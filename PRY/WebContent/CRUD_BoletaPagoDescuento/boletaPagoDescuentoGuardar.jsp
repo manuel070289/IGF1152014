@@ -13,7 +13,7 @@ CtrlTiposDescuentos TD=new CtrlTiposDescuentos();
 List<TiposDescuentos> lista=TD.buscarTodos();
 
 CtrlBoletaPago BP=new CtrlBoletaPago();
-List<BoletaPago> listaBP=BP.buscarTodos();
+List<BoletaPago> listaBP=BP.daBoletaPagoTodos();
 
 CtrlBoletaPagoDescuento CBPD= new CtrlBoletaPagoDescuento();
 List<BoletaPagoDescuento> listaBPD=CBPD.buscarTodos();

@@ -47,6 +47,10 @@ private TiposDescuentosDAO daoTD = new TiposDescuentosDAO();
 		List<TiposDescuentos> listaDescuentos=daoTD.findAll();
 		return listaDescuentos;
 	}
+	public List<TiposDescuentos> buscarActivos(){
+		List<TiposDescuentos> listaDescuentos=daoTD.findActivos();
+		return listaDescuentos;
+	}
 	public List<TiposDescuentos> bucarPorEjemplo(TiposDescuentos TD){
 		List<TiposDescuentos> listaDescuentos=daoTD.findByExample(TD);
 		return listaDescuentos;

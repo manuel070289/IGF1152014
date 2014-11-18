@@ -4,48 +4,61 @@ import java.util.List;
 
 import dao.BoletaPagoDAO;
 import dominio.BoletaPago;
+import dominio.Puesto;
 import dominio.TiposDescuentos;
 
 public class CtrlBoletaPago {
-private BoletaPagoDAO daoBP = new BoletaPagoDAO();
+	
+	private BoletaPagoDAO daobp = new BoletaPagoDAO();
+
+	public BoletaPago daBoletaPagoById(Short id_boletapago){		
+		return daobp.daBoletaPagoById(id_boletapago);
+	}
+	
+	public BoletaPago daBoletaPagoByNombre(String periodo_pago){		
+		return daobp.daBoletaPagoByNombre(periodo_pago);
+	}
+	
+	public List<BoletaPago> daBoletaPagoTodos(){
+		return daobp.daBoletaPago();
+	}
+	
+	public boolean consultarBoletaPago(String periodo_pago){
+		
+		if(daobp.daBoletaPagoByNombre(periodo_pago)!=null){		
+			return true;	
+		}
+		else{			
+			return false;
+		}		
+	}//fin del metodo boolean consultarPuesto
 	
 	public boolean actualizarlBoletaPago(BoletaPago tipos) {
 			if (tipos != null) {
-		     daoBP.actualizar(tipos) ;
+		     daobp.guardaActualiza(tipos) ;
   		     return true ;
   		     }
 		 else
 			 return false ;
 	}
 	
-	public boolean guardarBoletaPago(BoletaPago BP){
-		if (BP.getIdBoletapago()!=0){
-			daoBP.guardar(BP);
+	public boolean guardarBoletaPago(BoletaPago bp){
+		if (bp.getIdBoletapago()!=0){
+			daobp.guardaActualiza(bp);
 			return true;
 		}else{
 			return false;
 		}
 	}
 	
-	public boolean eliminarBoletaPago(short id){
-		BoletaPago BP=daoBP.obtenerBoletaPago(id);
-		if (BP!=null){
-			daoBP.eliminar(BP);
+	public boolean eliminarBoletaPago(short id_boletapago){
+		BoletaPago bp=daobp.daBoletaPagoById(id_boletapago);
+		if (bp!=null){
+			daobp.guardaActualiza(bp);
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public BoletaPago get(short key){
-		BoletaPago BP=daoBP.obtenerBoletaPago(key);
-		return BP;
-	}
-	public List<BoletaPago> buscarTodos(){
-		List<BoletaPago> listaDescuentos=daoBP.findAll();
-		return listaDescuentos;
-	}
-	public List<BoletaPago> bucarPorEjemplo(BoletaPago BP){
-		List<BoletaPago> listaBP=daoBP.findByExample(BP);
-		return listaBP;
-	}
+
 }

@@ -8,8 +8,8 @@
 <%@ page import="java.text.DateFormat"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
-Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
-
+//Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+Short id_usuario = 1;
 String id = request.getParameter("usuariosSelect");
 int espacio=0;
 int idBPD=0;

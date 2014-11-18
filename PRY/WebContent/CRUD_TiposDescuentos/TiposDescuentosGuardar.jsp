@@ -46,9 +46,9 @@ contador++;//nuevo id si repetir de la base de datos
 
 				<form action="TiposDescuentosGuardar2.jsp" method="post"><HR width="5%">
 				<table>
-					<tr><td>Fecha de Ingreso:</td> <td><input type="text" name="fecha_ingreso"><br></td></tr>
-					<tr><td>Porcentaje de Descuento:</td> <td> <input type="text" name="porcentaje_descuento">%</td></tr>
-					<tr><td>Descripción:</td> <td> <input type="text" name="descripcion"></td></tr>
+					<tr><td>Fecha de Ingreso:</td> <td><input type="text" name="fecha_ingreso" placeholder="dd/MM/aaaa"><br></td></tr>
+					<tr><td>Porcentaje de Descuento:</td> <td> <input type="text" name="porcentaje_descuento" placeholder="00.0">%</td></tr>
+					<tr><td>Descripción:</td> <td> <input type="text" name="descripcion" placeholder="Descripci&oacuten"></td></tr>
 					<tr><td>Id Tipos de Descuentos:</td> <td> <input type="Text"name="id_tiposdescuentos" value=<%=contador%> readonly="readonly"></td></tr>
 						</table>
 					<br>

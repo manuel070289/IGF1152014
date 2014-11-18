@@ -9,7 +9,7 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
 Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
-
+//Short id_usuario =1;
 String fecha_ingreso = request.getParameter("fecha_ingreso");
 String porcentaje_descuento = request.getParameter("porcentaje_descuento") ;
 String descripcion = request.getParameter("descripcion") ;

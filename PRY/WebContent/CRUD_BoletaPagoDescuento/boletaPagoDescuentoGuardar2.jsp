@@ -10,8 +10,8 @@
 <%@ page import="negocio.CtrlTiposDescuentos" %>
 <%@ page import="negocio.CtrlBoletaPago" %>
 <%
-Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
-
+// id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
+Short id_usuario = 1;
 
 String id_boleta_pago_descuento = request.getParameter("id_boleta_pago_descuento");
 String tipo_descuento = request.getParameter("tipo_descuento") ;
@@ -54,19 +54,19 @@ CtrlBoletaPago CBP=new CtrlBoletaPago();
 CtrlBoletaPagoDescuento CBD=new CtrlBoletaPagoDescuento();
 BoletaPagoDescuento BD=new BoletaPagoDescuento();
 int id=Integer.parseInt(id_boleta_pago_descuento);
-BigDecimal monto=CBP.get(Short.parseShort(boleta_pago)).getSueldoPago();
+BigDecimal monto=CBP.daBoletaPagoById(Short.parseShort(boleta_pago)).getSueldoPago();
 BigDecimal descuento=CTD.get(tipo_descuento).getPorcentajeDescuento();
 
 //calcular momto descuento
 monto=monto.multiply(descuento.divide(new BigDecimal("100")));
 String tipo=""+CTD.get(tipo_descuento).getPorcentajeDescuento().floatValue()+"%";
-String montos="$"+CBP.get(Short.parseShort(boleta_pago)).getSueldoPago().floatValue(); 
+String montos="$"+CBP.daBoletaPagoById(Short.parseShort(boleta_pago)).getSueldoPago().floatValue(); 
 
 if(CBD.get(id)==null){
 
 BD.setIdBoletapagosdescuento(Integer.parseInt(id_boleta_pago_descuento));
 BD.setTiposdescuentos(CTD.get(tipo_descuento));
-BD.setBoletapago(CBP.get(Short.parseShort(boleta_pago)));
+BD.setBoletapago(CBP.daBoletaPagoById(Short.parseShort(boleta_pago)));
 BD.setMontoDescuento(monto);
 BD.setFechaCreacion(fecha);
 BD.setFechaModifica(fecha);

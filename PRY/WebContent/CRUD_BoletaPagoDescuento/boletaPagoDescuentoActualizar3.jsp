@@ -58,7 +58,7 @@ CtrlBoletaPago CBP=new CtrlBoletaPago();
 CtrlBoletaPagoDescuento CBD=new CtrlBoletaPagoDescuento();
 BoletaPagoDescuento BD=new BoletaPagoDescuento();
 int id=Integer.parseInt(id_boleta_pago_descuento);
-BigDecimal monto=CBP.get(Short.parseShort(boleta_pago)).getSueldoPago();
+BigDecimal monto=CBP.daBoletaPagoByNombre(boleta_pago).getSueldoPago();
 BigDecimal descuento=CTD.get(tipo_descuento).getPorcentajeDescuento();
 
 //calcular momto descuento
@@ -67,7 +67,7 @@ monto=monto.multiply(descuento.divide(new BigDecimal("100")));
 
 BD.setIdBoletapagosdescuento(Integer.parseInt(id_boleta_pago_descuento));
 BD.setTiposdescuentos(CTD.get(tipo_descuento));
-BD.setBoletapago(CBP.get(Short.parseShort(boleta_pago)));
+BD.setBoletapago(CBP.daBoletaPagoById(Short.parseShort(boleta_pago)));
 BD.setMontoDescuento(monto);
 BD.setFechaCreacion(CBD.get(Integer.parseInt(id_boleta_pago_descuento)).getFechaCreacion());
 BD.setFechaModifica(fechaActual);

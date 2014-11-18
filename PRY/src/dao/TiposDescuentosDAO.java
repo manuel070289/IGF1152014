@@ -2,6 +2,7 @@ package dao;
 import java.util.*;
 
 import org.hibernate.*;
+import org.hibernate.criterion.Restrictions;
 
 
 import utilidades.HibernateUtil;
@@ -64,15 +65,11 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		//2. Obtengo la Session
 		Session sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("daTipoDescuentoPorId");
-		query.setString("id_TiposDescuentos",idTD);
-		List TD = query.list();
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(TiposDescuentos.class).add(Restrictions.like("idTiposdescuentos",idTD));
+		TiposDescuentos TiposDes = (TiposDescuentos) criteria.uniqueResult();
 		sesion.close();
-		if (TD.isEmpty()){
-			return null;
-		}else{
-			return (TiposDescuentos)TD.get(0);
-		}
+		return TiposDes;
 
 	}
 	public TiposDescuentos get(String key){
@@ -93,15 +90,22 @@ private HibernateUtil hibernateUtil = new HibernateUtil() ;
 		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 		//2. Obtengo la Session
 		Session sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("buscarTodos");
-		//query.setString();
-		List TD = query.list();
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(TiposDescuentos.class);
+		List<TiposDescuentos> listadoDes = criteria.list();
 		sesion.close();
-		if (TD.isEmpty()){
-					return null;
-		}else{
-			return TD;
-		}
+		return listadoDes;
+	}
+	public List<TiposDescuentos> findActivos(){
+		//1. Obtengo la SessionFactory
+		SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+		//2. Obtengo la Session
+		Session sesion = sessionFactory.openSession();
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(TiposDescuentos.class).add(Restrictions.eq("activo",Integer.parseInt("1")));;
+		List<TiposDescuentos> listadoDes = criteria.list();
+		sesion.close();
+		return listadoDes;
 	}
 	public List<TiposDescuentos> findByExample(TiposDescuentos filters){		
 		//1. Obtengo la SessionFactory

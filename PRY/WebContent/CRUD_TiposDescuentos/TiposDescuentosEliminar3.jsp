@@ -9,7 +9,7 @@
 <%@ page import="dominio.TiposDescuentos" %>
 <%
 Short id_usuario = Short.valueOf(request.getParameter("id_usuario_creador").trim());
-
+//Short id_usuario =1;
 String id_tiposdescuentos = request.getParameter("id_tiposdescuentos") ;
 
 CtrlTiposDescuentos CTD= new CtrlTiposDescuentos();

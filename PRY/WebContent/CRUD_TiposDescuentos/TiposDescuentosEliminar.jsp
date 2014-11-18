@@ -7,7 +7,7 @@
 <%@ page import="java.util.List"%>
 <%
 CtrlTiposDescuentos TD=new CtrlTiposDescuentos();
-List<TiposDescuentos> lista=TD.buscarTodos();
+List<TiposDescuentos> lista=TD.buscarActivos();
 
 
 
